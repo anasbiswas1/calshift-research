@@ -1,0 +1,52 @@
+{
+  "dataset": "nslkdd",
+  "focal_class": "R2L",
+  "alpha": 0.05,
+  "G2_rung0_contrast": {
+    "class": "R2L",
+    "rung": 0.0,
+    "SHC_mean": 0.14309905517679566,
+    "TSC_mean": 0.9543536712174856,
+    "diff": -0.8112546160406899,
+    "ci_lo": -0.8156815531338741,
+    "ci_hi": -0.8068787538141914,
+    "n_pairs": 600
+  },
+  "G2_pass": true,
+  "criterion3_pass": true,
+  "criterion3_smallest_gap": 0.8112546160406899,
+  "criterion1_coef": {
+    "term": "proto[T.SHC]:S_cov",
+    "coef": -2.4083380342650296,
+    "ci": [
+      -6.98411700374578,
+      2.167440935215721
+    ],
+    "p_holm": 0.6045432063324916,
+    "pass": false,
+    "evaluable": true
+  },
+  "criterion1_joint": {
+    "terms": [
+      "proto[T.SHC]:S_cov",
+      "proto[T.SHC]:S_sup"
+    ],
+    "p": 0.0,
+    "pass": true
+  },
+  "criterion1_directional": {
+    "delta_gap": -1.3845334786719943,
+    "ci": [
+      -1.4870022743969946,
+      -1.282064682946994
+    ],
+    "pass": true,
+    "S_cov_range": 0.06273687500000003,
+    "S_sup_range": 0.4571183533447684
+  },
+  "criterion1_pass": false,
+  "amendment4_applies": false,
+  "vif_joint_only": false,
+  "corr_scov_ssup": 0.9162528479464938,
+  "status": "within-dataset analysis; the confirmatory pooled model requires a second environment (Amendment 3 C5)"
+}
