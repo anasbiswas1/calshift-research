@@ -1,0 +1,54 @@
+{
+  "n_models": 30,
+  "architectures": [
+    "rf",
+    "xgb",
+    "mlp"
+  ],
+  "seeds": [
+    42,
+    1337,
+    2024,
+    7,
+    91,
+    512,
+    6021,
+    88,
+    3407,
+    12345
+  ],
+  "selected_hyperparameters": {
+    "rf": {
+      "n_estimators": "300",
+      "max_depth": "None",
+      "min_samples_leaf": "1"
+    },
+    "xgb": {
+      "n_estimators": "300",
+      "max_depth": "8",
+      "learning_rate": "0.1",
+      "subsample": "0.8",
+      "colsample_bytree": "0.8"
+    },
+    "mlp": {
+      "hidden_layer_sizes": "(128, 64)",
+      "alpha": "0.001"
+    }
+  },
+  "decisions": {
+    "resampling": "none",
+    "class_weighting": "none",
+    "rationale": "Mondrian conformal calibrates per class, so rare-class coverage is controlled by the per-class quantile rather than by the classifier prior. Resampling would add a design factor the preregistration does not specify and would change the probability scale the calibrator is fitted on.",
+    "hyperparameter_selection": "once per architecture on D_val by macro-F1, then frozen",
+    "probability_calibration": "one-vs-rest isotonic on D_probcal, renormalised",
+    "calibrator_source": "source only, held fixed across all protocols and arms",
+    "seeds_control": "model training only; source partition fixed (nb02 PARTITION_SEED)"
+  },
+  "cached_arrays": [
+    "S_pool",
+    "target",
+    "probcal"
+  ],
+  "calibrator": "one-vs-rest isotonic on D_probcal, renormalised",
+  "ece_estimator": "equal-mass, 15 bins"
+}
