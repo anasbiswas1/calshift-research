@@ -22,6 +22,45 @@
       "n_subtypes_test": 38,
       "n_subtypes_test_only": 17,
       "test_mass_unseen_subtypes": 0.16634137686302342
+    },
+    "cicids2017": {
+      "role": "second environment, corrected (WTMC-2021, Engelen et al. 2021)",
+      "source_format": "parquet",
+      "n_files": 5,
+      "rows_all": 1787358,
+      "rows_primary_attempted_excluded": 1787358,
+      "attempted_rows": 0,
+      "attempted_policy": "exclude (primary); merge (sensitivity)  [Amendment 5 A5.1]",
+      "taxonomy": "family = class, variant = subtype  [Amendment 5 A5.2]",
+      "families": [
+        "Benign",
+        "Bot",
+        "Brute Force",
+        "DDoS",
+        "DoS",
+        "Heartbleed",
+        "Infiltration",
+        "PortScan",
+        "Web Attack"
+      ],
+      "days_present": [
+        "friday",
+        "monday",
+        "thursday",
+        "tuesday",
+        "wednesday"
+      ],
+      "class_counts_primary": {
+        "Benign": 1505471,
+        "DoS": 171755,
+        "DDoS": 95144,
+        "PortScan": 7168,
+        "Brute Force": 6933,
+        "Bot": 736,
+        "Web Attack": 104,
+        "Infiltration": 36,
+        "Heartbleed": 11
+      }
     }
   },
   "hashes": {

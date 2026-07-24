@@ -1,0 +1,18 @@
+label,subtype,is_attempted,n
+Benign,Benign,False,1496505
+Benign,Attempted-relabel-as-Benign,False,8966
+Bot,Botnet,False,736
+Brute Force,FTP-Patator,False,3972
+Brute Force,SSH-Patator,False,2961
+DDoS,DDoS,False,95144
+DoS,DoS Hulk,False,158449
+DoS,DoS GoldenEye,False,7567
+DoS,DoS Slowloris,False,3998
+DoS,DoS Slowhttptest,False,1741
+Heartbleed,Heartbleed,False,11
+Infiltration,Infiltration,False,36
+PortScan,Infiltration - Portscan,False,5485
+PortScan,Portscan,False,1683
+Web Attack,Web Attack - Brute Force,False,73
+Web Attack,Web Attack - XSS,False,18
+Web Attack,Web Attack - SQL Injection,False,13

@@ -1,4 +1,9 @@
 {
   "nslkdd/KDDTrain+.txt": "1b86d2f957b33082081bba410fe129b475efebcc13c9014c3f447c8271aadf95",
-  "nslkdd/KDDTest+.txt": "fa46b0935342616aa83b7c2578db355b6a7aaabbc492248172c7a1e8b7ab8f84"
+  "nslkdd/KDDTest+.txt": "fa46b0935342616aa83b7c2578db355b6a7aaabbc492248172c7a1e8b7ab8f84",
+  "cicids2017/Benign-Monday.parquet": "848bcbe20dc1e743e0bafdf845dce24cd22c848d8988ff794f04acc746acf36b",
+  "cicids2017/Bruteforce-Tuesday.parquet": "5d980f91debe2e924721181e74798876198be97d4c2e6da40769a07f40f76523",
+  "cicids2017/DoS-Wednesday.parquet": "5a224991ed4f1cc844827d2be5021ffa54b0b2f90576e5c28ca0c39f3ce581d2",
+  "cicids2017/Infiltration-Webattacks-Thursday.parquet": "9eeed824efd777f66cee5bdb84fe4c4b643eec8ceca902611ee489e0179dfcb8",
+  "cicids2017/Portscan-DDos-Botnet-Friday.parquet": "67fc21d66d14155fadecc3956afd77fa1884d01f09d5a13ba785795bf4656c66"
 }
