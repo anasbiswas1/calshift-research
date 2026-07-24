@@ -1,0 +1,6 @@
+realization,held_out_dos_mass,n_src_pool,n_target,S_cov,S_cov_above_null,S_lab,S_sup,null_q95
+R1_holdout_Slowhttptest,1741,48459,154794,0.7692,True,0.515,0.0112,0.5112
+R2_holdout_Slowloris,3998,48120,157051,0.7603,True,0.4975,0.0255,0.5112
+R3_holdout_GoldenEye,7567,47585,160620,0.7724,True,0.4704,0.0471,0.5112
+R4_holdout_Slowloris_Slowhttptest,5739,47859,158792,0.7642,True,0.4842,0.0361,0.5112
+R5_holdout_GoldenEye_Slowloris,11565,46985,164618,0.7731,True,0.4411,0.0703,0.5112
