@@ -1,0 +1,7 @@
+{
+  "check": "within_Hulk_covariate",
+  "n_hulk": 158449,
+  "S_cov": 0.65,
+  "null_q95": 0.5112,
+  "verdict": "above null (covariate shift present)"
+}

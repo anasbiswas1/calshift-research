@@ -6,3 +6,5 @@
 - Amendment 3 C4 specifies a beta-binomial GLMM in glmmTMB. Substituted a binomial GLM with cluster-robust standard errors clustered on ladder realization, because no pure-Python package supports the specified structure on the count interface. Architecture and class enter as fixed effects. The Gaussian secondary model retains random intercepts.
 
 ## nb10 note: amendments 7-8 committed within 5b5cfc5 (nb09 message); provenance intact, before any coverage.
+
+## nb11 - permutation null S_cov uses single-split AUC at 8k/side for tractability (measured S_cov is 5-fold at 20k/side per section 9). Logged before any coverage.

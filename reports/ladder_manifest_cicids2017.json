@@ -1,0 +1,45 @@
+{
+  "dataset": "cicids2017",
+  "environment": "wednesday_within_day",
+  "primary_ladder": "DoS variant holdout (support shift), Amendment 9 A9.2",
+  "secondary_check": "within-Hulk covariate, Amendment 9 A9.3",
+  "benign_split_frac": 0.5,
+  "scov_subsample_per_side": 20000,
+  "null_subsample_per_side": 8000,
+  "null_draws": 200,
+  "null_q95": 0.5112,
+  "realizations": {
+    "R1_holdout_Slowhttptest": {
+      "held_out_variants": [
+        "DoS Slowhttptest"
+      ],
+      "held_out_dos_mass": 1741
+    },
+    "R2_holdout_Slowloris": {
+      "held_out_variants": [
+        "DoS Slowloris"
+      ],
+      "held_out_dos_mass": 3998
+    },
+    "R3_holdout_GoldenEye": {
+      "held_out_variants": [
+        "DoS GoldenEye"
+      ],
+      "held_out_dos_mass": 7567
+    },
+    "R4_holdout_Slowloris_Slowhttptest": {
+      "held_out_variants": [
+        "DoS Slowloris",
+        "DoS Slowhttptest"
+      ],
+      "held_out_dos_mass": 5739
+    },
+    "R5_holdout_GoldenEye_Slowloris": {
+      "held_out_variants": [
+        "DoS GoldenEye",
+        "DoS Slowloris"
+      ],
+      "held_out_dos_mass": 11565
+    }
+  }
+}
