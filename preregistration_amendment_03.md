@@ -121,3 +121,14 @@ Under the marginal conformal variant, REC does not sit at nominal for the focal 
 ## C7. Unchanged
 
 Primary contrast remains TSC versus SHC. Primary outcome remains class-conditional coverage at α = 0.05 under randomized APS and Mondrian conformal. Focal class remains R2L. Success criteria and gates are unchanged from Amendment 2 §B3 and §B4.
+
+## Provenance note
+
+The commit that registers this amendment (cb09675, message "preregistration amendment 3:
+within-dataset model specification") comes before the notebook 06 commit (375406c) that
+fits the specified model. The body of cb09675 was saved as a placeholder by mistake, and
+the full specification text was written into this file later, at commit 8c941b5, which
+comes after the notebook 06, 07, and 08 commits. This file records the within-dataset
+model used in notebook 06. Because the readable text entered the repository after those
+notebooks, this file does not by itself timestamp the exact wording ahead of them, and it
+is provided here for transparency.
