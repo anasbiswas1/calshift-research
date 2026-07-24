@@ -1,0 +1,111 @@
+{
+  "dataset": "nslkdd",
+  "alpha": 0.05,
+  "focal_class": "R2L",
+  "restoration_bar": {
+    "coverage_min": 0.9299999999999999,
+    "set_size_max": 2.5
+  },
+  "results": [
+    {
+      "remedy": "ACI_no_labels",
+      "label_free": true,
+      "rungs_restored": 0,
+      "n_rungs": 5,
+      "min_cov_focal": 0.03490321129210018,
+      "max_set_focal": 2.1208426547352723
+    },
+    {
+      "remedy": "EntropyAdapt",
+      "label_free": true,
+      "rungs_restored": 0,
+      "n_rungs": 5,
+      "min_cov_focal": 0.01604492114139765,
+      "max_set_focal": 1.9917087087850511
+    },
+    {
+      "remedy": "WeightedCP",
+      "label_free": true,
+      "rungs_restored": 0,
+      "n_rungs": 5,
+      "min_cov_focal": 0.16365585803924732,
+      "max_set_focal": 1.6215508903705576
+    },
+    {
+      "remedy": "ACI_with_labels",
+      "label_free": false,
+      "rungs_restored": 0,
+      "n_rungs": 5,
+      "min_cov_focal": 0.7957121551081283,
+      "max_set_focal": 4.628690539874421
+    },
+    {
+      "remedy": "SHC",
+      "label_free": false,
+      "rungs_restored": 0,
+      "n_rungs": 5,
+      "min_cov_focal": 0.029818481411042933,
+      "max_set_focal": 2.1195151779368415
+    },
+    {
+      "remedy": "TSC_oracle",
+      "label_free": false,
+      "rungs_restored": 0,
+      "n_rungs": 5,
+      "min_cov_focal": 0.9525559545077383,
+      "max_set_focal": 4.6778545061738575
+    }
+  ],
+  "E1_pass": true,
+  "rungs_no_labelfree_remedy": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "restoration_by_rung": {
+    "0.0": {
+      "ACI_no_labels": false,
+      "ACI_with_labels": false,
+      "EntropyAdapt": false,
+      "SHC": false,
+      "TSC_oracle": false,
+      "WeightedCP": false
+    },
+    "0.2": {
+      "ACI_no_labels": false,
+      "ACI_with_labels": false,
+      "EntropyAdapt": false,
+      "SHC": false,
+      "TSC_oracle": false,
+      "WeightedCP": false
+    },
+    "0.4": {
+      "ACI_no_labels": false,
+      "ACI_with_labels": false,
+      "EntropyAdapt": false,
+      "SHC": false,
+      "TSC_oracle": false,
+      "WeightedCP": false
+    },
+    "0.6": {
+      "ACI_no_labels": false,
+      "ACI_with_labels": false,
+      "EntropyAdapt": false,
+      "SHC": false,
+      "TSC_oracle": false,
+      "WeightedCP": false
+    },
+    "0.8": {
+      "ACI_no_labels": false,
+      "ACI_with_labels": false,
+      "EntropyAdapt": false,
+      "SHC": false,
+      "TSC_oracle": false,
+      "WeightedCP": false
+    }
+  },
+  "nexcp": "not applicable to NSL-KDD (no temporal order); deferred to UGR-16",
+  "entropy_note": "entropy-matching adaptation in the spirit of ECP/EACP, not an exact reimplementation"
+}

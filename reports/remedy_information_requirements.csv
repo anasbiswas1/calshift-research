@@ -1,0 +1,7 @@
+remedy,unlabelled_target,target_labels,streaming,deployable
+SHC (no remedy),no,no,no,yes
+Weighted conformal,yes,no,no,yes
+Entropy adaptation,yes,no,no,yes
+Adaptive conformal,no,DELAYED,yes,only with label feedback
+NexCP recency,no,no,yes,requires temporal order
+TSC (oracle),yes,yes,no,no
