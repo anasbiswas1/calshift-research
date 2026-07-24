@@ -1,0 +1,14 @@
+subtype,n,n_source,coverage,in_source
+guess_passwd,1231,11,0.029082047116165723,True
+warezmaster,944,3,0.38728813559322034,True
+snmpguess,331,0,0.0,False
+snmpgetattack,178,0,0.0056179775280898875,False
+httptunnel,133,0,0.007518796992481203,False
+multihop,18,2,0.07222222222222222,True
+named,17,0,0.011764705882352941,False
+sendmail,14,0,0.07142857142857142,False
+xlock,9,0,0.0,False
+xsnoop,4,0,0.0,False
+ftp_write,3,3,0.3333333333333333,True
+phf,2,0,0.5,False
+imap,1,1,0.0,True

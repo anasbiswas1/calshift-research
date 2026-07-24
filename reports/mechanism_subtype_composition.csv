@@ -1,0 +1,15 @@
+subtype,n_source,n_target,in_source,pct_source,pct_target
+warezclient,129,0,True,86.6,0.0
+guess_passwd,11,1231,True,7.4,42.7
+ftp_write,3,3,True,2.0,0.1
+warezmaster,3,944,True,2.0,32.7
+multihop,2,18,True,1.3,0.6
+imap,1,1,True,0.7,0.0
+snmpguess,0,331,False,0.0,11.5
+snmpgetattack,0,178,False,0.0,6.2
+httptunnel,0,133,False,0.0,4.6
+named,0,17,False,0.0,0.6
+sendmail,0,14,False,0.0,0.5
+xlock,0,9,False,0.0,0.3
+xsnoop,0,4,False,0.0,0.1
+phf,0,2,False,0.0,0.1

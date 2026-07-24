@@ -1,0 +1,10 @@
+{
+  "status": "EXPLORATORY, not preregistered",
+  "focal_class": "R2L",
+  "alpha": 0.05,
+  "source_calibration_concentration": 86.6,
+  "dominant_source_subtype": "warezclient",
+  "target_mass_absent_from_source": 0.23847487001733103,
+  "coverage_subtypes_in_source": 0.16438514765298834,
+  "coverage_subtypes_absent": 0.07454125647893693
+}
