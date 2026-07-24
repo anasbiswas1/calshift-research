@@ -1,0 +1,16 @@
+{
+  "dataset": "cicids2017",
+  "environment": "wednesday_within_day",
+  "focal_class": "DoS",
+  "alpha_primary": 0.05,
+  "rule": "rarest attack family satisfying 7.6 at primary alpha in the Wednesday source calibration pool",
+  "source_calib_counts": {
+    "DoS": 23726,
+    "Benign": 12114
+  },
+  "min_calib_needed": 19,
+  "excluded_attack_families": [],
+  "partition_seed": 20260724,
+  "session_split_method": "within-file flow order (no usable timestamp column found)",
+  "status": "BINDING - no CIC coverage number has been computed at time of writing"
+}

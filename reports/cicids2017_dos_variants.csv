@@ -1,0 +1,5 @@
+dos_variant,source_pool,target_block
+DoS GoldenEye,32,7361
+DoS Hulk,22808,6211
+DoS Slowhttptest,297,8
+DoS Slowloris,589,0

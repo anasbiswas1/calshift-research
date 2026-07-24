@@ -1,0 +1,31 @@
+{
+  "partition_seed": 20260724,
+  "environment": "wednesday_within_day",
+  "session_split_method": "within-file flow order (no usable timestamp column found)",
+  "split_fractions": {
+    "train": 0.6,
+    "val": 0.1,
+    "probcal": 0.15,
+    "source_cal_pool": 0.15
+  },
+  "fingerprints": {
+    "session_block_source": "363766075f9a8b7b7631eaf43576eb657761ac818d4383d3434002c403cc6de3",
+    "session_block_target": "4ebcdc9b2bfdd2c273d14ded57e6e1a09eca7b5e837cb16a293ff58f8e1cab2c",
+    "source/train": {
+      "n": 143363,
+      "sha256": "df4cad57525e683f3e1905c98a00a74f7420e4263b33ca53d2a554c15c51598f"
+    },
+    "source/val": {
+      "n": 23893,
+      "sha256": "b91bf078d6ec722cfce3a38a4b2186332e3918d22edb4814b4647909e480f5ec"
+    },
+    "source/probcal": {
+      "n": 35840,
+      "sha256": "c0a896c5c68c459a65b921f44618005190ea31393c3438603251ae6b3f8b9591"
+    },
+    "source/source_cal_pool": {
+      "n": 35840,
+      "sha256": "caae5a900fb9330afeef43f3947db0b76f504fc9db8d5e6cb7bd81c6c23bc772"
+    }
+  }
+}

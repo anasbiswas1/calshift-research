@@ -1,0 +1,9 @@
+dataset,environment,alpha,class,source_calib_n,min_calib_needed,feasible
+cicids2017,wednesday_within_day,0.05,DoS,23726,19,True
+cicids2017,wednesday_within_day,0.05,Benign,12114,19,True
+cicids2017,wednesday_within_day,0.1,DoS,23726,9,True
+cicids2017,wednesday_within_day,0.1,Benign,12114,9,True
+cicids2017,wednesday_within_day,0.2,DoS,23726,4,True
+cicids2017,wednesday_within_day,0.2,Benign,12114,4,True
+cicids2017,wednesday_within_day,0.01,DoS,23726,99,True
+cicids2017,wednesday_within_day,0.01,Benign,12114,99,True
