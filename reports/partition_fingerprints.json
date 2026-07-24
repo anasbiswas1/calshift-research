@@ -1,0 +1,28 @@
+{
+  "partition_seed": 20260724,
+  "split_fractions": {
+    "train": 0.6,
+    "val": 0.1,
+    "probcal": 0.15,
+    "source_cal_pool": 0.15
+  },
+  "stratify_col": "label",
+  "fingerprints": {
+    "source/train": {
+      "n": 75590,
+      "sha256": "2bbed545bfb1773a11f0f4fc203376022ac24cb17c1d50354f57355a2ea49a7d"
+    },
+    "source/val": {
+      "n": 12595,
+      "sha256": "2240be60741216772ac3366462a0d2b3705d4228bcccd0bc3409f00e1bc8ad41"
+    },
+    "source/probcal": {
+      "n": 18894,
+      "sha256": "ec2dcdecbb67637121131bf897cd4ffc2e56df96d58229c75a3e293ef3c62d91"
+    },
+    "source/source_cal_pool": {
+      "n": 18894,
+      "sha256": "6bdea16ee00fa27e15be6d04e7d82de022190fc2424116c12070e747362a4e99"
+    }
+  }
+}

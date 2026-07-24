@@ -1,0 +1,27 @@
+{
+  "dataset": "nslkdd",
+  "focal_class": "R2L",
+  "alpha_primary": 0.05,
+  "rule": "rarest attack class supporting the paired TSC-vs-SHC contrast in the source calibration pool at the primary alpha",
+  "shc_realised_counts": {
+    "Normal": 10101,
+    "DoS": 6889,
+    "Probe": 1748,
+    "R2L": 149,
+    "U2R": 7
+  },
+  "tsc_counts_at_rung": {
+    "Normal": 1008,
+    "DoS": 774,
+    "Probe": 251,
+    "R2L": 299,
+    "U2R": 7
+  },
+  "min_calib_needed": 19,
+  "excluded_attack_classes": [
+    "U2R"
+  ],
+  "partition_seed": 20260724,
+  "d_eval_size": 2340,
+  "status": "BINDING - no coverage number has been computed at time of writing"
+}
