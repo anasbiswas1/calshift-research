@@ -1,18 +1,25 @@
-label,subtype,is_attempted,n
-Benign,Benign,False,1496505
-Benign,Attempted-relabel-as-Benign,False,8966
-Bot,Botnet,False,736
-Brute Force,FTP-Patator,False,3972
-Brute Force,SSH-Patator,False,2961
-DDoS,DDoS,False,95144
-DoS,DoS Hulk,False,158449
-DoS,DoS GoldenEye,False,7567
-DoS,DoS Slowloris,False,3998
-DoS,DoS Slowhttptest,False,1741
-Heartbleed,Heartbleed,False,11
-Infiltration,Infiltration,False,36
-PortScan,Infiltration - Portscan,False,5485
-PortScan,Portscan,False,1683
-Web Attack,Web Attack - Brute Force,False,73
-Web Attack,Web Attack - XSS,False,18
-Web Attack,Web Attack - SQL Injection,False,13
+label,subtype,day,n
+Benign,Benign,monday,350718
+Benign,Benign,wednesday,300373
+Benign,Benign,tuesday,300099
+Benign,Benign,thursday,273817
+Benign,Benign,friday,271498
+Benign,Attempted-relabel-as-Benign,wednesday,5732
+Benign,Attempted-relabel-as-Benign,thursday,1997
+Benign,Attempted-relabel-as-Benign,friday,1198
+Benign,Attempted-relabel-as-Benign,tuesday,39
+Bot,Botnet,friday,736
+Brute Force,FTP-Patator,tuesday,3972
+Brute Force,SSH-Patator,tuesday,2961
+DDoS,DDoS,friday,95144
+DoS,DoS Hulk,wednesday,158449
+DoS,DoS GoldenEye,wednesday,7567
+DoS,DoS Slowloris,wednesday,3998
+DoS,DoS Slowhttptest,wednesday,1741
+Heartbleed,Heartbleed,wednesday,11
+Infiltration,Infiltration-NMAP-Portscan,thursday,5485
+Infiltration,Infiltration,thursday,36
+PortScan,Friday-PortScan,friday,1683
+Web Attack,Web Attack - Brute Force,thursday,73
+Web Attack,Web Attack - XSS,thursday,18
+Web Attack,Web Attack - SQL Injection,thursday,13

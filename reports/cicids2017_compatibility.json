@@ -1,0 +1,118 @@
+{
+  "version_of_record": "IEEE CNS 2022 (Liu et al. 2022)",
+  "acquired_artifact": "dhoogla/distrinetcicids2017 Kaggle V5 cleaned parquet",
+  "rows_total": 1787358,
+  "n_columns": 88,
+  "attempted_column_present": false,
+  "attempted_relabelled_benign_rows": 8966,
+  "attempted_parent_recoverable": false,
+  "rows_per_day": {
+    "wednesday": 477871,
+    "friday": 370259,
+    "monday": 350718,
+    "tuesday": 307071,
+    "thursday": 281439
+  },
+  "rows_per_family": {
+    "Benign": 1505471,
+    "DoS": 171755,
+    "DDoS": 95144,
+    "Brute Force": 6933,
+    "Infiltration": 5521,
+    "PortScan": 1683,
+    "Bot": 736,
+    "Web Attack": 104,
+    "Heartbleed": 11
+  },
+  "rows_per_subtype": {
+    "Benign": 1496505,
+    "DoS Hulk": 158449,
+    "DDoS": 95144,
+    "Attempted-relabel-as-Benign": 8966,
+    "DoS GoldenEye": 7567,
+    "Infiltration-NMAP-Portscan": 5485,
+    "DoS Slowloris": 3998,
+    "FTP-Patator": 3972,
+    "SSH-Patator": 2961,
+    "DoS Slowhttptest": 1741,
+    "Friday-PortScan": 1683,
+    "Botnet": 736,
+    "Web Attack - Brute Force": 73,
+    "Infiltration": 36,
+    "Web Attack - XSS": 18,
+    "Web Attack - SQL Injection": 13,
+    "Heartbleed": 11
+  },
+  "rows_per_raw_label": {
+    "Benign": 1496505,
+    "DoS Hulk": 158449,
+    "DDoS": 95144,
+    "Attempted-relabel-as-Benign": 8966,
+    "DoS GoldenEye": 7567,
+    "Infiltration - Portscan": 5485,
+    "DoS Slowloris": 3998,
+    "FTP-Patator": 3972,
+    "SSH-Patator": 2961,
+    "DoS Slowhttptest": 1741,
+    "Portscan": 1683,
+    "Botnet": 736,
+    "Web Attack - Brute Force": 73,
+    "Infiltration": 36,
+    "Web Attack - XSS": 18,
+    "Web Attack - SQL Injection": 13,
+    "Heartbleed": 11
+  },
+  "feasibility_projection_alpha_0_05": {
+    "DoS": {
+      "projected_source_calib": 25763,
+      "min_needed": 19,
+      "likely_feasible": true
+    },
+    "DDoS": {
+      "projected_source_calib": 14272,
+      "min_needed": 19,
+      "likely_feasible": true
+    },
+    "Brute Force": {
+      "projected_source_calib": 1040,
+      "min_needed": 19,
+      "likely_feasible": true
+    },
+    "Infiltration": {
+      "projected_source_calib": 828,
+      "min_needed": 19,
+      "likely_feasible": true
+    },
+    "PortScan": {
+      "projected_source_calib": 252,
+      "min_needed": 19,
+      "likely_feasible": true
+    },
+    "Bot": {
+      "projected_source_calib": 110,
+      "min_needed": 19,
+      "likely_feasible": true
+    },
+    "Web Attack": {
+      "projected_source_calib": 16,
+      "min_needed": 19,
+      "likely_feasible": false
+    },
+    "Heartbleed": {
+      "projected_source_calib": 2,
+      "min_needed": 19,
+      "likely_feasible": false
+    }
+  },
+  "excluded_rare_families": [
+    "Web Attack",
+    "Heartbleed"
+  ],
+  "projected_focal_environment": "DoS within Wednesday (Amendment 7); confirmed in notebook 10",
+  "finrst_features_present": [
+    "Fwd RST Flags",
+    "Bwd RST Flags",
+    "FIN Flag Count",
+    "RST Flag Count"
+  ]
+}

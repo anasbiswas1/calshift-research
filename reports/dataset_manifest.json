@@ -24,14 +24,14 @@
       "test_mass_unseen_subtypes": 0.16634137686302342
     },
     "cicids2017": {
-      "role": "second environment, corrected CIC-IDS2017 (IEEE CNS 2022 release, Liu et al. 2022; Distrinet, descends from Engelen et al. WTMC-2021)",
-      "source_format": "parquet",
-      "n_files": 5,
-      "rows_all": 1787358,
-      "rows_primary_attempted_excluded": 1787358,
-      "attempted_rows": 0,
-      "attempted_policy": "exclude (primary); merge (sensitivity)  [Amendment 5 A5.1]",
-      "taxonomy": "family = class, variant = subtype  [Amendment 5 A5.2]",
+      "role": "second environment, corrected CIC-IDS2017",
+      "version_of_record": "IEEE CNS 2022 (Liu et al. 2022)",
+      "citation": "Liu, L., Engelen, G., Lynar, T., Essam, D., Joosen, W. (2022). Error Prevalence in NIDS Datasets: A Case Study on CIC-IDS-2017 and CSE-CIC-IDS-2018. IEEE CNS 2022, pp. 254-262.",
+      "lineage": "descends from Engelen et al. (2021), WTMC-2021",
+      "acquired_artifact": "dhoogla/distrinetcicids2017 Kaggle V5 cleaned parquet, 5 per-day files",
+      "artifact_transformations": "type coercion, missing/duplicate removal, parquet conversion, and collapse of per-family X-Attempted labels to a single Attempted-relabel-as-Benign label (not in the official CNS release)",
+      "attempted_policy": "primary: retain as benign (A8.1); sensitivity: exclude relabelled flows; merge-to-parent withdrawn",
+      "taxonomy": "family = class, variant = subtype (A5.2); Infiltration - Portscan -> Infiltration (A8.2)",
       "families": [
         "Benign",
         "Bot",
@@ -43,28 +43,29 @@
         "PortScan",
         "Web Attack"
       ],
-      "days_present": [
-        "friday",
-        "monday",
-        "thursday",
-        "tuesday",
-        "wednesday"
+      "excluded_rare_families": [
+        "Web Attack",
+        "Heartbleed"
       ],
       "class_counts_primary": {
         "Benign": 1505471,
         "DoS": 171755,
         "DDoS": 95144,
-        "PortScan": 7168,
         "Brute Force": 6933,
+        "Infiltration": 5521,
+        "PortScan": 1683,
         "Bot": 736,
         "Web Attack": 104,
-        "Infiltration": 36,
         "Heartbleed": 11
       },
-      "version_of_record": "IEEE CNS 2022 (Liu et al. 2022)",
-      "citation": "Liu, L., Engelen, G., Lynar, T., Essam, D., Joosen, W. (2022). Error Prevalence in NIDS Datasets: A Case Study on CIC-IDS-2017 and CSE-CIC-IDS-2018. IEEE CNS 2022, pp. 254-262.",
-      "source": "Kaggle mirror dhoogla/distrinetcicids2017 (parquet, five per-day files)",
-      "version_note": "Corrected in Amendment 6; Amendment 5 had named it WTMC-2021."
+      "finrst_sensitivity_features": [
+        "FIN Flag Count",
+        "RST Flag Count",
+        "Fwd RST Flags",
+        "Bwd RST Flags"
+      ],
+      "rows_all": 1787358,
+      "n_files": 5
     }
   },
   "hashes": {
