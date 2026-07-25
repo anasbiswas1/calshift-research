@@ -1,0 +1,6 @@
+realization,REC,SHC,TSC,S_sup,held_out_dos_mass,gap_TSC_SHC
+R1_holdout_Slowhttptest,0.9536,0.8548,0.9547,0.0112,1741,0.0999
+R2_holdout_Slowloris,1.0,0.4978,1.0,0.0255,3998,0.5022
+R4_holdout_Slowloris_Slowhttptest,1.0,0.2923,1.0,0.0361,5739,0.7077
+R3_holdout_GoldenEye,0.9837,0.7395,0.9833,0.0471,7567,0.2438
+R5_holdout_GoldenEye_Slowloris,1.0,0.6352,1.0,0.0703,11565,0.3648

@@ -1,0 +1,15 @@
+{
+  "dataset": "cicids2017",
+  "environment": "wednesday_within_day",
+  "focal_class": "DoS",
+  "alpha_primary": 0.05,
+  "nominal": 0.95,
+  "DoS_coverage_by_protocol": {
+    "REC": 0.9875,
+    "SHC": 0.6039,
+    "TSC": 0.9876
+  },
+  "focal_gap_TSC_minus_SHC": 0.3837,
+  "criterion3_bar": 0.05,
+  "criterion3": "PASS"
+}
