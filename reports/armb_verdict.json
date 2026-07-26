@@ -1,0 +1,30 @@
+{
+  "analysis": "Arm B IPW (Amendment 2 B2.1): reweight target to source prior; does SHC undercoverage persist",
+  "cicids2017": {
+    "dataset": "cicids2017",
+    "mean_ess": 6475.3,
+    "min_ess": 1744.1,
+    "marg_unweighted": 0.9364,
+    "marg_ipw": 0.7703,
+    "marg_shift": -0.1661,
+    "focal_unweighted": 0.6039,
+    "focal_ipw": 0.6039,
+    "focal_shift": 0.0,
+    "focal_invariant": true,
+    "ess_inconclusive_flag": false
+  },
+  "ugr16": {
+    "dataset": "ugr16",
+    "mean_ess": 59996.5,
+    "min_ess": 59983.0,
+    "marg_unweighted": 0.8786,
+    "marg_ipw": 0.8785,
+    "marg_shift": -0.0,
+    "focal_unweighted": 0.9473,
+    "focal_ipw": 0.9473,
+    "focal_shift": 0.0,
+    "focal_invariant": true,
+    "ess_inconclusive_flag": false
+  },
+  "reads": "focal_shift ~ 0 confirms class-conditional coverage is invariant to prior shift, so the focal gap is NOT a prior-shift artifact. marg_shift shows how much marginal undercoverage was prior shift (removed by IPW) vs genuine (persists). NSL Arm B already committed (armb_weights_nslkdd.csv)."
+}
