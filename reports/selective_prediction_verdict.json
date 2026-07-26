@@ -1,0 +1,39 @@
+{
+  "analysis": "label-free selective prediction: abstain on low-margin alerts, restore coverage on the remainder",
+  "policy": "margin(x)=max_c(q_c - s(x,c)); escalate ascending margin; true label never used",
+  "nominal": 0.95,
+  "retention_guard": 0.2,
+  "headline": [
+    {
+      "dataset": "cicids2017",
+      "baseline_focal_cov": 0.6038,
+      "escalation_to_nominal": NaN,
+      "focal_retained_at_that_point": NaN,
+      "best_focal_cov_within_50pct": 0.6673,
+      "at_escalation": 0.5,
+      "focal_retained_at_best": 0.53,
+      "empty_set_frac": 0.0495
+    },
+    {
+      "dataset": "nslkdd",
+      "baseline_focal_cov": 0.0289,
+      "escalation_to_nominal": NaN,
+      "focal_retained_at_that_point": NaN,
+      "best_focal_cov_within_50pct": 0.0312,
+      "at_escalation": 0.25,
+      "focal_retained_at_best": 0.749,
+      "empty_set_frac": 0.0
+    },
+    {
+      "dataset": "ugr16",
+      "baseline_focal_cov": 0.9471,
+      "escalation_to_nominal": 0.025,
+      "focal_retained_at_that_point": 0.983,
+      "best_focal_cov_within_50pct": 0.9921,
+      "at_escalation": 0.5,
+      "focal_retained_at_best": 0.512,
+      "empty_set_frac": 0.0413
+    }
+  ],
+  "reads": "escalation_to_nominal answers the operator question the monitor alone cannot: how much analyst effort buys back the conformal guarantee. focal_retained_frac guards against the degenerate solution of abstaining the focal class out of existence."
+}

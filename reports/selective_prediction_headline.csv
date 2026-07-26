@@ -1,0 +1,4 @@
+dataset,baseline_focal_cov,escalation_to_nominal,focal_retained_at_that_point,best_focal_cov_within_50pct,at_escalation,focal_retained_at_best,empty_set_frac
+cicids2017,0.6038,,,0.6673,0.5,0.53,0.0495
+nslkdd,0.0289,,,0.0312,0.25,0.749,0.0
+ugr16,0.9471,0.025,0.983,0.9921,0.5,0.512,0.0413
