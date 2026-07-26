@@ -1,0 +1,8 @@
+dataset,class,coverage,ci_lo,ci_hi,band_lo,violation,p_one_sided,equivalent_TOST,p_holm,p_bh
+nslkdd,R2L,0.0298,0.0266,0.0339,0.95,True,0.0,False,0.0,0.0
+cicids2017,DoS,0.6039,0.5972,0.6108,0.95,True,0.0,False,0.0,0.0
+ugr16,nerisbotnet,0.9473,0.947,0.9476,0.95,True,0.0,True,0.0,0.0
+ugr16,scan11,0.535,0.5247,0.5441,0.95,True,0.0,False,0.0,0.0
+ugr16,scan44,0.799,0.7944,0.8037,0.95,True,0.0,False,0.0,0.0
+ugr16,dos,0.9503,0.95,0.9506,0.95,False,0.9785,True,0.9785,0.9785
+ugr16,background,0.9492,0.949,0.9493,0.95,True,0.0,True,0.0,0.0

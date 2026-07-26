@@ -1,0 +1,825 @@
+{
+  "M1_shift_decomposition_within_nsl": {
+    "nominal": 0.95,
+    "cov_rung0": 0.1431,
+    "cov_rung8": 0.0298,
+    "gap_covariate": 0.8069,
+    "gap_support": 0.1133,
+    "gap_total": 0.9202,
+    "pct_covariate": 87.7,
+    "pct_support": 12.3,
+    "S_cov_range": [
+      0.8485,
+      0.8927
+    ],
+    "S_sup_range": [
+      0.001,
+      0.4543
+    ],
+    "per_rung": [
+      {
+        "rung": 0.0,
+        "S_cov": 0.8485,
+        "S_sup": 0.001,
+        "coverage": 0.1431,
+        "ci_lo": 0.1284,
+        "ci_hi": 0.1617
+      },
+      {
+        "rung": 0.2,
+        "S_cov": 0.8571,
+        "S_sup": 0.1142,
+        "coverage": 0.1139,
+        "ci_lo": 0.1026,
+        "ci_hi": 0.1286
+      },
+      {
+        "rung": 0.4,
+        "S_cov": 0.8638,
+        "S_sup": 0.2276,
+        "coverage": 0.0848,
+        "ci_lo": 0.0763,
+        "ci_hi": 0.0959
+      },
+      {
+        "rung": 0.6,
+        "S_cov": 0.875,
+        "S_sup": 0.3407,
+        "coverage": 0.0582,
+        "ci_lo": 0.0522,
+        "ci_hi": 0.0662
+      },
+      {
+        "rung": 0.8,
+        "S_cov": 0.8927,
+        "S_sup": 0.4543,
+        "coverage": 0.0298,
+        "ci_lo": 0.0267,
+        "ci_hi": 0.0339
+      }
+    ]
+  },
+  "S1_guarantee_band": {
+    "nslkdd": [
+      {
+        "dataset": "nslkdd",
+        "class": "DoS",
+        "protocol": "REC",
+        "n_cal": 772.1,
+        "band_lo": 0.95,
+        "band_hi": 0.9513,
+        "observed": 0.9521,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "DoS",
+        "protocol": "SHC",
+        "n_cal": 6889.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.6722,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.2778
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "DoS",
+        "protocol": "TSC",
+        "n_cal": 772.1,
+        "band_lo": 0.95,
+        "band_hi": 0.9513,
+        "observed": 0.9507,
+        "below_band": false,
+        "above_band": false,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Normal",
+        "protocol": "REC",
+        "n_cal": 1008.0,
+        "band_lo": 0.95,
+        "band_hi": 0.951,
+        "observed": 0.9514,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Normal",
+        "protocol": "SHC",
+        "n_cal": 10101.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9275,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.0225
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Normal",
+        "protocol": "TSC",
+        "n_cal": 1008.0,
+        "band_lo": 0.95,
+        "band_hi": 0.951,
+        "observed": 0.9512,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Probe",
+        "protocol": "REC",
+        "n_cal": 249.9,
+        "band_lo": 0.95,
+        "band_hi": 0.954,
+        "observed": 0.956,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Probe",
+        "protocol": "SHC",
+        "n_cal": 1748.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9506,
+        "observed": 0.8054,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.1446
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Probe",
+        "protocol": "TSC",
+        "n_cal": 249.9,
+        "band_lo": 0.95,
+        "band_hi": 0.954,
+        "observed": 0.9535,
+        "below_band": false,
+        "above_band": false,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "R2L",
+        "protocol": "REC",
+        "n_cal": 297.1,
+        "band_lo": 0.95,
+        "band_hi": 0.9534,
+        "observed": 0.9562,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "R2L",
+        "protocol": "SHC",
+        "n_cal": 149.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9567,
+        "observed": 0.086,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.864
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "R2L",
+        "protocol": "TSC",
+        "n_cal": 297.1,
+        "band_lo": 0.95,
+        "band_hi": 0.9534,
+        "observed": 0.9536,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      }
+    ],
+    "cic_ugr": [
+      {
+        "dataset": "cicids2017",
+        "class": "Benign",
+        "protocol": "REC",
+        "n_cal": 22957.0,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.95,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "Benign",
+        "protocol": "SHC",
+        "n_cal": 22957.0,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.9501,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "Benign",
+        "protocol": "TSC",
+        "n_cal": 22957.0,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.95,
+        "below_band": false,
+        "above_band": false,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "DoS",
+        "protocol": "REC",
+        "n_cal": 24844.6,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.9875,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "DoS",
+        "protocol": "SHC",
+        "n_cal": 24844.6,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.6039,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.3461
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "DoS",
+        "protocol": "TSC",
+        "n_cal": 24844.6,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.9876,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "background",
+        "protocol": "REC",
+        "n_cal": 30000.0,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.9501,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "background",
+        "protocol": "SHC",
+        "n_cal": 30000.0,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.9491,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.0009
+      },
+      {
+        "dataset": "ugr16",
+        "class": "background",
+        "protocol": "TSC",
+        "n_cal": 30000.0,
+        "band_lo": 0.95,
+        "band_hi": 0.95,
+        "observed": 0.9501,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "dos",
+        "protocol": "REC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9503,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "dos",
+        "protocol": "SHC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9503,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "dos",
+        "protocol": "TSC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9501,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "nerisbotnet",
+        "protocol": "REC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9499,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.0001
+      },
+      {
+        "dataset": "ugr16",
+        "class": "nerisbotnet",
+        "protocol": "SHC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9473,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.0027
+      },
+      {
+        "dataset": "ugr16",
+        "class": "nerisbotnet",
+        "protocol": "TSC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9497,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.0003
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan11",
+        "protocol": "REC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.95,
+        "below_band": false,
+        "above_band": false,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan11",
+        "protocol": "SHC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.535,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.415
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan11",
+        "protocol": "TSC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9502,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan44",
+        "protocol": "REC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.9819,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan44",
+        "protocol": "SHC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.799,
+        "below_band": true,
+        "above_band": false,
+        "violation_size": 0.151
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan44",
+        "protocol": "TSC",
+        "n_cal": 7500.0,
+        "band_lo": 0.95,
+        "band_hi": 0.9501,
+        "observed": 0.982,
+        "below_band": false,
+        "above_band": true,
+        "violation_size": 0.0
+      }
+    ]
+  },
+  "S2_S3_validity_equivalence": [
+    {
+      "dataset": "nslkdd",
+      "class": "R2L",
+      "coverage": 0.0298,
+      "ci_lo": 0.0266,
+      "ci_hi": 0.0339,
+      "band_lo": 0.95,
+      "violation": true,
+      "p_one_sided": 0.0,
+      "equivalent_TOST": false,
+      "p_holm": 0.0,
+      "p_bh": 0.0
+    },
+    {
+      "dataset": "cicids2017",
+      "class": "DoS",
+      "coverage": 0.6039,
+      "ci_lo": 0.5972,
+      "ci_hi": 0.6108,
+      "band_lo": 0.95,
+      "violation": true,
+      "p_one_sided": 0.0,
+      "equivalent_TOST": false,
+      "p_holm": 0.0,
+      "p_bh": 0.0
+    },
+    {
+      "dataset": "ugr16",
+      "class": "nerisbotnet",
+      "coverage": 0.9473,
+      "ci_lo": 0.947,
+      "ci_hi": 0.9476,
+      "band_lo": 0.95,
+      "violation": true,
+      "p_one_sided": 0.0,
+      "equivalent_TOST": true,
+      "p_holm": 0.0,
+      "p_bh": 0.0
+    },
+    {
+      "dataset": "ugr16",
+      "class": "scan11",
+      "coverage": 0.535,
+      "ci_lo": 0.5247,
+      "ci_hi": 0.5441,
+      "band_lo": 0.95,
+      "violation": true,
+      "p_one_sided": 0.0,
+      "equivalent_TOST": false,
+      "p_holm": 0.0,
+      "p_bh": 0.0
+    },
+    {
+      "dataset": "ugr16",
+      "class": "scan44",
+      "coverage": 0.799,
+      "ci_lo": 0.7944,
+      "ci_hi": 0.8037,
+      "band_lo": 0.95,
+      "violation": true,
+      "p_one_sided": 0.0,
+      "equivalent_TOST": false,
+      "p_holm": 0.0,
+      "p_bh": 0.0
+    },
+    {
+      "dataset": "ugr16",
+      "class": "dos",
+      "coverage": 0.9503,
+      "ci_lo": 0.95,
+      "ci_hi": 0.9506,
+      "band_lo": 0.95,
+      "violation": false,
+      "p_one_sided": 0.9785,
+      "equivalent_TOST": true,
+      "p_holm": 0.9785,
+      "p_bh": 0.9785
+    },
+    {
+      "dataset": "ugr16",
+      "class": "background",
+      "coverage": 0.9492,
+      "ci_lo": 0.949,
+      "ci_hi": 0.9493,
+      "band_lo": 0.95,
+      "violation": true,
+      "p_one_sided": 0.0,
+      "equivalent_TOST": true,
+      "p_holm": 0.0,
+      "p_bh": 0.0
+    }
+  ],
+  "S4_selectivity_heterogeneity": {
+    "Q": 10109.76,
+    "df": 4,
+    "p": 0.0,
+    "I2_pct": 100.0,
+    "theta_bar": 0.9488,
+    "per_class": [
+      {
+        "class": "background",
+        "theta": 0.9492,
+        "gap": -0.0008
+      },
+      {
+        "class": "dos",
+        "theta": 0.9503,
+        "gap": 0.0003
+      },
+      {
+        "class": "nerisbotnet",
+        "theta": 0.9473,
+        "gap": -0.0027
+      },
+      {
+        "class": "scan11",
+        "theta": 0.535,
+        "gap": -0.415
+      },
+      {
+        "class": "scan44",
+        "theta": 0.799,
+        "gap": -0.151
+      }
+    ]
+  },
+  "M2_negative_control": {
+    "per_class": [
+      {
+        "class": "DoS",
+        "n_cal": 3439.7,
+        "coverage": 0.9505,
+        "ci_lo": 0.95,
+        "ci_hi": 0.9511,
+        "band_lo": 0.95,
+        "band_hi": 0.9503,
+        "inside_band": true
+      },
+      {
+        "class": "Normal",
+        "n_cal": 5053.2,
+        "coverage": 0.9505,
+        "ci_lo": 0.9498,
+        "ci_hi": 0.9511,
+        "band_lo": 0.95,
+        "band_hi": 0.9502,
+        "inside_band": true
+      },
+      {
+        "class": "Probe",
+        "n_cal": 875.7,
+        "coverage": 0.9528,
+        "ci_lo": 0.9514,
+        "ci_hi": 0.9543,
+        "band_lo": 0.95,
+        "band_hi": 0.9511,
+        "inside_band": false
+      },
+      {
+        "class": "R2L",
+        "n_cal": 74.9,
+        "coverage": 0.9709,
+        "ci_lo": 0.9678,
+        "ci_hi": 0.9737,
+        "band_lo": 0.95,
+        "band_hi": 0.9632,
+        "inside_band": false
+      }
+    ],
+    "pass": false
+  },
+  "M3_specification_curve": [
+    {
+      "score": "aps",
+      "variant": "marginal",
+      "alpha": 0.01,
+      "nominal": 0.99,
+      "coverage": 0.0288,
+      "ci_lo": 0.0269,
+      "ci_hi": 0.0308,
+      "gap": 0.9612,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "marginal",
+      "alpha": 0.05,
+      "nominal": 0.95,
+      "coverage": 0.0244,
+      "ci_lo": 0.0228,
+      "ci_hi": 0.0259,
+      "gap": 0.9256,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "marginal",
+      "alpha": 0.1,
+      "nominal": 0.9,
+      "coverage": 0.0204,
+      "ci_lo": 0.0183,
+      "ci_hi": 0.0225,
+      "gap": 0.8796,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "marginal",
+      "alpha": 0.2,
+      "nominal": 0.8,
+      "coverage": 0.0162,
+      "ci_lo": 0.0144,
+      "ci_hi": 0.018,
+      "gap": 0.7838,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "mondrian",
+      "alpha": 0.01,
+      "nominal": 0.99,
+      "coverage": 0.6197,
+      "ci_lo": 0.5393,
+      "ci_hi": 0.7043,
+      "gap": 0.3703,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "mondrian",
+      "alpha": 0.05,
+      "nominal": 0.95,
+      "coverage": 0.0298,
+      "ci_lo": 0.0267,
+      "ci_hi": 0.0339,
+      "gap": 0.9202,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "mondrian",
+      "alpha": 0.1,
+      "nominal": 0.9,
+      "coverage": 0.0231,
+      "ci_lo": 0.0213,
+      "ci_hi": 0.025,
+      "gap": 0.8769,
+      "feasible_cells": 600
+    },
+    {
+      "score": "aps",
+      "variant": "mondrian",
+      "alpha": 0.2,
+      "nominal": 0.8,
+      "coverage": 0.0168,
+      "ci_lo": 0.015,
+      "ci_hi": 0.0185,
+      "gap": 0.7832,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "marginal",
+      "alpha": 0.01,
+      "nominal": 0.99,
+      "coverage": 0.0033,
+      "ci_lo": 0.0022,
+      "ci_hi": 0.0043,
+      "gap": 0.9867,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "marginal",
+      "alpha": 0.05,
+      "nominal": 0.95,
+      "coverage": 0.0029,
+      "ci_lo": 0.0019,
+      "ci_hi": 0.0037,
+      "gap": 0.9471,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "marginal",
+      "alpha": 0.1,
+      "nominal": 0.9,
+      "coverage": 0.0028,
+      "ci_lo": 0.0019,
+      "ci_hi": 0.0037,
+      "gap": 0.8972,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "marginal",
+      "alpha": 0.2,
+      "nominal": 0.8,
+      "coverage": 0.0028,
+      "ci_lo": 0.0019,
+      "ci_hi": 0.0037,
+      "gap": 0.7972,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "mondrian",
+      "alpha": 0.01,
+      "nominal": 0.99,
+      "coverage": 0.5812,
+      "ci_lo": 0.5136,
+      "ci_hi": 0.6462,
+      "gap": 0.4088,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "mondrian",
+      "alpha": 0.05,
+      "nominal": 0.95,
+      "coverage": 0.0202,
+      "ci_lo": 0.0182,
+      "ci_hi": 0.0224,
+      "gap": 0.9298,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "mondrian",
+      "alpha": 0.1,
+      "nominal": 0.9,
+      "coverage": 0.0079,
+      "ci_lo": 0.0054,
+      "ci_hi": 0.0108,
+      "gap": 0.8921,
+      "feasible_cells": 600
+    },
+    {
+      "score": "lac",
+      "variant": "mondrian",
+      "alpha": 0.2,
+      "nominal": 0.8,
+      "coverage": 0.0033,
+      "ci_lo": 0.0022,
+      "ci_hi": 0.0043,
+      "gap": 0.7967,
+      "feasible_cells": 600
+    }
+  ],
+  "S5_hierarchical_variance": {
+    "slope_rung": -2.0705,
+    "slope_se": 0.0205,
+    "variance_shares": {
+      "arch": 43.0,
+      "realization": 3.3,
+      "seed": 15.1
+    },
+    "residual_share": 38.6,
+    "n_cells": 3000
+  }
+}
