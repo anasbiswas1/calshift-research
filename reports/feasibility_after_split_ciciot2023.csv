@@ -1,0 +1,9 @@
+family,n_source_cal_pool,feasible,n_subtypes,ladder_capable
+BruteForce,1371,True,1,False
+Web,2603,True,6,True
+Benign,6299,True,1,False
+Spoofing,12575,True,2,True
+Mirai,18953,True,3,True
+Recon,23055,True,5,True
+DoS,25215,True,4,True
+DDoS,68476,True,12,True

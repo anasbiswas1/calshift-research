@@ -1,0 +1,26 @@
+{
+  "split_seed": 20260727,
+  "target_frac": 0.3,
+  "rungs": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "realizations": 5,
+  "eval_n": 60000,
+  "n_holdout_subtypes": 2,
+  "focal_class": "Web",
+  "focal_subtypes": [
+    "Backdoor_Malware",
+    "BrowserHijacking",
+    "CommandInjection",
+    "SqlInjection",
+    "Uploading_Attack",
+    "XSS"
+  ],
+  "focal_quota_per_eval": 986,
+  "gate_reverified": true,
+  "note": "nb31 partitioned the whole frame into the four source partitions only. This notebook supersedes that by reserving a 30 per cent target side first, as preregistration section 4 requires, and re-derives the focal class under the new split as a check. Ladder is variant holdout within the focal family (Amendment 10 A10.5)."
+}
