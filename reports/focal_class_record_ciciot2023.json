@@ -1,0 +1,110 @@
+{
+  "dataset": "ciciot2023",
+  "alpha": 0.05,
+  "min_calib_needed": 19,
+  "focal_class": "Web",
+  "focal_selection_rule": "rarest attack family satisfying section 7.6 in the source calibration pool AND holding >=2 subtypes, so a variant-holdout ladder can shift it while keeping it feasible under SHC (constraint carried from the CIC-IDS2017 experience, Amendment 9)",
+  "focal_subtypes": [
+    "Backdoor_Malware",
+    "BrowserHijacking",
+    "CommandInjection",
+    "SqlInjection",
+    "Uploading_Attack",
+    "XSS"
+  ],
+  "rarer_but_single_subtype": [
+    "BruteForce"
+  ],
+  "excluded_infeasible": [],
+  "per_label_cap": 60000,
+  "partition_seed": 20260726,
+  "prior_after_cap": {
+    "DDoS": 0.43188,
+    "DoS": 0.15903,
+    "Recon": 0.14541,
+    "Mirai": 0.11954,
+    "Spoofing": 0.07932,
+    "Benign": 0.03973,
+    "Web": 0.01644,
+    "BruteForce": 0.00865
+  },
+  "n_features": 44,
+  "label_column": "label",
+  "kaggle_mirror": "madhavmalhotra/unb-cic-iot-dataset",
+  "version_of_record_note": "this mirror is not the full published release; record its file and row counts as the version of record rather than citing the canonical CIC totals",
+  "feasibility_table": [
+    {
+      "family": "BruteForce",
+      "rows": 13064,
+      "n_source_cal_pool": 1959,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 1,
+      "ladder_capable": false
+    },
+    {
+      "family": "Web",
+      "rows": 24829,
+      "n_source_cal_pool": 3720,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 6,
+      "ladder_capable": true
+    },
+    {
+      "family": "Benign",
+      "rows": 59996,
+      "n_source_cal_pool": 8999,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 1,
+      "ladder_capable": false
+    },
+    {
+      "family": "Spoofing",
+      "rows": 119778,
+      "n_source_cal_pool": 17966,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 2,
+      "ladder_capable": true
+    },
+    {
+      "family": "Mirai",
+      "rows": 180521,
+      "n_source_cal_pool": 27077,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 3,
+      "ladder_capable": true
+    },
+    {
+      "family": "Recon",
+      "rows": 219595,
+      "n_source_cal_pool": 32937,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 5,
+      "ladder_capable": true
+    },
+    {
+      "family": "DoS",
+      "rows": 240154,
+      "n_source_cal_pool": 36021,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 4,
+      "ladder_capable": true
+    },
+    {
+      "family": "DDoS",
+      "rows": 652205,
+      "n_source_cal_pool": 97824,
+      "min_needed": 19,
+      "feasible": true,
+      "n_subtypes": 12,
+      "ladder_capable": true
+    }
+  ],
+  "recorded_before_any_coverage": true
+}

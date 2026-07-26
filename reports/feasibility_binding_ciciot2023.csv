@@ -1,0 +1,9 @@
+family,rows,n_source_cal_pool,min_needed,feasible,n_subtypes,ladder_capable
+BruteForce,13064,1959,19,True,1,False
+Web,24829,3720,19,True,6,True
+Benign,59996,8999,19,True,1,False
+Spoofing,119778,17966,19,True,2,True
+Mirai,180521,27077,19,True,3,True
+Recon,219595,32937,19,True,5,True
+DoS,240154,36021,19,True,4,True
+DDoS,652205,97824,19,True,12,True
