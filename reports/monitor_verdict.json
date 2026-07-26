@@ -1,0 +1,37 @@
+{
+  "monitor": "label-free per-class detector = predicted-class score-drift (KS) where measurable, else predicted-mass collapse; no target labels. Blind-spot classes scored, not dropped.",
+  "spearman_detector_vs_undercoverage": {
+    "rho": 0.7903,
+    "p": 1.0742411770605533e-10
+  },
+  "spearman_labelfree_vs_oracle_measurable": {
+    "rho": 0.8413,
+    "p": 4.636347703718213e-13,
+    "n": 45
+  },
+  "detection_auc": {
+    "lf_detector": 0.942,
+    "oracle": 0.964
+  },
+  "n_cells": 45,
+  "n_low_support": 0,
+  "n_undercovering": 20,
+  "limitations": [
+    "predicted-class drift for one class is contaminated by other classes misrouted into it",
+    "regime split uses a soft misroute axis, reported continuously not on a hard threshold"
+  ],
+  "reads": "detector rho/AUC high => predicts coverage failure WITHOUT labels, including blind-spot classes via mass-collapse fallback. Boundary (cell 5) shows where drift alone goes blind.",
+  "boundary_misroute_vs_blindspot": {
+    "rho": 0.2535,
+    "p": 0.09286272917148959
+  },
+  "undercovering_regimes": {
+    "cicids2017:R1_holdout_Slowhttptest|DoS": "displacement(low misroute)",
+    "cicids2017:R2_holdout_Slowloris|DoS": "displacement(low misroute)",
+    "cicids2017:R3_holdout_GoldenEye|DoS": "displacement(low misroute)",
+    "cicids2017:R4_holdout_Slowloris_Slowhttptest|DoS": "similarity(high misroute)",
+    "cicids2017:R5_holdout_GoldenEye_Slowloris|DoS": "displacement(low misroute)",
+    "ugr16:july_to_august|scan11": "similarity(high misroute)",
+    "ugr16:july_to_august|scan44": "displacement(low misroute)"
+  }
+}
