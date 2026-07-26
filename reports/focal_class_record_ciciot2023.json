@@ -31,7 +31,7 @@
   "n_features": 44,
   "label_column": "label",
   "kaggle_mirror": "madhavmalhotra/unb-cic-iot-dataset",
-  "version_of_record_note": "this mirror is not the full published release; record its file and row counts as the version of record rather than citing the canonical CIC totals",
+  "version_of_record_note": "Full CIC-IoT-2023 CSV release via Kaggle mirror madhavmalhotra/unb-cic-iot-dataset: 169 files, 46,686,579 rows, 34 labels, matching the published release. An earlier acquisition attempt terminated early at 162 files / 44,025,666 rows and was NOT used for any analysis; see Amendment 10 A10.1.",
   "feasibility_table": [
     {
       "family": "BruteForce",
@@ -106,5 +106,10 @@
       "ladder_capable": true
     }
   ],
-  "recorded_before_any_coverage": true
+  "recorded_before_any_coverage": true,
+  "release_files": 169,
+  "release_rows": 46686579,
+  "release_labels": 34,
+  "working_frame_rows": 1510142,
+  "amendment": "preregistration_amendment_10.md"
 }
