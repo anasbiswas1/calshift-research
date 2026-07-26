@@ -1,0 +1,247 @@
+{
+  "C1_calibration_size_audit": {
+    "focal_shc_ncal": 149.0,
+    "focal_tsc_ncal": 297.1,
+    "ratio": 0.502,
+    "equalised": false,
+    "per_class": [
+      {
+        "class": "DoS",
+        "protocol": "REC",
+        "mean": 772.1,
+        "min": 770,
+        "max": 774
+      },
+      {
+        "class": "DoS",
+        "protocol": "SHC",
+        "mean": 6889.0,
+        "min": 6889,
+        "max": 6889
+      },
+      {
+        "class": "DoS",
+        "protocol": "TSC",
+        "mean": 772.1,
+        "min": 770,
+        "max": 774
+      },
+      {
+        "class": "Normal",
+        "protocol": "REC",
+        "mean": 1008.0,
+        "min": 1008,
+        "max": 1008
+      },
+      {
+        "class": "Normal",
+        "protocol": "SHC",
+        "mean": 10101.0,
+        "min": 10101,
+        "max": 10101
+      },
+      {
+        "class": "Normal",
+        "protocol": "TSC",
+        "mean": 1008.0,
+        "min": 1008,
+        "max": 1008
+      },
+      {
+        "class": "Probe",
+        "protocol": "REC",
+        "mean": 249.9,
+        "min": 248,
+        "max": 251
+      },
+      {
+        "class": "Probe",
+        "protocol": "SHC",
+        "mean": 1748.0,
+        "min": 1748,
+        "max": 1748
+      },
+      {
+        "class": "Probe",
+        "protocol": "TSC",
+        "mean": 249.9,
+        "min": 248,
+        "max": 251
+      },
+      {
+        "class": "R2L",
+        "protocol": "REC",
+        "mean": 297.1,
+        "min": 295,
+        "max": 299
+      },
+      {
+        "class": "R2L",
+        "protocol": "SHC",
+        "mean": 149.0,
+        "min": 149,
+        "max": 149
+      },
+      {
+        "class": "R2L",
+        "protocol": "TSC",
+        "mean": 297.1,
+        "min": 295,
+        "max": 299
+      },
+      {
+        "class": "U2R",
+        "protocol": "REC",
+        "mean": 5.5,
+        "min": 4,
+        "max": 7
+      },
+      {
+        "class": "U2R",
+        "protocol": "SHC",
+        "mean": 7.0,
+        "min": 7,
+        "max": 7
+      },
+      {
+        "class": "U2R",
+        "protocol": "TSC",
+        "mean": 5.5,
+        "min": 4,
+        "max": 7
+      },
+      {
+        "class": "__marginal__",
+        "protocol": "REC",
+        "mean": 5.5,
+        "min": 4,
+        "max": 7
+      },
+      {
+        "class": "__marginal__",
+        "protocol": "SHC",
+        "mean": 7.0,
+        "min": 7,
+        "max": 7
+      },
+      {
+        "class": "__marginal__",
+        "protocol": "TSC",
+        "mean": 5.5,
+        "min": 4,
+        "max": 7
+      }
+    ]
+  },
+  "C2_marginal_vs_mondrian": [
+    {
+      "protocol": "REC",
+      "marginal_overall": 0.9507,
+      "marginal_focal_R2L": 0.8591,
+      "mondrian_focal_R2L": 0.9562
+    },
+    {
+      "protocol": "TSC",
+      "marginal_overall": 0.9507,
+      "marginal_focal_R2L": 0.8595,
+      "mondrian_focal_R2L": 0.9536
+    },
+    {
+      "protocol": "SHC",
+      "marginal_overall": 0.72,
+      "marginal_focal_R2L": 0.0714,
+      "mondrian_focal_R2L": 0.086
+    }
+  ],
+  "C4_inclusion_rule": {
+    "nsl_infeasible_classes": [
+      "U2R"
+    ],
+    "mechanism_all": {
+      "rho": 0.9252,
+      "n": 60
+    },
+    "mechanism_feasible_only": {
+      "rho": 0.9293,
+      "n": 57
+    },
+    "monitor_all": {
+      "rho": 0.7252,
+      "auc": 0.8951,
+      "n": 60
+    },
+    "monitor_feasible_only": {
+      "rho": 0.7963,
+      "auc": 0.9236,
+      "n": 57
+    }
+  },
+  "C5_mechanism_class_level": {
+    "rho": 0.9262,
+    "p": 4.7049438215899434e-09,
+    "n": 20,
+    "ci": [
+      0.7733,
+      0.9863
+    ],
+    "per_dataset": {
+      "nslkdd": {
+        "rho": 0.9,
+        "p": 0.0374,
+        "n": 5
+      },
+      "cicids2017": {
+        "rho": 0.841,
+        "p": 0.0023,
+        "n": 10
+      },
+      "ugr16": {
+        "rho": 1.0,
+        "p": 0.0,
+        "n": 5
+      }
+    }
+  },
+  "C6_pooled_clustering": {
+    "unit (as published, 160 clusters)": {
+      "beta7_SHC_x_Ssup": {
+        "beta": -0.3742,
+        "se": 0.0133,
+        "p": 1.4530649041669026e-173,
+        "ci": [
+          -0.4004,
+          -0.3481
+        ]
+      },
+      "beta5_SHC_x_Scov": {
+        "beta": -0.2519,
+        "se": 0.009,
+        "p": 2.3253158094462738e-172,
+        "ci": [
+          -0.2696,
+          -0.2343
+        ]
+      }
+    },
+    "dataset (honest, 3 clusters)": {
+      "beta7_SHC_x_Ssup": {
+        "beta": -0.3742,
+        "se": 0.0568,
+        "p": 4.3990931220910366e-11,
+        "ci": [
+          -0.4856,
+          -0.2629
+        ]
+      },
+      "beta5_SHC_x_Scov": {
+        "beta": -0.2519,
+        "se": 0.0362,
+        "p": 3.535790131803197e-12,
+        "ci": [
+          -0.3229,
+          -0.1809
+        ]
+      }
+    }
+  }
+}

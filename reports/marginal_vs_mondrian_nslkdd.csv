@@ -1,0 +1,4 @@
+protocol,marginal_overall,marginal_focal_R2L,mondrian_focal_R2L
+REC,0.9507,0.8591,0.9562
+TSC,0.9507,0.8595,0.9536
+SHC,0.72,0.0714,0.086
