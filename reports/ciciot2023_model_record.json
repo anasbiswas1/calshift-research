@@ -1,0 +1,37 @@
+{
+  "dataset": "ciciot2023",
+  "classes_canonical_order": [
+    "Benign",
+    "BruteForce",
+    "DDoS",
+    "DoS",
+    "Mirai",
+    "Recon",
+    "Spoofing",
+    "Web"
+  ],
+  "focal_class": "Web",
+  "focal_index": 7,
+  "n_features": 44,
+  "seeds": [
+    42,
+    1337,
+    2024,
+    7,
+    91,
+    512,
+    6021,
+    88,
+    3407,
+    12345
+  ],
+  "architectures": [
+    "rf",
+    "xgb",
+    "mlp"
+  ],
+  "calibration": "one-vs-rest isotonic on D_probcal (source only), renormalised (section 6)",
+  "hyperparameters": "fixed architecture-appropriate settings, not a per-dataset macro-F1 grid, to bound compute on a 634k-row training partition; same deviation as nb12 (CIC-IDS2017) and nb16 (UGR16), logged in deviations.md",
+  "probs_dir": "/content/drive/MyDrive/CALSHIFT_Research/calshift-research/data/ciciot_probs",
+  "probs_contents": "srcpool = D_probcal-calibrated probabilities on the source calibration pool; target = same on the full target pool; both in canonical class order, float32"
+}

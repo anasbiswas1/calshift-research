@@ -40,3 +40,6 @@ design: S_cov varies almost entirely between dataset clusters and the coefficien
 sign-unstable across estimators. The manuscript therefore reports the pooled model as
 secondary and descriptive, and rests its causal claim on the within-dataset dose-response.
 This is a departure from section 11 and is disclosed as such in the paper.
+
+## nb33 (CIC-IoT-2023) - hyperparameters
+Fixed architecture-appropriate hyperparameters (RF/XGB/MLP) chosen for dataset scale rather than a per-dataset macro-F1 selection grid (section 5), to bound compute on a 634,309-row training partition. Same deviation already logged for CIC-IDS2017 (nb12) and UGR16 (nb16). Recorded before any coverage.
