@@ -1,0 +1,76 @@
+{
+  "analysis": "alpha-sensitivity: focal coverage at alpha in {0.05,0.10,0.20}",
+  "focal_by_dataset": {
+    "cicids2017 (DoS)": {
+      "alphas": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "SHC": [
+        0.6039,
+        0.5565,
+        0.4786
+      ],
+      "nominal": [
+        0.95,
+        0.9,
+        0.8
+      ],
+      "undercovers_each_alpha": [
+        true,
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    "nslkdd (R2L, rung0.80)": {
+      "alphas": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "SHC": [
+        0.0298,
+        0.0231,
+        0.0168
+      ],
+      "nominal": [
+        0.95,
+        0.9,
+        0.8
+      ],
+      "undercovers_each_alpha": [
+        true,
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    "ugr16 (nerisbotnet)": {
+      "alphas": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "SHC": [
+        0.9473,
+        0.8953,
+        0.7904
+      ],
+      "nominal": [
+        0.95,
+        0.9,
+        0.8
+      ],
+      "undercovers_each_alpha": [
+        false,
+        false,
+        false
+      ],
+      "consistent": true
+    }
+  },
+  "ugr_scans_collapse_every_alpha": true,
+  "reads": "for NSL R2L and CIC DoS, SHC undercovers at every alpha => the failure is not an artifact of alpha=0.05. For UGR the preregistered focal nerisbotnet holds at every alpha, while scan11/scan44 collapse at every alpha => the selective covariate finding is also alpha-robust."
+}
