@@ -12,7 +12,8 @@
       -0.26956420905052075,
       -0.2342796685266711
     ],
-    "p_holm": 4.6506316207771706e-172
+    "p_holm": 4.6506316207771706e-172,
+    "identification": "SIGN-UNSTABLE / NOT IDENTIFIED: cluster-robust GLM gives beta=-0.252, the empirical-logit mixed model gives beta=+0.254 on the same data. Opposite signs from two estimators means the pooled data cannot identify even the direction of this effect, because S_cov varies only across 3 dataset clusters. The covariate-shift evidence in this study is the per-dataset UGR-16 per-class result (nerisbotnet holds, scans collapse under the same S_cov), which this aggregate coefficient cannot capture. Do NOT report a sign for beta5."
   },
   "beta7_SHC_x_Ssup": {
     "term": "C(protocol)[T.SHC]:zSsup",
@@ -47,6 +48,7 @@
     ],
     "p_holm": 0.08771912999164713
   },
-  "identification_note": "S_cov is clustered by dataset (NSL~0.87,CIC~0.77,UGR 0.69) so beta5 is identified only between 3 datasets and is weak/wide; S_sup sweeps within NSL (0-0.46) so beta7 is well identified. Read beta7 as the pooled test; beta5 as suggestive.",
-  "tooling_deviation": "preregistered crossed-RE binomial GLMM approximated by cluster-robust binomial GLM + empirical-logit mixed model; exact glmer to be run in R for camera-ready."
+  "identification_note": "beta7 (SHC x S_sup) is well identified (NSL sweeps S_sup 0-0.46) and robust: negative and highly significant in BOTH estimators. beta5 (SHC x S_cov) is NOT identified: the two estimators disagree on sign, so it is reported as sign-unstable and the per-dataset UGR result carries the covariate claim. Support shift drives coverage failure; covariate shift is not captured by any aggregate measure.",
+  "tooling_deviation": "preregistered crossed-RE binomial GLMM approximated by cluster-robust binomial GLM + empirical-logit mixed model; exact glmer to be run in R for camera-ready.",
+  "beta5_mixed_model_beta": 0.2539
 }
