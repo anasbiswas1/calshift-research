@@ -1,0 +1,22 @@
+{
+  "analysis": "calibration quality of the calibrated probabilities feeding the conformal layer",
+  "evaluated_on": "source calibration pool (held out from isotonic fit set, in-distribution)",
+  "per_dataset_mean": [
+    {
+      "dataset": "cicids2017",
+      "mean_brier": 0.0001,
+      "mean_ece": 0.0001
+    },
+    {
+      "dataset": "nslkdd",
+      "mean_brier": 0.0007,
+      "mean_ece": 0.0002
+    },
+    {
+      "dataset": "ugr16",
+      "mean_brier": 0.013,
+      "mean_ece": 0.0012
+    }
+  ],
+  "note": "raw pre-calibration probs were not cached, so a before/after comparison would need retraining (out of scope). Low ECE/Brier here shows the isotonic-calibrated probabilities are well calibrated in-distribution, so the coverage failures under shift are NOT a base-calibration artifact. ECE estimator: equal-mass bins (nb04 convention)."
+}
