@@ -1,0 +1,16 @@
+{
+  "dataset": "ugr16",
+  "environment": "july_to_august",
+  "focal_class": "nerisbotnet",
+  "alpha_primary": 0.05,
+  "nominal": 0.95,
+  "S_cov": 0.6925,
+  "shift_type": "fixed-support temporal covariate",
+  "focal_coverage_by_protocol": {
+    "REC": 0.9499,
+    "SHC": 0.9473,
+    "TSC": 0.9497
+  },
+  "focal_gap_TSC_minus_SHC": 0.0024,
+  "reads": "criterion-1 test: does SHC undercover under covariate shift alone"
+}
