@@ -1,0 +1,52 @@
+{
+  "model": "binomial GLM on counts, cluster-robust SEs by unit (approx of preregistered binomial GLMM)",
+  "n_rows": 49500,
+  "n_units": 160,
+  "reference_protocol": "TSC",
+  "beta5_SHC_x_Scov": {
+    "term": "C(protocol)[T.SHC]:zScov",
+    "beta": -0.2519219387885959,
+    "se": 0.009001323698335693,
+    "p": 2.3253158103885853e-172,
+    "ci": [
+      -0.26956420905052075,
+      -0.2342796685266711
+    ],
+    "p_holm": 4.6506316207771706e-172
+  },
+  "beta7_SHC_x_Ssup": {
+    "term": "C(protocol)[T.SHC]:zSsup",
+    "beta": -0.3742469654082319,
+    "se": 0.013325044222367952,
+    "p": 1.4530649043109692e-173,
+    "ci": [
+      -0.4003635721764766,
+      -0.34813035863998715
+    ],
+    "p_holm": 4.359194712932907e-173
+  },
+  "SHC_x_Slab": {
+    "term": "C(protocol)[T.SHC]:zSlab",
+    "beta": 0.3536338325573468,
+    "se": 0.006635084832275413,
+    "p": 0.0,
+    "ci": [
+      0.34062930525171903,
+      0.3666383598629746
+    ],
+    "p_holm": 0.0
+  },
+  "REC_x_Scov": {
+    "term": "C(protocol)[T.REC]:zScov",
+    "beta": 0.009284072029308721,
+    "se": 0.005437059109831504,
+    "p": 0.08771912999164713,
+    "ci": [
+      -0.0013723680077764328,
+      0.019940512066393877
+    ],
+    "p_holm": 0.08771912999164713
+  },
+  "identification_note": "S_cov is clustered by dataset (NSL~0.87,CIC~0.77,UGR 0.69) so beta5 is identified only between 3 datasets and is weak/wide; S_sup sweeps within NSL (0-0.46) so beta7 is well identified. Read beta7 as the pooled test; beta5 as suggestive.",
+  "tooling_deviation": "preregistered crossed-RE binomial GLMM approximated by cluster-robust binomial GLM + empirical-logit mixed model; exact glmer to be run in R for camera-ready."
+}

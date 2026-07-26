@@ -14,3 +14,5 @@
 ## nb15 (UGR16) - source july_week5 is the uniqblacklistremoved variant, target august_week1 is the raw full file; blacklist dropped (not comparable). pr (protocol) dropped from features: string in july but destroyed to NaN in the august parquet by an earlier numeric coercion, so not comparable; S_cov computed on 9 flow features. Focal = nerisbotnet by true rarity, not the 50k caps. All before any coverage.
 
 ## nb16 (UGR16) - fixed architecture-appropriate hyperparameters (RF/XGB/MLP), not a per-dataset macro-F1 grid (section 5), to bound compute; before any coverage.
+
+## nb19 - pooled model: the preregistered crossed-random-effects binomial GLMM was approximated by a cluster-robust binomial GLM on counts plus an empirical-logit mixed model, because that GLMM is not reliably fittable in Python; exact lme4/glmer fit deferred to R for the camera-ready. S_cov is between-dataset only (3 clusters) so the SHC x S_cov interaction (beta5) is weakly identified and reported as suggestive; the SHC x S_sup interaction (beta7) is well identified within NSL.
