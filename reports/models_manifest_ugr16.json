@@ -1,0 +1,54 @@
+{
+  "environment": "july_to_august",
+  "classes": [
+    "background",
+    "dos",
+    "nerisbotnet",
+    "scan11",
+    "scan44"
+  ],
+  "architectures": [
+    "rf",
+    "xgb",
+    "mlp"
+  ],
+  "seeds": [
+    42,
+    1337,
+    2024,
+    7,
+    91,
+    512,
+    6021,
+    88,
+    3407,
+    12345
+  ],
+  "hyperparameters_fixed": {
+    "rf": {
+      "n_estimators": 200,
+      "min_samples_leaf": 2,
+      "n_jobs": -1
+    },
+    "xgb": {
+      "n_estimators": 300,
+      "max_depth": 6,
+      "learning_rate": 0.1,
+      "tree_method": "hist",
+      "n_jobs": -1,
+      "eval_metric": "mlogloss"
+    },
+    "mlp": {
+      "hidden_layer_sizes": [
+        128,
+        64
+      ],
+      "early_stopping": true,
+      "max_iter": 60,
+      "batch_size": 512
+    }
+  },
+  "calibration": "one-vs-rest isotonic on probcal, renormalised (section 6)",
+  "n_prob_files_present": 30,
+  "n_expected_when_complete": 30
+}

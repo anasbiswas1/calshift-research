@@ -12,3 +12,5 @@
 ## nb12 - CIC used architecture-appropriate FIXED hyperparameters (RF/XGB/MLP) chosen for dataset scale, not a per-dataset macro-F1 grid (section 5), to bound compute. Before any coverage.
 
 ## nb15 (UGR16) - source july_week5 is the uniqblacklistremoved variant, target august_week1 is the raw full file; blacklist dropped (not comparable). pr (protocol) dropped from features: string in july but destroyed to NaN in the august parquet by an earlier numeric coercion, so not comparable; S_cov computed on 9 flow features. Focal = nerisbotnet by true rarity, not the 50k caps. All before any coverage.
+
+## nb16 (UGR16) - fixed architecture-appropriate hyperparameters (RF/XGB/MLP), not a per-dataset macro-F1 grid (section 5), to bound compute; before any coverage.
