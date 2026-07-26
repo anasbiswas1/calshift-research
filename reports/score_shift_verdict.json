@@ -1,0 +1,24 @@
+{
+  "test": "does source->target true-class score movement predict SHC undercoverage across classes",
+  "per_architecture_spearman_KS_vs_undercoverage": {
+    "mlp": {
+      "rho": 0.865,
+      "p": 3.1540092944344935e-05
+    },
+    "rf": {
+      "rho": 0.931,
+      "p": 4.5870890397421595e-07
+    },
+    "xgb": {
+      "rho": 0.876,
+      "p": 1.857067136786151e-05
+    }
+  },
+  "pooled_spearman_KS": {
+    "rho": 0.8948,
+    "p": 1.1717358997929707e-16,
+    "n": 45
+  },
+  "reads": "positive rho in every architecture => score movement drives undercoverage, robustly, not an artifact of one model or of cross-architecture blending; evidence base for a label-free score-movement detector.",
+  "ugr_sharp_case": "nerisbotnet stable+holds vs scan11/scan44 moved+collapse"
+}
