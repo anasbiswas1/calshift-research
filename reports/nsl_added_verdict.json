@@ -1,0 +1,16 @@
+{
+  "note": "NSL-KDD added to mechanism (nb20) and monitor (nb21) at rung 0.80",
+  "mechanism_spearman_KS_all3": {
+    "rho": 0.9252,
+    "p": 4.454468796260778e-26,
+    "n": 60
+  },
+  "monitor_detector_all3": {
+    "rho": 0.7252,
+    "p": 5.641349490136993e-11,
+    "auc": 0.8951,
+    "n": 60
+  },
+  "nsl_rung_used": 0.8,
+  "nsl_focal": "R2L"
+}
