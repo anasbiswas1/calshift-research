@@ -1,0 +1,10 @@
+dataset,protocol,focal,Kmax,focal_coverage,focal_set_size,mean_coverage,mean_set_size
+nslkdd,REC,R2L,5,0.9563,4.6794,0.9539,4.5264
+nslkdd,TSC,R2L,5,0.9531,4.6779,0.9516,4.5244
+nslkdd,SHC,R2L,5,0.0298,2.0448,0.4958,2.1148
+cicids2017,REC,DoS,2,0.9875,1.449,0.9688,1.5703
+cicids2017,TSC,DoS,2,0.9876,1.4491,0.9688,1.571
+cicids2017,SHC,DoS,2,0.6039,1.0655,0.777,1.0079
+ugr16,REC,nerisbotnet,5,0.9499,1.7696,0.9564,1.7397
+ugr16,TSC,nerisbotnet,5,0.9497,1.7728,0.9564,1.7417
+ugr16,SHC,nerisbotnet,5,0.9473,1.1432,0.8362,1.1072
