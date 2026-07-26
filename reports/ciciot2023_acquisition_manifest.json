@@ -1,0 +1,76 @@
+{
+  "dataset": "ciciot2023",
+  "staged_at": "/content/ciciot2023_raw",
+  "retained_on_drive": false,
+  "kaggle_dataset": "madhavmalhotra/unb-cic-iot-dataset",
+  "n_files": 162,
+  "total_bytes": 12970185675,
+  "label_column": "label",
+  "n_labels": 35,
+  "n_rows": 44025666,
+  "label_counts": {
+    "DDoS-ICMP_Flood": 6789888,
+    "DDoS-UDP_Flood": 5103291,
+    "DDoS-TCP_Flood": 4241669,
+    "DDoS-PSHACK_Flood": 3861696,
+    "DDoS-SYN_Flood": 3827498,
+    "DDoS-RSTFINFlood": 3814597,
+    "DDoS-SynonymousIP_Flood": 3393867,
+    "DoS-UDP_Flood": 3129980,
+    "DoS-TCP_Flood": 2518682,
+    "DoS-SYN_Flood": 1913319,
+    "BenignTraffic": 1035638,
+    "Mirai-greeth_flood": 934772,
+    "Mirai-udpplain": 839532,
+    "Mirai-greip_flood": 708716,
+    "DDoS-ICMP_Fragmentation": 426523,
+    "MITM-ArpSpoofing": 290308,
+    "DDoS-UDP_Fragmentation": 270728,
+    "DDoS-ACK_Fragmentation": 268705,
+    "DNS_Spoofing": 168687,
+    "Recon-HostDiscovery": 126888,
+    "Recon-OSScan": 92770,
+    "Recon-PortScan": 77674,
+    "DoS-HTTP_Flood": 67893,
+    "VulnerabilityScan": 35238,
+    "DDoS-HTTP_Flood": 27083,
+    "DDoS-SlowLoris": 22137,
+    "DictionaryBruteForce": 12297,
+    "BrowserHijacking": 5559,
+    "CommandInjection": 5090,
+    "SqlInjection": 4946,
+    "XSS": 3613,
+    "Backdoor_Malware": 3047,
+    "Recon-PingSweep": 2142,
+    "Uploading_Attack": 1192,
+    "nan": 1
+  },
+  "files": [
+    {
+      "name": "part-00000-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+      "bytes": 70337132,
+      "sha256": "d5b8e9e76d60fb053ef98eeb1dfdf13e101caef8abf1b36f353105ca3779b05d"
+    },
+    {
+      "name": "part-00001-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+      "bytes": 64480675,
+      "sha256": "e9a0352070c872cb8b99cf8daf47e567170bccf35a305dbb59d81f17da4b81d0"
+    },
+    {
+      "name": "part-00002-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+      "bytes": 81098243,
+      "sha256": "5a48099370277ab6a0b05581600063569d86472b86f986a593fc8f3b78380298"
+    },
+    {
+      "name": "part-00003-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+      "bytes": 68051400,
+      "sha256": "d774b5fe13230bed4b44222d26e10f87947e6895d215b0711f3f6eea7abcedcb"
+    },
+    {
+      "name": "part-00004-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+      "bytes": 67007207,
+      "sha256": "763c2db3dbbfb941fb3f81cd3770e01c95b8c6aa830c23c159e6eb03f9bac835"
+    }
+  ],
+  "note": "sha256 recorded for the first five files as a spot pin; full manifest is the file list plus byte counts. If retained_on_drive is false the raw release was session-local and the working frame fingerprint in nb31 is the reproducible artefact."
+}
