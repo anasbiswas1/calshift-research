@@ -1,0 +1,112 @@
+{
+  "quantile_fix": {
+    "canonical_module": "src/conformal.py",
+    "issue": "np.quantile(s, k/n, method='higher') returns one order statistic above s_(k), inflating coverage by ~1/n",
+    "notebooks_affected": [
+      "13",
+      "17",
+      "18",
+      "20",
+      "21",
+      "22",
+      "23",
+      "28"
+    ],
+    "notebook_05_nsl": "already correct (np.sort(scores)[k-1]) - NSL primary results unaffected",
+    "materiality": [
+      {
+        "dataset": "cicids2017",
+        "new": 0.603845,
+        "old": 0.603896,
+        "difference": 5.1e-05,
+        "committed": 0.6039
+      },
+      {
+        "dataset": "ugr16",
+        "new": 0.947127,
+        "old": 0.947281,
+        "difference": 0.000154,
+        "committed": 0.9473
+      }
+    ]
+  },
+  "negative_control_corrected": {
+    "per_class": [
+      {
+        "class": "DoS",
+        "n_cal": 3439.7,
+        "coverage": 0.9503,
+        "ci_lo": 0.9497,
+        "ci_hi": 0.9509,
+        "band_lo": 0.95,
+        "band_hi": 0.9503,
+        "ci_overlaps_band": true,
+        "point_in_band": true
+      },
+      {
+        "class": "Normal",
+        "n_cal": 5053.2,
+        "coverage": 0.9503,
+        "ci_lo": 0.9495,
+        "ci_hi": 0.9509,
+        "band_lo": 0.95,
+        "band_hi": 0.9502,
+        "ci_overlaps_band": true,
+        "point_in_band": false
+      },
+      {
+        "class": "Probe",
+        "n_cal": 875.7,
+        "coverage": 0.9517,
+        "ci_lo": 0.95,
+        "ci_hi": 0.9531,
+        "band_lo": 0.95,
+        "band_hi": 0.9511,
+        "ci_overlaps_band": true,
+        "point_in_band": false
+      },
+      {
+        "class": "R2L",
+        "n_cal": 74.9,
+        "coverage": 0.9583,
+        "ci_lo": 0.9533,
+        "ci_hi": 0.9633,
+        "band_lo": 0.95,
+        "band_hi": 0.9632,
+        "ci_overlaps_band": true,
+        "point_in_band": true
+      }
+    ],
+    "pass": true
+  },
+  "architecture_fixed_effect": {
+    "slope_rung": -2.0705,
+    "slope_se": 0.0238,
+    "arch_fixed_effects": {
+      "C(arch)[T.rf]": -0.6698,
+      "C(arch)[T.xgb]": -0.3372
+    },
+    "realization_var": 0.00839,
+    "scale": 0.13636
+  },
+  "per_architecture_coverage": [
+    {
+      "arch": "mlp",
+      "coverage": 0.1114,
+      "ci_lo": 0.1,
+      "ci_hi": 0.1262
+    },
+    {
+      "arch": "rf",
+      "coverage": 0.0641,
+      "ci_lo": 0.0505,
+      "ci_hi": 0.0877
+    },
+    {
+      "arch": "xgb",
+      "coverage": 0.0823,
+      "ci_lo": 0.0729,
+      "ci_hi": 0.0912
+    }
+  ]
+}
