@@ -1,3 +1,3 @@
-week,rows,te_min,te_max,background,blacklist,anomaly-sshscan,anomaly-spam,dos,scan11,scan44,nerisbotnet
-august_week5,250001,2016-08-29 00:12:21,2016-08-29 03:48:21,200000,50000,1,0.0,0.0,0.0,0.0,0.0
-july_week5,500010,2016-07-27 13:43:28,2016-07-31 20:31:07,200000,50000,10,50000.0,50000.0,50000.0,50000.0,50000.0
+week,rows,te_min,te_max,background,blacklist,anomaly-udpscan,dos,scan44,scan11,nerisbotnet,anomaly-spam,anomaly-sshscan,nan
+august_week1,550018,2016-08-01 00:10:10,2016-08-05 14:53:27,200000,50000,50000.0,50000,50000,50000,50000,50000,16,2.0
+july_week5,500010,2016-07-27 13:43:28,2016-07-31 20:31:07,200000,50000,0.0,50000,50000,50000,50000,50000,10,0.0
