@@ -1,0 +1,17 @@
+{
+  "dataset": "ugr16",
+  "environment": "july_to_august",
+  "focal_class": "nerisbotnet",
+  "alpha_primary": 0.05,
+  "selection_rule": "capped counts (50k each) flattened natural rarity, so focal is chosen by true operational rarity + temporal structure of the UGR-16 synthetic attacks (nerisbotnet: rarest, bursty single botnet), not by capped count; before any coverage",
+  "source_calib_counts": {
+    "background": 30000,
+    "dos": 7500,
+    "scan11": 7500,
+    "scan44": 7500,
+    "nerisbotnet": 7500
+  },
+  "min_calib_needed": 19,
+  "partition_seed": 20260725,
+  "status": "BINDING - no UGR16 coverage number computed at time of writing"
+}

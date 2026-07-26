@@ -1,0 +1,24 @@
+{
+  "partition_seed": 20260725,
+  "environment": "july_to_august",
+  "source": "july_week5",
+  "target": "august_week1",
+  "fingerprints": {
+    "source/train": {
+      "n": 240000,
+      "sha256": "d2525ffbc8ac5e18c895c5d0f70d171a3392bb334c000e53cf872d78b04102ff"
+    },
+    "source/val": {
+      "n": 40000,
+      "sha256": "4687d901a1eb54588cc4208b54f12c3dbf3ca605cd9a34e9c95b80e6a4c36d93"
+    },
+    "source/probcal": {
+      "n": 60000,
+      "sha256": "0828092f2bae49a0323c1016f20278f6d7e7ead3292810a8a5fbdc9c6acdad1b"
+    },
+    "source/source_cal_pool": {
+      "n": 60000,
+      "sha256": "767dab0c368e868e59909379f055cd1e54bb58d1326a72668ee40de2b47949ba"
+    }
+  }
+}

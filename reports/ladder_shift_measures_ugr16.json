@@ -1,0 +1,11 @@
+{
+  "dataset": "ugr16",
+  "environment": "july_to_august",
+  "n_features": 27,
+  "S_cov": 0.6925,
+  "S_cov_above_null": true,
+  "null_q95": 0.5103,
+  "S_lab": 0.0,
+  "S_sup": 0.0,
+  "note": "fixed-support temporal covariate shift on 9 flow features; pr dropped; shared 4 attacks so S_sup~0"
+}
