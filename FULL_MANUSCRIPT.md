@@ -1,19 +1,27 @@
-# Deployable Conformal Intrusion Detection Undercovers under Distribution Shift: A Preregistered Diagnosis and a Label-Free Failure Monitor
+# Source-Calibrated Conformal Intrusion Detection Loses Class-Conditional Coverage under Distribution Shift: A Preregistered Diagnosis
 
 ## Abstract
 
-Conformal prediction offers distribution-free, finite-sample coverage guarantees and is
-increasingly proposed as a trust layer for machine-learning network intrusion detection.
-Its guarantee assumes exchangeability between calibration and test data, which deployment
-violates twice over: a detector is calibrated on past traffic and applied to future,
-drifted traffic, and the target labels needed to recalibrate are precisely what an
-operator lacks. The only deployable protocol is therefore source-held-out. We ask, under
-preregistration, whether it retains class-conditional coverage under shift and, if not,
-whether its failures can be detected without labels. Across four datasets spanning covariate and support shift, and against negative controls that confirm the pipeline is valid on exchangeable data, the deployable protocol loses class-conditional coverage on every feasible class of three of the four environments, by up to 0.86 relative to the exchangeability-based target, while target-supervised calibration holds. A placebo experiment shows that novelty is not the operative variable: rearranging evaluation mass among subtypes the source has already seen moves coverage 2.6 times more than introducing unseen subtypes does, at zero support shift. A fourth environment isolates support shift on modern IoT traffic and finds no failure at all, confirming that neither aggregate shift measure predicts the outcome. What does predict it is movement of the nonconformity-score distribution: a class undercovers exactly when its scores move past the source-calibrated quantile (Spearman 0.84 across 28 class-level cells spanning four datasets). Building on that mechanism, we propose a label-free monitor of predicted-class
-score drift that anticipates coverage failure at a pooled AUROC of 0.93, consistently across all three environments, with an explicitly characterised boundary, since it attenuates where a detector confidently
-misroutes a novel class into a familiar one. Robustness analyses exclude prior shift,
-level choice, set size, base miscalibration and analytical choice as explanations. All
-data, code and the preregistration are released.
+Conformal prediction offers distribution-free coverage guarantees and is increasingly proposed
+as a trust layer for machine-learning network intrusion detection. Its guarantee assumes
+exchangeability between calibration and test data, which deployment breaks: a detector is
+calibrated on past traffic and applied to future traffic, and the labels needed to recalibrate
+are what an operator lacks. We ask, under preregistration, where the fixed source-calibrated
+baseline loses class-conditional coverage and whether its failures can be detected without
+labels. Across four datasets, against negative controls confirming validity on exchangeable
+data, that baseline undercovers severely on all four feasible NSL-KDD classes, on CIC-IDS2017
+denial of service and on two UGR'16 scan classes, by up to 0.86 relative to the
+exchangeability-based target, while other classes and an entire fourth environment retain
+practically nominal coverage. The contrast against target-supervised calibration survives
+matching both protocols to identical per-class calibration sizes, so it reflects
+calibration-data provenance rather than sample size. Failure is therefore selective, and an
+environment-level shift statistic cannot express that selectivity, being constant within an
+environment; a class-conditional one orders the affected classes at Spearman 0.86. Four further
+analyses are exploratory and labelled throughout: a placebo construction showing the binary
+seen-or-unseen subtype indicator is inadequate, a class-conditional shift measure, a
+threshold-level decomposition of the mechanism, and a label-free diagnostic that anticipates
+failure at pooled AUROC 0.93 with a demonstrated blind spot. Abstention proves anti-correlated
+with need. All data, code and the preregistration are released.
 
 **Keywords:** conformal prediction; network intrusion detection; distribution shift;
 uncertainty calibration; coverage guarantees; drift detection.
@@ -55,13 +63,13 @@ shift includes the arrival of novel attack subtypes, a change in the support of 
 distribution rather than a reweighting of a fixed support, and its operators have no
 stream of target labels against which to adapt. In this regime the relevant questions
 for a practitioner are not only whether validity can be restored but, more basically,
-when and why the deployable protocol fails, whether that failure is visible in aggregate
+when and why the source-calibrated baseline fails, whether that failure is visible in aggregate
 drift statistics, and whether it can be flagged per class without labels.
 
 We take a deliberately diagnostic and preregistered stance. Rather than propose a method
 and report that it wins, we fix in advance the datasets, the shift constructions, the
 focal classes, the protocols, the shift measures and the primary test, and then ask what
-the deployable protocol does. Preregistration is the instrument that makes a negative or
+the source-calibrated baseline does. Preregistration is the instrument that makes a negative or
 boundary result credible: because the focal classes and analysis plan were committed
 before any coverage number existed, the failures we report cannot be an artefact of
 choosing the conditions that produce them, and the one class that survives covariate
@@ -69,8 +77,21 @@ shift is the class we named in advance, not one selected after the fact. This me
 follows the spirit of temporally and spatially honest evaluation in security machine
 learning (Pendlebury et al., 2019).
 
-We find that the deployable protocol does not merely fall short of its nominal level but falls below the band the exchangeability guarantee would imply, on every feasible class of the environments in which it fails, and that the outcome is governed by the movement of each class's score distribution rather than by the taxonomic category of the shift. The contributions of this paper are: (i) a preregistered, four-dataset, per-class diagnosis establishing that deployable conformal intrusion detection violates its finite-sample coverage guarantee under distribution shift, validated against negative controls and reported as the magnitude of that violation rather than as a shortfall against a target; (ii) a placebo experiment that separates subtype novelty from score position by construction, showing that composition among already-seen subtypes moves coverage 2.6 times more than novelty does at zero support shift; (iii) the discovery, tested rather than observed, that covariate-shift failure is selective, and the complementary finding that support shift on modern IoT traffic produces no failure at all, so that neither aggregate shift measure predicts the outcome; (iv) a mechanistic
-explanation of the failures through nonconformity-score-distribution movement; (v) a label-free coverage-failure monitor, deployable in the sense that it ranks only classes the operator observes, with consistent per-environment performance and an explicitly demonstrated boundary; and (vi) an open release of all data pipelines, calibrated
+We find that the source-calibrated baseline does not merely fall short of its nominal level but falls below the band the exchangeability guarantee would imply, on every feasible class of the environments in which it fails, and that the outcome is governed by the movement of each class's score distribution rather than by the taxonomic category of the shift. The contributions of this paper are: (i) a preregistered, four-dataset, per-class measurement of where source-calibrated conformal
+intrusion detection loses class-conditional coverage under realistic network shift. That split
+conformal can lose coverage when exchangeability fails is established theory and is not claimed
+here; what the theory does not supply, and this does, is which classes fail, by how much, under
+which constructed shifts, with the protocol contrast isolated from calibration sample size and
+validated against negative controls; (ii) an exploratory placebo construction separating subtype novelty from score position, showing that composition among already-seen subtypes is sufficient to move coverage severely, so the binary novelty indicator is inadequate; (iii) the finding, tested rather than observed, that failure under a common environment-level
+shift is selective, and the demonstration that this selectivity is measurable: a
+class-conditional shift statistic orders the affected classes at Spearman 0.86 across the nine
+class cells where coverage varies. We note that an aggregate statistic cannot do so at all,
+being constant within an environment, so the comparison is a statement about what to measure
+rather than a contest between two estimators; (iv) a mechanistic
+explanation of the failures through nonconformity-score-distribution movement; (v) an exploratory label-free coverage-failure diagnostic that ranks only classes the operator
+observes, with consistent per-environment performance and an explicitly demonstrated blind
+spot. It is developed and evaluated on the same environments and has no external validation
+set, so we present it as a diagnostic worth testing rather than a validated detector; and (vi) an open release of all data pipelines, calibrated
 models, coverage tables, figures and the
 preregistration, with deterministic seeds and partition fingerprints for independent
 verification.
@@ -79,7 +100,7 @@ Section 2 positions the contribution, Section 3 describes the datasets, Section 
 methodology, and Section 5 the results, with the discussion, limitations, future work and
 conclusion following. Figure 1 gives an overview of the study design.
 
-![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the only deployable protocol). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted.](figure1_overview.png)
+![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted.](figure1_overview.png)
 
 # 2. Related work
 
@@ -104,7 +125,7 @@ over a fixed support or a stream of target labels to adapt against. Network intr
 detection violates both: novel attack subtypes change the support of the distribution,
 and operational deployment provides no target labels. Our contribution is orthogonal and
 prior to method design: we diagnose, under these realistic conditions, when and why the
-deployable protocol fails, and we show that whether a restoration method such as weighted
+source-calibrated baseline fails, and we show that whether a restoration method such as weighted
 conformal prediction could help is itself governed by the support-versus-covariate
 distinction we draw.
 
@@ -143,7 +164,7 @@ temporal and spatial bias in experimental design (Pendlebury et al., 2019). Our 
 critical posture: we adopt corrected labels where available, audit feature separability
 to rule out trivial leakage, construct shift explicitly and measure it, and preregister
 the analysis. To our knowledge, no prior study offers a preregistered, cross-dataset,
-per-class account of whether deployable conformal intrusion detection retains coverage
+per-class account of whether source-calibrated conformal intrusion detection retains coverage
 under distribution shift, together with a label-free monitor for its failures and an
 explicit characterisation of that monitor's boundary. That is the gap this paper fills.
 
@@ -164,17 +185,24 @@ controlled, and every partition is fingerprinted with a SHA-256 hash so that it 
 verified without access to the underlying data.
 
 **Table T1. Study environments.** Source and target, shift type, measured shift covariates at
-the primary configuration, and the preregistered focal class. S_cov is an aggregate
-domain-classifier statistic over all classes; S_sup,c is class-conditional on the focal class.
-Section 5.9 shows why an aggregate covariate statistic cannot predict class-conditional
-outcomes, and the same caution applies to comparing S_cov across rows.
+the primary configuration, and the preregistered focal class. The S_cov column is an
+**aggregate** over all classes and is retained only to characterise environments as wholes; it
+is constant within an environment and therefore cannot describe the classes inside it. Table
+T12 gives the class-conditional values, which range from 0.499 to 1.000 within a single
+environment. The S_sup column is **not** on a common definition across rows and must not be compared
+between them. † For CIC-IDS2017 it is global, held-out variant mass divided by all target
+rows; the class-conditional value for DoS is far larger, since the held-out variants are a
+substantial share of DoS traffic while DoS is a minority of the target. For NSL-KDD and
+CIC-IoT-2023 the ladder controls the class-conditional fraction directly. Reconciling these
+onto one definition, and reporting both the global and class-conditional forms per
+realisation, is outstanding work identified in Section 8.
 
-| Dataset | Source → target | Shift type | S_cov | S_lab | S_sup,c (focal) | Focal |
+| Dataset | Source → target | Shift type | S_cov (agg) | S_lab | S_sup | Focal |
 |---|---|---|---|---|---|---|
 | NSL-KDD | KDDTrain+ → KDDTest+, 5-rung unseen-subtype ladder | covariate + support | 0.84–0.90 | ~0.14 | 0.00–0.46 | R2L |
-| CIC-IDS2017 | Wednesday DoS, 5 variant-holdout realisations | support (+prior) | 0.76–0.77 | 0.44–0.52 | 0.01–0.07 | DoS |
+| CIC-IDS2017 | Wednesday DoS, 5 variant-holdout realisations | variant novelty (+prior) | 0.76–0.77 | 0.44–0.52 | 0.01–0.07 † | DoS |
 | UGR'16 | July week 5 → August week 1 | temporal feature drift, fixed support | 0.69 | 0.00 | 0.00 | nerisbotnet |
-| CIC-IoT-2023 | 5-rung novel-subtype ladder, 2 web-attack subtypes withheld | support only | 0.50 (null) | ~0.01 | 0.00–0.80 | Web |
+| CIC-IoT-2023 | 5-rung novel-subtype ladder, 2 web-attack subtypes withheld | semantic subtype novelty | 0.50 agg / 0.65 focal | ~0.01 | 0.00–0.80 | Web |
 
 ## 3.1 NSL-KDD
 
@@ -244,7 +272,7 @@ unseen at calibration, producing a controlled support shift.
 
 ## 3.3 UGR'16
 
-UGR'16 provides the covariate-shift environment. We use one week of July traffic as the
+UGR'16 provides the temporal-feature-drift environment. We use one week of July traffic as the
 source and one week of the following August as the target, separated by approximately
 one month of real internet-service-provider traffic. Because the full capture is on the
 order of hundreds of gigabytes, each week was streamed in chunks and subsampled to a
@@ -265,7 +293,7 @@ storage-type mismatch cannot silently reappear. By construction UGR'16 carries c
 shift at fixed support: all four attack families are present in both weeks at equal
 sampled counts, so S_lab and S_sup are both zero, while S_cov is 0.69 against a
 permutation-null threshold of 0.51 (Section 4.4). This is the only environment in the
-study in which the shift is purely covariate. The focal class is nerisbotnet, chosen on
+study in which the shift is temporal feature drift at retained label support. The focal class is nerisbotnet, chosen on
 operational rarity rather than the capped counts.
 
 ## 3.4 CIC-IoT-2023
@@ -301,9 +329,17 @@ rarer at 1,371 points but holds a single subtype and therefore cannot be shifted
 withholding while remaining feasible, which is recorded so the choice does not read as an
 oversight.
 
-The resulting environment is support shift in isolation. Measured across the ladder, the
-covariate shift stays at the permutation null, 0.495 to 0.506, the label-prior shift is
-negligible at 0.004 to 0.014, and only the support shift moves, from 0.000 to 0.800. No
+The resulting environment carries large subtype novelty with little else moving in aggregate:
+across the ladder the aggregate covariate shift stays at the permutation null, 0.495 to 0.506,
+the label-prior shift is negligible at 0.004 to 0.014, and the class-conditional novel
+fraction sweeps from 0.000 to 0.800.
+
+We deliberately do not call this support shift in isolation. Section 5.10 measures
+class-conditional covariate shift and finds S_cov,Web = 0.654 against an aggregate of 0.512,
+so the focal class does carry measurable source-target feature distinguishability even though
+the aggregate sits at its null. Reading isolation off an aggregate statistic is precisely the
+error that Section 5.10 exists to expose, and we do not commit it here. The environment is
+better described as large semantic subtype novelty with moderate focal-class feature drift. No
 other environment in the study achieves this separation, and Section 5.6 shows why it
 matters.
 
@@ -332,8 +368,14 @@ the conformal quantile on the evaluation set itself; it is not deployable and se
 a transductive upper bound whose coverage must sit at the nominal level by construction.
 The target-supervised protocol (TSC) calibrates on a labelled target sample; it requires
 target labels and is not deployable in practice, but it isolates the effect of
-calibrating on in-distribution target data. The source-held-out protocol (SHC)
-calibrates on the source calibration pool and is the only deployable protocol, requiring
+calibrating on in-distribution target data. We study SHC as the simplest fixed, source-calibrated baseline: it requires neither target
+labels nor target-domain adaptation. It is not the only protocol deployable without target
+labels. Recent work adapts conformal prediction using unlabelled target data or pseudo-labels,
+and label-free conformal drift signals have been proposed for streaming intrusion detection.
+Those methods are outside the scope of this study, which asks what happens to the fixed
+baseline under shift; we do not claim they are undeployable.
+
+The source-held-out protocol (SHC) calibrates on the source calibration pool and is the fixed source-calibrated baseline, requiring
 no target labels. The primary contrast is TSC versus SHC. The two protocols differ in calibration-data
 provenance and, under natural class prevalence, in class-specific calibration support: they
 draw calibration sets of a common overall size, but the per-class counts entering a
@@ -341,8 +383,8 @@ class-conditional quantile follow the class composition of the pool they are dra
 do not describe them as differing only in the calibration set. The two protocols draw calibration
 sets of a common overall size, but the per-class counts that enter a class-conditional
 quantile follow the class composition of the pool they are drawn from, so for a class
-that is rare at source and common at target the deployable protocol calibrates on fewer
-points. Section 5.11 quantifies this asymmetry and shows that it biases the reported
+that is rare at source and common at target the source-calibrated baseline calibrates on fewer
+points. Section 5.12 quantifies this asymmetry and shows that it biases the reported
 effect towards conservatism rather than exaggeration.
 
 ## 4.2 Nonconformity score and prediction sets
@@ -440,7 +482,7 @@ into a table of covered-count out of evaluation-count annotated with the measure
 covariates and the protocol, and fitted as a binomial generalised linear mixed model
 (Breslow and Clayton, 1993) with the protocol-by-shift interactions as the terms of interest and
 the target-supervised protocol as reference. We report it as a secondary and descriptive
-analysis rather than as inference, for reasons set out in Section 5.13; the
+analysis rather than as inference, for reasons set out in Section 5.15; the
 crossed-random-effects fit is additionally not reliably estimable in the available tooling
 and is deferred to a specialised estimator (Bates et al., 2015), recorded as a deviation. No causal claim
 rests on it.
@@ -539,7 +581,7 @@ environment varied the evaluation composition without withholding any subtype fr
 source, so it carried no shift of any kind: covariate shift at the permutation null,
 negligible prior shift and no support shift. It is retained and reported as a no-shift
 control on modern traffic rather than discarded, and its result, focal coverage 0.953 under
-the deployable protocol with every class inside its band, is what the theory requires. The
+the source-calibrated baseline with every class inside its band, is what the theory requires. The
 error and the reclassification are recorded in the deviation log.
 
 ## 4.13 Statistical inference
@@ -564,6 +606,32 @@ report the preregistered specification alone, we report the focal result across 
 sixteen, so that the headline cannot be an artefact of the analytical choices and the
 alternative score serves as a robustness check.
 
+## 4.15 Preregistration status of each analysis
+
+The study is preregistered, but not every analysis reported here has the same evidential
+standing, and presenting them uniformly would overstate the confirmatory content. The
+following classification is binding on how the results should be read.
+
+**Table T5. Preregistration status by analysis.**
+
+| Analysis | Status |
+|---|---|
+| Three calibration protocols; initial coverage hypothesis | Pilot-informed preregistration. Earlier exploratory results on NSL-KDD, UNSW-NB15 and CIC-IDS2017 motivated the hypothesis, as Amendment 1 records. |
+| Focal-class rule, feasibility floor, partitioning | Prespecified before the corresponding coverage was computed, per environment. |
+| Within-NSL dose-response (Section 5.3) | Prospectively specified, but **not** the original confirmatory test. Promoted to the principal within-dataset analysis after the preregistered pooled interaction proved unidentifiable; recorded in Amendment 3 and the deviation log. |
+| CIC-IDS2017 within-day redesign | Amended after the NSL-KDD outcome was known, before any CIC coverage existed (Amendment 9). |
+| CIC-IoT-2023 environment | Named in the base preregistration; constructed and gated before any CIC-IoT coverage existed (Amendments 10 and 11). |
+| Placebo ladder (Section 5.4) | **Exploratory and outcome-informed.** The subtype pair was chosen after observing per-subtype coverage. |
+| Class-conditional shift (Section 5.10) | Exploratory mechanistic refinement, added after the aggregate measure proved uninformative within environments. |
+| Threshold-specific displacement (Section 5.11) | Exploratory refinement of the preregistered mechanism analysis. |
+| Label-free monitor (Section 5.13) | Exploratory. Developed and evaluated on the same environments, with no external validation set; leave-one-environment-out validation is identified as necessary in Section 8. |
+| Abstention analysis (Section 5.14) | Exploratory. |
+
+The confirmatory content is therefore the protocol contrast itself and the per-class coverage
+outcomes under the preregistered focal-class and feasibility rules. The mechanism, monitor,
+placebo and class-conditional analyses are exploratory, and are marked as such in the text
+rather than only here.
+
 # 5. Results
 
 ## 5.1 The conformal implementation is validated before it is used
@@ -571,13 +639,13 @@ alternative score serves as a robustness check.
 The negative control of Section 4.12 leaves every feasible class statistically consistent with nominal coverage. The band is a population bound under exchangeability, not a requirement that every finite empirical estimate fall inside it, so consistency rather than containment is the criterion.
 For the four feasible NSL-KDD classes the observed coverages are 0.9503, 0.9503, 0.9517 and
 0.9583 against bands whose lower edge is 0.95, and every seed-clustered bootstrap
-interval overlaps its band (Table T5). Two point estimates sit marginally above the
+interval overlaps its band (Table T6). Two point estimates sit marginally above the
 upper edge, by 0.0001 for the majority class and 0.0006 for Probe, which is the expected
 consequence of an isotonic calibrator producing tied probabilities and hence mild atoms
 in the score distribution. That residual is the baseline conservatism of the pipeline. At 0.0006 it is comparable in size to the smallest deviations reported below, such as the 0.001 shortfall on one UGR'16 class, and two to three orders of magnitude smaller than the substantive failures. Coverage failures reported in this paper are therefore attributable to
 distribution shift and not to the implementation.
 
-**Table T5. Negative control: no shift by construction.** Source pool split at random,
+**Table T6. Negative control: no shift by construction.** Source pool split at random,
 calibrate on one half and evaluate on the other, over the full model panel.
 
 | Class | n_cal | Coverage | 95% CI | Guarantee band | Inside |
@@ -587,12 +655,22 @@ calibrate on one half and evaluate on the other, over the full model panel.
 | Probe | 876 | 0.9517 | [0.9500, 0.9531] | [0.9500, 0.9511] | yes |
 | R2L | 75 | 0.9583 | [0.9533, 0.9633] | [0.9500, 0.9632] | yes |
 
-## 5.2 Where the deployable protocol fails, it fails on every feasible class
+## 5.2 Source-held-out calibration undercovers severely in selected classes and environments
 
-Under distribution shift the deployable protocol does not merely fall short of the nominal
-level; it falls below the lower edge of the band that the exchangeability guarantee would
-imply, and in the three environments where it fails at all it does so on every feasible class
-rather than only on the preregistered focal one (Table T6). The fourth environment,
+Under distribution shift the fixed source-calibrated baseline does not merely fall short of
+the nominal level on the classes it affects; it falls below the lower edge of the band the
+exchangeability guarantee would imply. The failure is selective, and the selection matters (Table T7):
+
+- **NSL-KDD**: all four feasible classes undercover, from 0.023 below the band for the
+  majority class to 0.864 for the focal class.
+- **CIC-IDS2017**: DoS undercovers by 0.346; Benign retains 0.950.
+- **UGR'16**: scan11 and scan44 undercover by 0.415 and 0.151; background, dos and
+  nerisbotnet retain 0.949, 0.950 and 0.947.
+- **CIC-IoT-2023**: no class undercovers.
+
+So the failure is not universal, and Table T7 lists the affected classes rather than
+demonstrating that every class is affected. What is universal, within an affected class, is
+that the shortfall is large relative to any reasonable practical margin. The fourth environment,
 CIC-IoT-2023, shows no failure on any class and is treated in Section 5.7.
 
 A point of terminology, since it recurs. The conformal guarantee is conditional on
@@ -604,10 +682,13 @@ that target throughout and say "falls below the band" rather than "violates the 
 NSL-KDD the shortfalls below the guarantee's lower edge are 0.864 for the focal class
 R2L, 0.278 for DoS, 0.145 for Probe and 0.023 even for Normal, the majority class. On
 CIC-IDS2017 the denial-of-service class falls 0.346 below the guarantee. On UGR'16 two
-classes fall 0.415 and 0.151 below it. The two non-deployable protocols, which differ
+classes fall 0.415 and 0.151 below it. The two non-source-calibrated baselines, which differ
 only in the data forming the quantile, sit inside their bands throughout.
 
-**Table T6. Undercoverage relative to the exchangeability-based band under the deployable protocol, α = 0.05.** Shortfall is the distance below the band's lower edge. CIC-IoT-2023 shows no shortfall on any class and is reported in Table T8.
+**Table T7. Classes that undercover relative to the exchangeability-based band, α = 0.05.**
+Shortfall is the distance below the band's lower edge. This table lists AFFECTED classes only;
+classes retaining nominal coverage are named in the text and their omission here is not
+evidence of universal failure. CIC-IoT-2023 has no affected class.
 
 | Dataset | Class | n_cal | Observed | Guarantee lower edge | Shortfall |
 |---|---|---|---|---|---|
@@ -634,11 +715,11 @@ The primary within-dataset test is the NSL-KDD ladder, which raises the fraction
 evaluation mass drawn from attack subtypes absent from the source while holding dataset,
 model panel, partition and evaluation size fixed. Focal coverage falls monotonically from
 0.143 at rung 0.00 to 0.030 at rung 0.80, with seed-clustered bootstrap intervals disjoint
-between adjacent rungs at every step (Table T7). A mixed model on the empirical logit with a
+between adjacent rungs at every step (Table T8). A mixed model on the empirical logit with a
 random intercept per realisation gives a slope of -2.071 per unit of unseen fraction, standard
 error 0.024.
 
-**Table T7. Primary dose-response: NSL-KDD focal coverage under the deployable protocol,
+**Table T8. Primary dose-response: NSL-KDD focal coverage under the source-calibrated baseline,
 α = 0.05.** Seed-clustered bootstrap intervals, B = 2000.
 
 | Rung (unseen fraction) | S_cov | S_sup | Coverage | 95% CI |
@@ -682,13 +763,21 @@ coverage just as much, with no support shift at all. It does, and by a wide marg
 
 Among the subtypes present in the source calibration pool, realised coverage ranges from
 0.007 for `guess_passwd`, which has 11 calibration points, to 0.243 for `warezmaster`, which
-has 3. We therefore construct a placebo ladder in which the focal evaluation mass is drawn
-only from these two subtypes, varying their ratio across five rungs. The support shift is zero
+has 3. We construct a placebo ladder in which the focal evaluation mass is drawn only from
+these two subtypes, varying their ratio across five rungs.
+
+**This construction is exploratory and outcome-informed, and we label it as such.** The two
+subtypes were chosen because they occupy the observed extremes of per-subtype coverage, so the
+contrast is selected to be large and the ratio reported below is not an unbiased estimate of a
+general effect. It is a demonstration of possibility, not a measurement of magnitude. A
+confirmatory version would fix the pair using source-side information alone, or evaluate all
+feasible pairs and report the distribution; neither is done here and both are identified in
+Section 8. The support shift is zero
 at every rung by construction and is verified rather than assumed. The non-focal portion of
 each evaluation set uses identical row indices across rungs within a realisation, so nothing
 but focal composition can move the result.
 
-**Table T8. Placebo ladder: focal coverage with no support shift, α = 0.05.** Evaluation mass
+**Table T9. Placebo ladder: focal coverage with no support shift, α = 0.05.** Evaluation mass
 drawn only from subtypes present in the source. Novelty ladder shown for comparison.
 
 | Fraction `guess_passwd` | 0.00 | 0.25 | 0.50 | 0.75 | 1.00 | swing |
@@ -698,9 +787,12 @@ drawn only from subtypes present in the source. Novelty ladder shown for compari
 | Score movement (KS) | 0.801 | 0.836 | 0.873 | 0.914 | 0.972 | |
 | *Novelty ladder coverage* | *0.143* | *0.114* | *0.085* | *0.058* | *0.030* | *0.113* |
 
-The placebo ladder moves coverage by 0.298 against the novelty ladder's 0.113, a ratio of
-2.63, while the support shift stays at exactly zero. Novelty is therefore not the operative
-variable. What moves coverage is where a subtype's scores sit relative to the source-calibrated
+The placebo ladder moves coverage by 0.298 against the novelty ladder's 0.113 (Table T9), a ratio of
+2.63, while the binary support-shift measure stays at exactly zero. Given the outcome-informed
+selection, the defensible claim is not that novelty has a quantified smaller effect but that
+the binary seen/unseen indicator is inadequate: severe coverage movement can occur entirely
+among nominally seen subtypes, so novelty is not necessary for the failure the ladder
+produces. What moves coverage is where a subtype's scores sit relative to the source-calibrated
 quantile, and introducing unseen subtypes is one way, but not the only way and not the most
 effective way, of moving them.
 
@@ -709,13 +801,13 @@ where support shift is pinned at zero and cannot be the explanation. This is the
 the study where movement and novelty are separated experimentally rather than statistically,
 and movement is what carries the effect.
 
-![**Figure 8.** The placebo ladder. (a) Focal coverage against ladder position for the
+![**Figure 2.** The placebo ladder. (a) Focal coverage against ladder position for the
 novelty ladder, which introduces subtypes absent from the source, and for the placebo ladder,
 which rearranges mass among subtypes the source has already seen and holds the support shift at
 exactly zero. The placebo moves coverage 2.6 times further. (b) Within-subtype coverage range
 across the novelty rungs for each subtype, against the class-level swing: every component is
 close to invariant, so the class-level dose-response is a mixture average of fixed per-subtype
-coverages.](figs/fig8_placebo.png)
+coverages.](figs/fig2_placebo.png)
 
 The consequence for the wider argument is that `S_sup` should be read as a construction device
 rather than a cause. It is the quantity the ladder manipulates, and it correlates with coverage
@@ -743,9 +835,12 @@ entire ladder effect.
 
 The 0.807 should therefore be read as the share of the gap not attributable to *labelled
 subtype novelty*, and it is substantially composed of subtype substitution among nominally
-seen subtypes. A domain-classifier AUROC of 0.849 establishes that source and target features
-are distinguishable; it does not establish covariate shift with an invariant conditional law,
-and it does not exclude the composition effect that Section 5.4 demonstrates directly. We
+seen subtypes. An aggregate domain-classifier AUROC of 0.849 establishes that source and target features are
+distinguishable in aggregate. It does not establish covariate shift with an invariant
+conditional law, it does not exclude the composition effect that Section 5.4 demonstrates
+directly, and, as Section 5.10 shows, an aggregate statistic cannot characterise a
+class-conditional quantity at all: the class-conditional values within NSL-KDD range from
+0.789 to 0.991 while the aggregate assigns 0.893 to every class. We
 withdraw the earlier attribution of 87.7 per cent of the gap to covariate shift.
 
 This also exposes a limitation of `S_sup` as defined. A subtype with 11 calibration points
@@ -757,19 +852,22 @@ identified as necessary in Section 8.
 ## 5.6 Replication in two further environments
 
 The failure replicates in two independent environments with different shift constructions and different focal classes. A fourth environment, treated separately in Section 5.7, does not replicate it, and that is informative rather than contradictory. On CIC-IDS2017, where support shift is induced by withholding
-denial-of-service variants from calibration, focal coverage under the deployable protocol
+denial-of-service variants from calibration, focal coverage under the source-calibrated baseline
 is 0.604 with an interval of [0.597, 0.611] against 0.988 for target-supervised
-calibration. On UGR'16, where the shift is purely covariate at fixed support, the
+calibration. On UGR'16, where the shift is temporal feature drift at retained label support at fixed support, the
 preregistered focal class holds at 0.947 while two other classes collapse. In every
-environment the non-deployable protocols retain coverage, so the failure is a property of
+environment the non-source-calibrated baselines retain coverage, so the failure is a property of
 source-only calibration under shift and not of conformal prediction itself.
 
 ## 5.7 Subtype novelty is not sufficient to produce undercoverage
 
 The three environments above all carry covariate shift, and the decomposition of Section 5.4
-attributes most of the NSL-KDD failure to it. CIC-IoT-2023 supplies the complement: support
-shift in isolation, with the covariate shift held at the permutation null and the label-prior
-shift negligible (Table T1). If novelty at the subtype level were sufficient to break class-conditional coverage, this is
+attributes most of the NSL-KDD failure to it. CIC-IoT-2023 supplies a case with large semantic
+subtype novelty: two of the six web-attack subtypes are absent from the source entirely, and
+the ladder raises their share of focal evaluation mass to 0.80. The aggregate covariate shift
+sits at the permutation null, but Section 5.10 shows the focal class itself carries
+S_cov,Web = 0.654, so this is not an environment with support shift alone and we do not
+describe it as one. If novelty at the subtype level were sufficient to break class-conditional coverage, this is
 where it would show. We state the claim in those terms deliberately. The withheld subtypes are
 absent from the source by label, but their feature distributions evidently remain inside the
 region the model has already learned for the family, so this construction establishes the
@@ -777,14 +875,14 @@ insufficiency of semantic subtype novelty rather than of feature-space support l
 construction in which source support is genuinely absent in the model-relevant feature space
 might behave differently, and we do not claim otherwise.
 
-It does not. Focal coverage under the deployable protocol is 0.949, 0.952, 0.951, 0.952 and
-0.952 as the novel fraction rises from 0.00 to 0.80, against a nominal 0.95 (Table T9). At the
+It does not. Focal coverage under the source-calibrated baseline is 0.949, 0.952, 0.951, 0.952 and
+0.952 as the novel fraction rises from 0.00 to 0.80, against a nominal 0.95 (Table T10). At the
 top rung the seed-clustered interval is [0.950, 0.954]. Every one of the eight classes sits
 inside its guarantee band under all three protocols, no class is infeasible, and the mean
 prediction-set size differs by 0.014 between protocols. At a class-conditional novel fraction of 0.80, nearly twice the largest value reached on NSL-KDD, nothing fails.
 
-**Table T9. CIC-IoT-2023: focal coverage under the deployable protocol across the
-support-shift ladder, α = 0.05.** Nominal 0.95. S_cov is at the permutation null throughout.
+**Table T10. CIC-IoT-2023: focal coverage under the fixed source-calibrated baseline across the
+novel-subtype ladder, α = 0.05.** Nominal 0.95. Aggregate S_cov is at the permutation null throughout, though the focal class carries S_cov,Web = 0.654 (Table T12).
 
 | Novel fraction (S_sup) | 0.00 | 0.20 | 0.40 | 0.60 | 0.80 |
 |---|---|---|---|---|---|
@@ -792,14 +890,14 @@ support-shift ladder, α = 0.05.** Nominal 0.95. S_cov is at the permutation nul
 | TSC | 0.9512 | 0.9532 | 0.9497 | 0.9497 | 0.9482 |
 | REC | 0.9519 | 0.9519 | 0.9519 | 0.9519 | 0.9519 |
 
-This is the mechanism's negative prediction, and testing it is the point. Section 5.10 holds
+This is the mechanism's negative prediction, and testing it is the point. Section 5.11 holds
 that a class undercovers when its nonconformity-score distribution moves past the
 source-calibrated quantile; it therefore requires that score movement be small here. It is.
 At the top rung the focal score movement is 0.089, and 0.108 when restricted to the withheld
 subtypes alone, against 0.922 for the NSL-KDD focal class. A tenfold difference in movement,
 and coverage follows it rather than following the nominal shift measure.
 
-The reason is measurable rather than merely interpretable, and Section 5.10 supplies the
+The reason is measurable rather than merely interpretable, and Section 5.11 supplies the
 instrument. The withheld subtypes did move the score distribution: focal movement is 0.089,
 essentially the same as UGR'16 nerisbotnet at 0.089. What differs is *where* that movement
 occurs. Only 12 per cent of it is realised at the source-calibrated threshold, against 99 per
@@ -820,14 +918,14 @@ guarantee.
 Under the two valid protocols on NSL-KDD the marginal guarantee is satisfied almost
 exactly, at 0.9507 aggregate coverage against a nominal 0.95, yet under that single shared
 quantile the rare focal class receives only 0.859, while class-conditional conditioning
-delivers 0.956 to the same class on the same data (Table T10). A practitioner monitoring
+delivers 0.956 to the same class on the same data (Table T11). A practitioner monitoring
 the marginal guarantee alone would observe a system performing to specification while the
 class that matters most was undercovered by nine percentage points. Under the deployable
 protocol both collapse, to 0.720 aggregate and 0.071 focal. This result motivates the
 class-conditional framing of the study and shows that aggregate coverage reporting is not
 sufficient to certify a conformal detector.
 
-**Table T10. Marginal versus class-conditional conditioning, NSL-KDD, α = 0.05.**
+**Table T11. Marginal versus class-conditional conditioning, NSL-KDD, α = 0.05.**
 
 | Protocol | Marginal, aggregate | Marginal, focal R2L | Class-conditional, focal R2L |
 |---|---|---|---|
@@ -853,7 +951,73 @@ preregistered focal class holds and is reported as such; the scan collapse is a 
 finding, is not retrospectively promoted to focal, and rests on a single covariate
 environment, so it is offered as a phenomenon requiring replication.
 
-## 5.10 Score movement explains the failures
+## 5.10 The selectivity is explained by class-conditional shift
+
+Section 5.9 establishes that classes exposed to one and the same aggregate covariate shift do
+not share a common coverage, and that which classes fail cannot be read from the aggregate
+magnitude. That is a negative result about the measure, and it invites the obvious question:
+is the shift measure wrong, or is shift simply not what determines the outcome?
+
+It is the measure. An aggregate domain-classifier statistic is computed over all classes
+pooled, so it takes one value per environment and is constant within it. It therefore has zero
+within-environment variance and cannot, even in principle, order the classes inside that
+environment. We replace it with a class-conditional measure, S_cov,c (Table T12), defined as the
+cross-fitted area under the ROC curve of a domain classifier trained to separate source and
+target instances *of that class alone*, against a permutation reference obtained by splitting
+the pooled per-class data at random.
+
+**Table T12. Class-conditional covariate shift against realised coverage.** S_cov,c is
+per-class; the aggregate column is the single value the study previously reported for every
+class in that environment. Permutation reference is 0.49 to 0.50 throughout.
+
+| Environment | Class | S_cov,c | Aggregate | Coverage |
+|---|---|---|---|---|
+| CIC-IDS2017 | DoS | 0.9997 | 0.7679 | 0.604 |
+| CIC-IDS2017 | Benign | 0.4992 | 0.7679 | 0.950 |
+| UGR'16 | scan11 | 0.9997 | 0.7129 | 0.535 |
+| UGR'16 | scan44 | 0.9861 | 0.7129 | 0.799 |
+| UGR'16 | background | 0.6696 | 0.7129 | 0.949 |
+| UGR'16 | nerisbotnet | 0.5782 | 0.7129 | 0.947 |
+| UGR'16 | dos | 0.5424 | 0.7129 | 0.950 |
+| NSL-KDD | R2L | 0.9905 | 0.8934 | 0.030 |
+| NSL-KDD | Probe | 0.9794 | 0.8934 | 0.628 |
+| NSL-KDD | DoS | 0.9595 | 0.8934 | 0.399 |
+| NSL-KDD | Normal | 0.7886 | 0.8934 | 0.927 |
+| CIC-IoT-2023 | Web | 0.6536 | 0.5123 | 0.952 |
+| CIC-IoT-2023 | seven others | 0.492-0.510 | 0.5123 | 0.950-0.956 |
+
+CIC-IDS2017 is the sharpest case. Its two classes carry 0.9997 and 0.4992, essentially
+perfect separability and no measurable separability at all, the latter sitting within 0.002 of
+its permutation reference. The aggregate value of 0.768 is the average of those two and
+describes neither. The class that fails is the class that is shifted, and the study's previous
+measure assigned both classes the same number.
+
+Within environments where coverage varies, the class-conditional measure orders it: Spearman
+0.900 on UGR'16 and 0.800 on NSL-KDD, and on CIC-IDS2017 the failing class carries the higher
+value, which is the only comparison two classes admit. Pooling the within-environment ranks
+across those environments gives 0.862 (p = 0.003). On CIC-IoT-2023 the correlation is -0.214
+and not distinguishable from noise, which is the correct behaviour for a predictor of failure
+in an environment where every class lies within 0.006 of nominal and there is no ordering to
+recover.
+
+The aggregate cannot be compared against this on pooled data. It takes three distinct values
+across the study, one per environment, and those happen to rank the environments by severity,
+so a pooled correlation credits it with between-environment information it does not carry
+within any environment. This is the same identification failure that defeats the pooled model
+of Section 5.15, and we do not report such a comparison.
+
+The consequence for the paper's argument is a strengthening rather than a repair. The claim is
+not that shift is hard to measure. It is that the relevant shift is class-conditional, and an
+aggregate statistic is the wrong instrument for a class-conditional guarantee. That is why
+drift monitoring at the aggregate level cannot protect a per-class trust layer, and it is a
+sharper statement of the practical warning in Section 6.
+
+NSL-KDD's ordering is imperfect: DoS carries less class-conditional shift than Probe yet
+undercovers more. We report this rather than smooth it. The measure orders outcomes well but
+not exactly, which is consistent with Section 5.11, where score movement rather than feature
+distinguishability is the quantity that determines coverage directly.
+
+## 5.11 Score movement explains the failures
 
 Because the three architectures fitted to a given dataset and class share the same data and
 the same shift, they are not independent observations, so the relationship between score
@@ -862,7 +1026,7 @@ dataset so that no environment dominates the sample. Across the twenty-eight cla
 cells of the four datasets, the Kolmogorov-Smirnov distance between source and target
 true-class score distributions is rank-correlated with realised undercoverage at a Spearman
 coefficient of 0.844 (p = 1.7 × 10⁻⁸), with a bootstrap interval of [0.610, 0.939]
-(Figure 2). The relationship spans movement from 0.000 to 0.922 and undercoverage from
+(Figure 3). The relationship spans movement from 0.000 to 0.922 and undercoverage from
 −0.050 to +0.876.
 
 This coefficient is lower than the 0.926 obtained over the first three datasets, and the
@@ -903,9 +1067,9 @@ within-environment correlation between movement and undercoverage there is there
 definitional and is not reported as evidence. The cross-dataset correlation retains its meaning
 precisely because the realised fraction varies so widely between environments. This unifies the preceding sections: it is the movement of the score distribution, whatever its cause, that breaks the guarantee, which is why covariate shift of sufficient magnitude suffices, why failure under a common shift is class-selective, and why support shift that leaves scores in place, as in Section 5.7, breaks nothing at all.
 
-![**Figure 2.** True-class nonconformity-score movement (KS distance, source vs target) versus realised undercoverage. Because architectures fitted to the same dataset and class are not independent, the reported statistic is estimated at the class level, one ladder rung per laddered dataset, where Spearman is 0.844 (n = 28 across four datasets, 95% CI [0.610, 0.939]). The NSL-KDD focal class R2L, with the largest movement, shows the largest undercoverage; CIC-IoT-2023 occupies the low-movement, no-failure corner.](figs/fig2_mechanism.png)
+![**Figure 3.** True-class nonconformity-score movement (KS distance, source vs target) versus realised undercoverage. Because architectures fitted to the same dataset and class are not independent, the reported statistic is estimated at the class level, one ladder rung per laddered dataset, where Spearman is 0.844 (n = 28 across four datasets, 95% CI [0.610, 0.939]). The NSL-KDD focal class R2L, with the largest movement, shows the largest undercoverage; CIC-IoT-2023 occupies the low-movement, no-failure corner.](figs/fig3_mechanism.png)
 
-## 5.11 Robustness
+## 5.12 Robustness
 
 *Prior shift.* Class-conditional coverage is invariant to reweighting the target to the
 source class prior by construction, and this is verified numerically on CIC-IDS2017 and
@@ -920,7 +1084,7 @@ of the score, the conditioning or the level. The full specification table is rel
 code; it is summarised here rather than plotted.
 
 *Miscoverage level.* The outcomes do not depend on the choice of alpha (Figure 4). Focal
-coverage under the deployable protocol is 0.030, 0.023 and 0.017 on NSL-KDD at alpha = 0.05,
+coverage under the source-calibrated baseline is 0.030, 0.023 and 0.017 on NSL-KDD at alpha = 0.05,
 0.10 and 0.20; 0.604, 0.556 and 0.479 on CIC-IDS2017, with the shortfall widening as the level
 loosens; 0.947, 0.895 and 0.790 on UGR'16 and 0.952, 0.908 and 0.817 on CIC-IoT-2023, both
 tracking nominal throughout; and the UGR'16 scan classes fall short at every level. Failures
@@ -934,22 +1098,47 @@ not overlap, so the severity of the failure depends on the classifier by a facto
 independent; its magnitude is not, and a practitioner cannot assume that changing the
 underlying model repairs the trust layer.
 
-*Efficiency and calibration.* The deployable protocol's narrower prediction sets are a
+*Efficiency and calibration.* The source-calibrated baseline's narrower prediction sets are a
 symptom of failure rather than a mark of efficiency, since wherever it undercovers its sets
 are both smaller and miss coverage, for example 2.04 against 4.68 on NSL-KDD at coverage
 0.030 against 0.953 (Figure 5). The calibrated probabilities are well calibrated in distribution, with class-averaged expected calibration error at or below 0.002 on all four datasets, including 0.0006 mean and 0.0015 maximum on CIC-IoT-2023 (Figure 6), so the failures are not a base-miscalibration artefact.
 
 *Calibration-set size.* The per-class calibration sets differ in size across protocols for a
-structural reason: on NSL-KDD the deployable protocol calibrates the focal class on 149 source
+structural reason: on NSL-KDD the source-calibrated baseline calibrates the focal class on 149 source
 points against 297 for the target-supervised protocol, because R2L is rare at source and common
 at target. Under exchangeability a smaller calibration set biases towards over-coverage, since the band
-is bounded above by 1/(n + 1), and the negative control confirms this. That argument does not
-survive the loss of exchangeability: once the target score distribution has moved, threshold
-estimation noise from a smaller calibration set can move realised coverage in either
-direction. We therefore report the asymmetry as an acknowledged confound of the natural-budget
-design rather than as a bias of known sign. A class-budget-matched contrast, in which TSC and
-SHC are subsampled to identical per-class calibration counts, is required to separate
-provenance from support and is not performed here.
+is bounded above by 1/(n + 1). That argument does not survive the loss of exchangeability, so
+rather than assume a direction we removed the confound. Both calibration sets were subsampled
+to identical per-class counts, n_match = min(n_SHC, n_TSC) for every class, leaving the
+evaluation set, classifier, calibrator and realised scores unchanged, so that the only quantity
+altered is calibration size.
+
+The contrast is unaffected (Table T13). On NSL-KDD the focal gap is 0.9237 at natural budgets
+and 0.9240 when both protocols calibrate on 149 points, retaining 100 per cent of the effect,
+with a seed-clustered interval of [0.9217, 0.9265]. On UGR'16 96.6 per cent is retained and on
+CIC-IoT-2023 79.3 per cent of a gap that is negligible in both conditions. The protocol
+difference is therefore an effect of calibration-data provenance and not of calibration
+sample size.
+
+That this needed testing rather than assuming is illustrated by the size effect itself: drawing
+two calibration sets of 297 and 149 points from the *same* distribution produces a spurious
+coverage difference of about 0.011 in our checks, which is real but two orders of magnitude
+smaller than the effect measured here.
+
+**Table T13. Class-budget-matched protocol contrast, focal class, α = 0.05.**
+
+| Environment | Budget | TSC | SHC | Gap | n_cal (TSC / SHC) |
+|---|---|---|---|---|---|
+| NSL-KDD | natural | 0.9527 | 0.0290 | 0.9237 | 297 / 149 |
+| NSL-KDD | **matched** | 0.9530 | 0.0290 | **0.9240** | 149 / 149 |
+| UGR'16 | natural | 0.9495 | 0.9471 | 0.0024 | 7505 / 7500 |
+| UGR'16 | **matched** | 0.9495 | 0.9472 | **0.0023** | 7471 / 7471 |
+| CIC-IoT-2023 | natural | 0.9496 | 0.9515 | −0.0019 | 3665 / 2135 |
+| CIC-IoT-2023 | **matched** | 0.9500 | 0.9515 | **−0.0015** | 2135 / 2135 |
+
+CIC-IDS2017 is not included: its source and target pools are realisation-specific, so the
+matched draw would have to be rebuilt per realisation. Its natural-budget focal gap of 0.384 is
+therefore the one protocol contrast in the study that remains unmatched, and we mark it as such.
 
 *Implementation.* An earlier quantile form used in several intermediate analyses returned one
 order statistic above the definition of Section 4.11, which inflates coverage by approximately
@@ -963,20 +1152,20 @@ precision at which results are reported.
 
 ![**Figure 6.** Calibration quality of the isotonic-calibrated probabilities on the held-out source calibration pool, for all four environments. (a) Per-class expected calibration error and (b) per-class Brier score, by dataset. On CIC-IoT-2023, where coverage holds, this also forecloses the converse objection that the null is an artefact of unusually good or poor calibration. All per-class ECE values fall at or below 0.002 (dashed line), confirming that the probabilities feeding the conformal layer are well calibrated in distribution.](figs/fig6_calibration.png)
 
-## 5.12 Label-free monitoring, its per-dataset behaviour, and its boundary
+## 5.13 Label-free monitoring, its per-dataset behaviour, and its boundary
 
 Pooled across the fifty-seven feasible class cells it is rank-correlated with realised
 undercoverage at 0.738 and separates undercovering classes with an area under the ROC curve
 of 0.930, with a bootstrap interval of [0.851, 0.990], against an oracle using true labels
 at 0.925 and 0.96; its performance is stable to the threshold defining an undercovering
-class (Figure 3).
+class (Figure 7).
 
-The monitor is evaluated on the three environments in which coverage actually fails; on CIC-IoT-2023 there is no failure to predict, so it does not apply there. Across those three, performance is consistent rather than carried by any one of them (Table T11): 0.926 on NSL-KDD, 0.955 on CIC-IDS2017 and 0.981 on UGR'16, with every
+The monitor is evaluated on the three environments in which coverage actually fails; on CIC-IoT-2023 there is no failure to predict, so it does not apply there. Across those three, performance is consistent rather than carried by any one of them (Table T14): 0.926 on NSL-KDD, 0.955 on CIC-IDS2017 and 0.981 on UGR'16, with every
 interval excluding chance. The intervals are nonetheless wide, since each environment
 contributes between twelve and thirty class cells, so the per-environment estimates should
 be read as consistent in direction rather than precisely resolved.
 
-**Table T11. Label-free monitor by dataset.**
+**Table T14. Label-free monitor by dataset.**
 
 | Dataset | Cells | Undercovering | Monitor ρ | AUROC | 95% CI | Oracle ρ |
 |---|---|---|---|---|---|---|
@@ -997,9 +1186,9 @@ formal characterisation of the boundary is not established: the rank correlation
 misroute rate and the size of the blind spot is 0.25 and not significant at the available
 sample size. We report the boundary as a demonstrated regime rather than a predictive rule.
 
-![**Figure 3.** The label-free coverage-failure monitor. (a) The monitor signal (predicted-class score drift, requiring no target labels) versus realised undercoverage across the 57 feasible class cells (Spearman 0.738, AUROC 0.930). (b) Label-free drift versus oracle (true-label) drift: points far below the diagonal are the similarity-type blind spot, where a novel class is confidently misrouted so the predicted-class distribution barely moves.](figs/fig3_monitor.png)
+![**Figure 7.** The label-free coverage-failure monitor. (a) The monitor signal (predicted-class score drift, requiring no target labels) versus realised undercoverage across the 57 feasible class cells (Spearman 0.738, AUROC 0.930). (b) Label-free drift versus oracle (true-label) drift: points far below the diagonal are the similarity-type blind spot, where a novel class is confidently misrouted so the predicted-class distribution barely moves.](figs/fig7_monitor.png)
 
-## 5.13 Abstention does not repair the failure, and the reason is instructive
+## 5.14 Abstention does not repair the failure, and the reason is instructive
 
 The monitor identifies which classes will undercover, which raises the operational question
 of what to do next. The natural answer is triage: abstain on the least trustworthy alerts,
@@ -1019,7 +1208,7 @@ denominator is the count of retained alerts whose true class is the focal class.
 The policy substantially improves the marginal guarantee: escalating a tenth of alerts raises
 aggregate coverage from 0.936 to 0.985 on CIC-IDS2017 and from 0.879 to 0.916 on UGR'16. It
 does almost nothing for the class-conditional guarantee where that guarantee has failed
-(Figure 7), and on the classes that fail worst it does something more troubling than nothing.
+(Figure 8), and on the classes that fail worst it does something more troubling than nothing.
 
 Evaluated on the UGR'16 classes that actually fail rather than on focal classes that largely
 held, scan11 moves from 0.535 to 0.598 and scan44 from 0.799 to 0.853 when half of all alerts
@@ -1040,13 +1229,13 @@ nominal, and by then almost half the focal-class alerts have been escalated. Onl
 reaches nominal, at an escalation of 0.025, and its focal class was already at 0.947 before
 any abstention.
 
-The reason is the mechanism of Section 5.10, and it explains a limit rather than a
+The reason is the mechanism of Section 5.11, and it explains a limit rather than a
 shortcoming of the policy. On NSL-KDD the empty-set fraction is exactly zero: every flow
 receives a non-empty prediction set that simply does not contain its true class. The alerts
 that break class-conditional coverage are not atypical flows sitting near the edge of every
 quantile, but flows the shifted detector confidently assigns to the wrong class, which
 therefore carry a large margin and are escalated last. This is the same identifiability
-limit that produces the monitor's similarity-type blind spot in Section 5.10: a flow whose
+limit that produces the monitor's similarity-type blind spot in Section 5.13: a flow whose
 true class is R2L but which the model confidently predicts as Normal is, to any label-free
 statistic, indistinguishable from a confident correct prediction.
 
@@ -1057,13 +1246,13 @@ does not supply. That returns the argument to the lever identified in Section 6:
 even a small labelled sample of target traffic, which is expensive but not impossible,
 whereas triage alone is neither sufficient nor, on the evidence here, of any material help.
 
-![**Figure 7.** Label-free selective prediction on UGR'16, showing the classes that actually fail rather than focal classes that largely held. (a) Coverage among retained alerts against the fraction escalated to an analyst; the policy orders by margin and never consults a label. (b) The fraction of each class still retained. The failing classes scan11 and scan44 are retained above the uniform rate at every budget while the sound classes are retained below it, so the policy escalates the alerts that least need review.](figs/fig7_selective.png)
+![**Figure 8.** Label-free selective prediction on UGR'16, showing the classes that actually fail rather than focal classes that largely held. (a) Coverage among retained alerts against the fraction escalated to an analyst; the policy orders by margin and never consults a label. (b) The fraction of each class still retained. The failing classes scan11 and scan44 are retained above the uniform rate at every budget while the sound classes are retained below it, so the policy escalates the alerts that least need review.](figs/fig8_selective.png)
 
-## 5.14 Secondary analysis: pooled cross-dataset model
+## 5.15 Secondary analysis: pooled cross-dataset model
 
 For completeness we fit the preregistered pooled model over all 49,500 coverage cells, with
 the caveat that it cannot support inference at this design. The interaction between the
-deployable protocol and support shift is negative under every specification, at −0.374, and
+source-calibrated baseline and support shift is negative under every specification, at −0.374, and
 the interaction with covariate shift is sign-unstable across estimators. The pooled
 sample is
 dominated by one dataset, with 36,000 of 49,500 cells from NSL-KDD, the shift covariates
@@ -1076,7 +1265,7 @@ within-dataset dose-response of Section 5.3 and the decomposition of Section 5.5
 
 # 6. Discussion
 
-**The deployable protocol does not deliver its promise where it matters most.** The
+**The source-calibrated baseline does not deliver its promise where it matters most.** The
 central practical message is that adopting conformal prediction as a trust layer for
 intrusion detection, calibrated in the only way an operator can calibrate it, does not
 deliver the advertised class-conditional coverage under realistic shift, and the failure
@@ -1095,16 +1284,32 @@ sample of target traffic," since where such a sample is available the
 target-supervised protocol restores coverage, making periodic active labelling of a
 target sample a concrete and effective lever.
 
-**Neither the category nor the nominal magnitude of shift predicts the failure, and aggregate drift monitoring is insufficient.** A placebo ladder built only from subtypes the source has already seen moves focal coverage by 0.298 with the support shift held at zero, against 0.113 for the novelty ladder itself. A fourth environment closes the argument from
-the other side: on modern IoT traffic with covariate shift pinned at the permutation null,
-support shift swept to 0.80 produces no coverage failure at all. Covariate shift of
+**What this study does and does not add.** That conformal prediction can lose coverage when
+exchangeability fails is known theory and we do not claim it as a finding. What the theory does
+not say is which classes lose coverage in a deployed intrusion detector, by how much, or
+whether the loss is attributable to calibration-data provenance rather than to the smaller
+calibration sets that source-only calibration yields for rare classes. Those are measurements,
+they require the constructions and controls assembled here, and they are what a practitioner
+deciding whether to adopt a conformal trust layer actually needs.
+
+**Neither the category nor the nominal magnitude of shift predicts the failure, and aggregate
+drift monitoring is insufficient.** A placebo ladder built only from subtypes the source has already seen moves focal coverage by 0.298 with the support shift held at zero, against 0.113 for the novelty ladder itself. A fourth environment closes the argument from the other side: on modern IoT traffic, semantic subtype novelty swept to 0.80 of focal evaluation mass produces no coverage failure at all. Covariate shift of
 sufficient magnitude is therefore by itself enough to break the guarantee, and support
 shift compounds a failure it did not cause. This also reconciles the environments, since
 UGR'16 retains its focal coverage at a covariate shift of 0.69 where NSL-KDD loses it at
 0.85. What the classes that fail have in common is neither a taxonomic category of shift nor a
 larger nominal shift value, since the fourth environment reaches a class-conditional novel
 fraction of 0.80 without failing while NSL-KDD fails at 0.45. What they share is the movement
-of their score distributions. Neither aggregate measure predicts the outcome: the
+of their score distributions.
+
+The reason aggregate drift monitoring cannot protect a class-conditional guarantee is now
+measured rather than asserted. An aggregate shift statistic is constant within an environment,
+so it cannot order the classes inside it; the class-conditional version orders them at
+Spearman 0.86 across the environments where coverage varies. CIC-IDS2017 makes the point
+without ambiguity: its two classes carry class-conditional shift of 1.000 and 0.499, the
+latter indistinguishable from a permutation null, while the aggregate reports 0.768 for both.
+An operator watching the aggregate would see a single moderate number describing one class
+that is entirely shifted and another that has not moved at all. Neither aggregate measure predicts the outcome: the
 same nominal support shift destroys coverage on one dataset and leaves it untouched on
 another, and the same is true of covariate shift across classes within a single dataset. Covariate shift additionally produces a
 failure that is selective and invisible to aggregate shift statistics. Under one
@@ -1146,9 +1351,9 @@ the hardest cases for label-free failure detection.
 
 Several limitations bound the claims of this paper and are stated plainly. First, the
 boundary between the regime in which the monitor succeeds and the regime in which it is blind
-is demonstrated but not formally characterised (Section 5.12), so the misroute rate should be
+is demonstrated but not formally characterised (Section 5.13), so the misroute rate should be
 read as a first, insufficient proxy rather than an established predictor. Second, the preregistered pooled cross-dataset
-model cannot support inference at this design, for the reasons given in Section 5.14, and no
+model cannot support inference at this design, for the reasons given in Section 5.15, and no
 better-specified fit would repair it; the causal claim rests instead on the within-dataset
 dose-response and its replications. Third, the monitor is evaluated only on the three environments in which coverage fails, since CIC-IoT-2023 provides nothing to predict, and although its performance is consistent across those three, each contributes only twelve to thirty class cells, so the per-environment intervals are wide and
 the estimates are resolved in direction rather than magnitude. Fourth, the
@@ -1157,7 +1362,7 @@ mechanism and monitor analyses use a deterministic mid-point randomisation of th
 nonconformity score to obtain reproducible score distributions, which is consistent with,
 but not identical to, the randomised score that defines the coverage of record. Sixth,
 the per-class calibration sets are not equal in size across protocols, for the structural
-reason given in Section 5.9; the asymmetry biases the reported effect towards
+reason given in Section 5.12; the asymmetry biases the reported effect towards
 conservatism but prevents a strictly size-matched comparison. Seventh, the source
 partition is drawn once and shared by all models, so the reported intervals capture model
 and draw variability but not partition variability and are correspondingly optimistic.
@@ -1194,9 +1399,9 @@ intrusion traffic in general.
 # 8. Future work
 
 Several analyses identified above are required before the claims reach their strongest form,
-and are listed here rather than left implicit. Class-conditional covariate shift, S_cov,c,
-computed by a domain classifier restricted to each class in turn, would replace the aggregate
-statistic that Section 5.9 shows cannot predict class-conditional outcomes. The
+and are listed here rather than left implicit. A continuous measure of support adequacy, replacing the binary in-source test that counts a
+subtype with eleven calibration points against 1,231 target instances as supported, would
+capture what Section 5.5 shows the present definition misses. The
 threshold-specific displacement of Section 4.7, the signed change in the target distribution
 function at the source quantile, should be reported alongside the two-sided proxy. A
 class-budget-matched contrast, subsampling TSC and SHC to identical per-class calibration
@@ -1234,12 +1439,12 @@ and an unlabelled, drifting target arises.
 
 # 9. Conclusion
 
-We asked, under preregistration, whether the only deployable conformal calibration
+We asked, under preregistration, whether the fixed source-calibrated conformal
 protocol for network intrusion detection retains its class-conditional coverage guarantee
 under distribution shift, and if not, whether its failures can be detected without target
 labels. The answer to the first question is that it does not. Against a negative control
-that places every class inside its guarantee band on exchangeable data, source-held-out calibration under shift falls below that band on every feasible class of three environments, by as much as 0.86, while calibration on target data holds; a fourth environment shows no failure at all. A placebo ladder with no support shift moves coverage more than twice as far as the novelty ladder does, and a fourth environment isolating support shift on modern IoT traffic produces no failure at all.
-Under pure covariate shift the failure is selective, invisible to aggregate shift
+that places every class inside its guarantee band on exchangeable data, source-held-out calibration under shift falls below that band on all four feasible NSL-KDD classes, on CIC-IDS2017 DoS and on two UGR'16 scan classes, by as much as 0.86, while several other classes and an entire fourth environment retain practically nominal coverage. A placebo ladder with no support shift moves coverage more than twice as far as the novelty ladder does, and a fourth environment with large semantic subtype novelty on modern IoT traffic produces no failure at all.
+Under retained-label-support temporal feature drift the failure is selective, invisible to aggregate shift
 measures, and confirmed heterogeneous by test rather than by inspection. We reduced the phenomenon to a single measurable cause, the movement of a class's
 nonconformity-score distribution past the source-calibrated quantile, which orders
 undercoverage across twenty-eight class-level cells spanning four datasets at a rank

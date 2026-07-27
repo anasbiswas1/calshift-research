@@ -341,9 +341,54 @@
       },
       "invariance.max_range": {
         "source": "subtype_coverage_invariance.csv"
+      },
+      "scov_class.by_class": {
+        "source": "class_conditional_scov_vs_coverage.csv"
+      },
+      "scov_class.range.cicids2017": {
+        "source": "class_conditional_scov_vs_coverage.csv"
+      },
+      "scov_class.range.ciciot2023": {
+        "source": "class_conditional_scov_vs_coverage.csv"
+      },
+      "scov_class.range.nslkdd": {
+        "source": "class_conditional_scov_vs_coverage.csv"
+      },
+      "scov_class.range.ugr16": {
+        "source": "class_conditional_scov_vs_coverage.csv"
+      },
+      "scov_class.within_dataset": {
+        "source": "class_conditional_scov_within_dataset.csv"
+      },
+      "scov_class.stratified_all": {
+        "source": "class_conditional_scov_verdict.json"
+      },
+      "scov_class.stratified_failing": {
+        "source": "class_conditional_scov_verdict.json"
+      },
+      "scov_class.cicids2017_realizations": {
+        "source": "class_conditional_scov_cicids2017_realizations.csv"
+      },
+      "budget_matched.summary": {
+        "source": "budget_matched_summary.csv"
+      },
+      "budget_matched.retained.ciciot2023": {
+        "source": "budget_matched_summary.csv"
+      },
+      "budget_matched.retained.nslkdd": {
+        "source": "budget_matched_summary.csv"
+      },
+      "budget_matched.retained.ugr16": {
+        "source": "budget_matched_summary.csv"
+      },
+      "budget_matched.nsl_matched_gap": {
+        "source": "budget_matched_verdict.json"
+      },
+      "budget_matched.nsl_matched_ci": {
+        "source": "budget_matched_verdict.json"
       }
     },
-    "n_entries": 108
+    "n_entries": 123
   },
   "coverage": {
     "nslkdd": {
@@ -3154,5 +3199,264 @@
       }
     },
     "max_range": 0.0418
+  },
+  "scov_class": {
+    "by_class": {
+      "nslkdd|Normal": {
+        "S_cov_class": 0.7886,
+        "S_cov_null": 0.5011,
+        "S_cov_aggregate": 0.8934,
+        "coverage": 0.9268,
+        "undercoverage": 0.0232
+      },
+      "nslkdd|DoS": {
+        "S_cov_class": 0.9595,
+        "S_cov_null": 0.4989,
+        "S_cov_aggregate": 0.8934,
+        "coverage": 0.3988,
+        "undercoverage": 0.5512
+      },
+      "nslkdd|Probe": {
+        "S_cov_class": 0.9794,
+        "S_cov_null": 0.4966,
+        "S_cov_aggregate": 0.8934,
+        "coverage": 0.6278,
+        "undercoverage": 0.3222
+      },
+      "nslkdd|R2L": {
+        "S_cov_class": 0.9905,
+        "S_cov_null": 0.4921,
+        "S_cov_aggregate": 0.8934,
+        "coverage": 0.0298,
+        "undercoverage": 0.9202
+      },
+      "ugr16|background": {
+        "S_cov_class": 0.6696,
+        "S_cov_null": 0.4983,
+        "S_cov_aggregate": 0.7129,
+        "coverage": 0.9492,
+        "undercoverage": 0.0008
+      },
+      "ugr16|dos": {
+        "S_cov_class": 0.5424,
+        "S_cov_null": 0.5004,
+        "S_cov_aggregate": 0.7129,
+        "coverage": 0.9503,
+        "undercoverage": -0.0003
+      },
+      "ugr16|nerisbotnet": {
+        "S_cov_class": 0.5782,
+        "S_cov_null": 0.4985,
+        "S_cov_aggregate": 0.7129,
+        "coverage": 0.9473,
+        "undercoverage": 0.0027
+      },
+      "ugr16|scan11": {
+        "S_cov_class": 0.9997,
+        "S_cov_null": 0.4982,
+        "S_cov_aggregate": 0.7129,
+        "coverage": 0.535,
+        "undercoverage": 0.415
+      },
+      "ugr16|scan44": {
+        "S_cov_class": 0.9861,
+        "S_cov_null": 0.4996,
+        "S_cov_aggregate": 0.7129,
+        "coverage": 0.799,
+        "undercoverage": 0.151
+      },
+      "ciciot2023|Benign": {
+        "S_cov_class": 0.4919,
+        "S_cov_null": 0.5028,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9506,
+        "undercoverage": -0.0006
+      },
+      "ciciot2023|BruteForce": {
+        "S_cov_class": 0.5098,
+        "S_cov_null": 0.5034,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9558,
+        "undercoverage": -0.0058
+      },
+      "ciciot2023|DDoS": {
+        "S_cov_class": 0.4949,
+        "S_cov_null": 0.4995,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.95,
+        "undercoverage": -0.0
+      },
+      "ciciot2023|DoS": {
+        "S_cov_class": 0.4994,
+        "S_cov_null": 0.499,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9499,
+        "undercoverage": 0.0001
+      },
+      "ciciot2023|Mirai": {
+        "S_cov_class": 0.4958,
+        "S_cov_null": 0.5018,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9504,
+        "undercoverage": -0.0004
+      },
+      "ciciot2023|Recon": {
+        "S_cov_class": 0.5025,
+        "S_cov_null": 0.4989,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9497,
+        "undercoverage": 0.0003
+      },
+      "ciciot2023|Spoofing": {
+        "S_cov_class": 0.4984,
+        "S_cov_null": 0.5006,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9528,
+        "undercoverage": -0.0028
+      },
+      "ciciot2023|Web": {
+        "S_cov_class": 0.6536,
+        "S_cov_null": 0.4983,
+        "S_cov_aggregate": 0.5123,
+        "coverage": 0.9519,
+        "undercoverage": -0.0019
+      },
+      "cicids2017|Benign": {
+        "S_cov_class": 0.4992,
+        "S_cov_null": 0.5008,
+        "S_cov_aggregate": 0.7679,
+        "coverage": 0.9501,
+        "undercoverage": -0.0001
+      },
+      "cicids2017|DoS": {
+        "S_cov_class": 0.9997,
+        "S_cov_null": 0.501,
+        "S_cov_aggregate": 0.7679,
+        "coverage": 0.6039,
+        "undercoverage": 0.3461
+      }
+    },
+    "range": {
+      "cicids2017": [
+        0.4992,
+        0.9997
+      ],
+      "ciciot2023": [
+        0.4919,
+        0.6536
+      ],
+      "nslkdd": [
+        0.7886,
+        0.9905
+      ],
+      "ugr16": [
+        0.5424,
+        0.9997
+      ]
+    },
+    "within_dataset": {
+      "cicids2017": {
+        "rho": NaN,
+        "p": NaN,
+        "n": 2,
+        "spread": 0.3462
+      },
+      "ciciot2023": {
+        "rho": -0.214,
+        "p": 0.6103,
+        "n": 8,
+        "spread": 0.0061
+      },
+      "nslkdd": {
+        "rho": 0.8,
+        "p": 0.2,
+        "n": 4,
+        "spread": 0.897
+      },
+      "ugr16": {
+        "rho": 0.9,
+        "p": 0.0374,
+        "n": 5,
+        "spread": 0.4153
+      }
+    },
+    "stratified_all": {
+      "rho": 0.286,
+      "p": 0.2658,
+      "n": 17.0
+    },
+    "stratified_failing": {
+      "rho": 0.8621,
+      "p": 0.0028,
+      "n": 9.0
+    },
+    "cicids2017_realizations": {
+      "R1_holdout_Slowhttptest|Benign": 0.5002,
+      "R1_holdout_Slowhttptest|DoS": 0.9994,
+      "R2_holdout_Slowloris|Benign": 0.5028,
+      "R2_holdout_Slowloris|DoS": 0.9995,
+      "R3_holdout_GoldenEye|Benign": 0.4972,
+      "R3_holdout_GoldenEye|DoS": 1.0,
+      "R4_holdout_Slowloris_Slowhttptest|Benign": 0.4932,
+      "R4_holdout_Slowloris_Slowhttptest|DoS": 0.9995,
+      "R5_holdout_GoldenEye_Slowloris|Benign": 0.5025,
+      "R5_holdout_GoldenEye_Slowloris|DoS": 1.0
+    }
+  },
+  "budget_matched": {
+    "summary": {
+      "nslkdd|natural": {
+        "TSC": 0.9527,
+        "SHC": 0.029,
+        "gap": 0.9237,
+        "n_cal_TSC": 296.85,
+        "n_cal_SHC": 149.0
+      },
+      "nslkdd|matched": {
+        "TSC": 0.953,
+        "SHC": 0.029,
+        "gap": 0.924,
+        "n_cal_TSC": 149.0,
+        "n_cal_SHC": 149.0
+      },
+      "ugr16|natural": {
+        "TSC": 0.9495,
+        "SHC": 0.9471,
+        "gap": 0.0024,
+        "n_cal_TSC": 7505.0467,
+        "n_cal_SHC": 7500.0
+      },
+      "ugr16|matched": {
+        "TSC": 0.9495,
+        "SHC": 0.9472,
+        "gap": 0.0023,
+        "n_cal_TSC": 7470.9033,
+        "n_cal_SHC": 7470.9033
+      },
+      "ciciot2023|natural": {
+        "TSC": 0.9496,
+        "SHC": 0.9515,
+        "gap": -0.0019,
+        "n_cal_TSC": 3665.0167,
+        "n_cal_SHC": 2135.0
+      },
+      "ciciot2023|matched": {
+        "TSC": 0.95,
+        "SHC": 0.9515,
+        "gap": -0.0015,
+        "n_cal_TSC": 2135.0,
+        "n_cal_SHC": 2135.0
+      }
+    },
+    "retained": {
+      "ciciot2023": 0.7929,
+      "nslkdd": 1.0003,
+      "ugr16": 0.9661
+    },
+    "nsl_matched_gap": 0.924,
+    "nsl_matched_ci": [
+      0.9217,
+      0.9265
+    ]
   }
 }
