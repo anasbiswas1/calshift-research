@@ -1,0 +1,62 @@
+{
+  "dataset": "ciciot2023",
+  "alpha": 0.05,
+  "novel_subtypes": [
+    "Uploading_Attack",
+    "Backdoor_Malware"
+  ],
+  "focal_class": "Web",
+  "by_rung": [
+    {
+      "rung": 0.0,
+      "KS_all": 0.0349,
+      "KS_novel": NaN,
+      "KS_seen": 0.0349,
+      "misroute_all": 0.5325,
+      "misroute_novel": NaN,
+      "misroute_seen": 0.5325
+    },
+    {
+      "rung": 0.2,
+      "KS_all": 0.037,
+      "KS_novel": 0.1301,
+      "KS_seen": 0.0389,
+      "misroute_all": 0.5238,
+      "misroute_novel": 0.5156,
+      "misroute_seen": 0.5258
+    },
+    {
+      "rung": 0.4,
+      "KS_all": 0.0531,
+      "KS_novel": 0.112,
+      "KS_seen": 0.0391,
+      "misroute_all": 0.5227,
+      "misroute_novel": 0.5232,
+      "misroute_seen": 0.5224
+    },
+    {
+      "rung": 0.6,
+      "KS_all": 0.0648,
+      "KS_novel": 0.1078,
+      "KS_seen": 0.0526,
+      "misroute_all": 0.5352,
+      "misroute_novel": 0.5307,
+      "misroute_seen": 0.5419
+    },
+    {
+      "rung": 0.8,
+      "KS_all": 0.0893,
+      "KS_novel": 0.1081,
+      "KS_seen": 0.0663,
+      "misroute_all": 0.5269,
+      "misroute_novel": 0.525,
+      "misroute_seen": 0.5342
+    }
+  ],
+  "rung080_score_KS": 0.0893,
+  "rung080_score_KS_novel_only": 0.1081,
+  "rung080_undercoverage": -0.0019,
+  "nslkdd_rung080_score_KS": 0.9216,
+  "nslkdd_rung080_undercoverage": 0.8765,
+  "question": "coverage held at every rung despite S_sup sweeping 0 to 0.80; the mechanism predicts this only if focal score movement is small. This file records whether it is."
+}
