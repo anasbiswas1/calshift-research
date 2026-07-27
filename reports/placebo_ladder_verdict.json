@@ -1,0 +1,106 @@
+{
+  "design": "R2L evaluation sets built ONLY from subtypes present in the source (warezmaster, guess_passwd); non-focal indices held identical across rungs within a realisation so only focal composition varies",
+  "S_sup_max_observed": 0.0,
+  "placebo_swing": 0.2979,
+  "novelty_swing": 0.11328057376575275,
+  "ratio": 2.6297536293911485,
+  "placebo_curve": [
+    {
+      "rung": 0.0,
+      "coverage": 0.3076,
+      "S_sup": 0.0,
+      "score_KS": 0.8005
+    },
+    {
+      "rung": 0.25,
+      "coverage": 0.2331,
+      "S_sup": 0.0,
+      "score_KS": 0.8364
+    },
+    {
+      "rung": 0.5,
+      "coverage": 0.1614,
+      "S_sup": 0.0,
+      "score_KS": 0.8729
+    },
+    {
+      "rung": 0.75,
+      "coverage": 0.0814,
+      "S_sup": 0.0,
+      "score_KS": 0.9144
+    },
+    {
+      "rung": 1.0,
+      "coverage": 0.0097,
+      "S_sup": 0.0,
+      "score_KS": 0.9716
+    }
+  ],
+  "per_subtype_invariance": [
+    {
+      "subtype": "warezmaster",
+      "mean_coverage": 0.2431,
+      "slope_vs_rung": 0.0013,
+      "r": 0.166,
+      "p": 0.7894,
+      "range": 0.0054
+    },
+    {
+      "subtype": "multihop",
+      "mean_coverage": 0.0373,
+      "slope_vs_rung": -0.1046,
+      "r": -0.965,
+      "p": 0.1691,
+      "range": 0.0418
+    },
+    {
+      "subtype": "sendmail",
+      "mean_coverage": 0.0248,
+      "slope_vs_rung": -0.0298,
+      "r": -0.471,
+      "p": 0.5295,
+      "range": 0.0394
+    },
+    {
+      "subtype": "guess_passwd",
+      "mean_coverage": 0.0072,
+      "slope_vs_rung": -0.002,
+      "r": -0.857,
+      "p": 0.0632,
+      "range": 0.0016
+    },
+    {
+      "subtype": "named",
+      "mean_coverage": 0.0047,
+      "slope_vs_rung": 0.002,
+      "r": 0.548,
+      "p": 0.4516,
+      "range": 0.0022
+    },
+    {
+      "subtype": "httptunnel",
+      "mean_coverage": 0.0024,
+      "slope_vs_rung": -0.001,
+      "r": -0.731,
+      "p": 0.2688,
+      "range": 0.0008
+    },
+    {
+      "subtype": "snmpgetattack",
+      "mean_coverage": 0.0021,
+      "slope_vs_rung": -0.0014,
+      "r": -0.541,
+      "p": 0.4592,
+      "range": 0.0014
+    },
+    {
+      "subtype": "snmpguess",
+      "mean_coverage": 0.0,
+      "slope_vs_rung": 0.0,
+      "r": NaN,
+      "p": NaN,
+      "range": 0.0
+    }
+  ],
+  "note": "the composition-adjusted regression in step 5 conditioned on mediators and is withdrawn; this design answers the question it could not"
+}
