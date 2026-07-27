@@ -1,0 +1,5 @@
+dataset,n,rho,p,undercoverage_spread,aggregate_within
+cicids2017,2,,,0.3462,constant
+ciciot2023,8,-0.214,0.6103,0.0061,constant
+nslkdd,4,0.8,0.2,0.897,constant
+ugr16,5,0.9,0.0374,0.4153,constant
