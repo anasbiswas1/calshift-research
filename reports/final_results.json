@@ -273,6 +273,9 @@
       },
       "ciciot2023.focal_prior_percent": {
         "source": "focal_class_record_ciciot2023.json"
+      },
+      "calibration.ciciot2023_toplabel_ece": {
+        "source": "calibration_toplabel_ciciot2023.csv"
       }
     },
     "n_entries": 86
@@ -1231,10 +1234,12 @@
   "calibration": {
     "mean_ece_by_dataset": {
       "cicids2017": 0.0001,
+      "ciciot2023": 0.00056,
       "nslkdd": 0.0002,
-      "ugr16": 0.0012
+      "ugr16": 0.00118
     },
-    "max_per_class_ece": 0.0019
+    "max_per_class_ece": 0.0019,
+    "ciciot2023_toplabel_ece": 0.00134
   },
   "guarantee_band": {
     "shc_shortfall": {
