@@ -1,0 +1,71 @@
+{
+  "why": "the study\u2019s confirmatory contrast (TSC vs SHC) was confounded with per-class calibration budget, of unknown sign once exchangeability is lost",
+  "matching": "n_match[k] = min(n_SHC[k], n_TSC[k]); both calibration sets subsampled to it per class; evaluation set, classifier, calibrator and realised scores unchanged",
+  "summary": [
+    {
+      "dataset": "nslkdd",
+      "class": "R2L",
+      "budget": "natural",
+      "TSC": 0.95274,
+      "SHC": 0.02902,
+      "gap": 0.92372,
+      "n_cal_TSC": 296.85,
+      "n_cal_SHC": 149.0
+    },
+    {
+      "dataset": "nslkdd",
+      "class": "R2L",
+      "budget": "matched",
+      "TSC": 0.95305,
+      "SHC": 0.02902,
+      "gap": 0.92403,
+      "n_cal_TSC": 149.0,
+      "n_cal_SHC": 149.0
+    },
+    {
+      "dataset": "ugr16",
+      "class": "nerisbotnet",
+      "budget": "natural",
+      "TSC": 0.94954,
+      "SHC": 0.94713,
+      "gap": 0.00242,
+      "n_cal_TSC": 7505.04667,
+      "n_cal_SHC": 7500.0
+    },
+    {
+      "dataset": "ugr16",
+      "class": "nerisbotnet",
+      "budget": "matched",
+      "TSC": 0.9495,
+      "SHC": 0.94717,
+      "gap": 0.00234,
+      "n_cal_TSC": 7470.90333,
+      "n_cal_SHC": 7470.90333
+    },
+    {
+      "dataset": "ciciot2023",
+      "class": "Web",
+      "budget": "natural",
+      "TSC": 0.94965,
+      "SHC": 0.95151,
+      "gap": -0.00186,
+      "n_cal_TSC": 3665.01667,
+      "n_cal_SHC": 2135.0
+    },
+    {
+      "dataset": "ciciot2023",
+      "class": "Web",
+      "budget": "matched",
+      "TSC": 0.95003,
+      "SHC": 0.95151,
+      "gap": -0.00148,
+      "n_cal_TSC": 2135.0,
+      "n_cal_SHC": 2135.0
+    }
+  ],
+  "nsl_matched_gap": 0.9240310026062263,
+  "nsl_matched_ci": [
+    0.921725478369169,
+    0.926513557638124
+  ]
+}
