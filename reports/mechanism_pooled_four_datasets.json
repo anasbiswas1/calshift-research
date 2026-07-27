@@ -1,0 +1,33 @@
+{
+  "class_level_spearman": 0.8439,
+  "p": 1.6827690704614694e-08,
+  "n": 28,
+  "ci95": [
+    0.61,
+    0.939
+  ],
+  "per_dataset": {
+    "cicids2017": {
+      "rho": 0.841,
+      "p": 0.0023,
+      "n": 10
+    },
+    "ciciot2023": {
+      "rho": -0.667,
+      "p": 0.071,
+      "n": 8
+    },
+    "nslkdd": {
+      "rho": 0.9,
+      "p": 0.0374,
+      "n": 5
+    },
+    "ugr16": {
+      "rho": 1.0,
+      "p": 0.0,
+      "n": 5
+    }
+  },
+  "convention": "one ladder rung per laddered dataset (NSL-KDD rung 0.80, CIC-IoT-2023 rung 0.80) so no environment dominates the pooled sample; the full five-rung CIC-IoT table is retained separately in score_shift_ciciot2023.csv",
+  "supersedes": "the three-dataset value rho=0.926, n=20"
+}
