@@ -1,0 +1,2199 @@
+{
+  "_meta": {
+    "alpha_primary": 0.05,
+    "generated_from": "committed reports/",
+    "entries": {
+      "coverage.nslkdd.focal_class": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.schema": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.focal.REC.pooled": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.focal.REC.by_rung": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.focal.TSC.pooled": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.focal.TSC.by_rung": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.focal.SHC.pooled": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.focal.SHC.by_rung": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.all_classes_SHC": {
+        "source": "coverage_primary_nslkdd.csv"
+      },
+      "coverage.nslkdd.set_size": {
+        "source": "coverage_primary_nslkdd.csv",
+        "note": "column mean_set_size, pooled"
+      },
+      "coverage.nslkdd.focal_set_size_by_rung": {
+        "source": "coverage_primary_nslkdd.csv",
+        "note": "column mean_set_size, focal class only"
+      },
+      "coverage.nslkdd.focal_set_size": {
+        "source": "coverage_primary_nslkdd.csv",
+        "note": "column mean_set_size, focal class only"
+      },
+      "coverage.cicids2017.focal_class": {
+        "source": "coverage_primary_cicids2017.csv"
+      },
+      "coverage.cicids2017.schema": {
+        "source": "coverage_primary_cicids2017.csv"
+      },
+      "coverage.cicids2017.focal.REC.pooled": {
+        "source": "coverage_primary_cicids2017.csv"
+      },
+      "coverage.cicids2017.focal.TSC.pooled": {
+        "source": "coverage_primary_cicids2017.csv"
+      },
+      "coverage.cicids2017.focal.SHC.pooled": {
+        "source": "coverage_primary_cicids2017.csv"
+      },
+      "coverage.cicids2017.all_classes_SHC": {
+        "source": "coverage_primary_cicids2017.csv"
+      },
+      "coverage.cicids2017.set_size": {
+        "source": "coverage_primary_cicids2017.csv",
+        "note": "column set_size, pooled"
+      },
+      "coverage.cicids2017.focal_set_size": {
+        "source": "coverage_primary_cicids2017.csv",
+        "note": "column set_size, focal class only"
+      },
+      "coverage.ugr16.focal_class": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.schema": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.focal.REC.pooled": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.focal.TSC.pooled": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.focal.SHC.pooled": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.all_classes_SHC": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.set_size": {
+        "source": "coverage_primary_ugr16.csv",
+        "note": "column set_size, pooled"
+      },
+      "coverage.ugr16.focal_set_size": {
+        "source": "coverage_primary_ugr16.csv",
+        "note": "column set_size, focal class only"
+      },
+      "coverage.ciciot2023.focal_class": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.schema": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.focal.REC.pooled": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.focal.REC.by_rung": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.focal.TSC.pooled": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.focal.TSC.by_rung": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.focal.SHC.pooled": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.focal.SHC.by_rung": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.all_classes_SHC": {
+        "source": "coverage_primary_ciciot2023.csv"
+      },
+      "coverage.ciciot2023.set_size": {
+        "source": "coverage_primary_ciciot2023.csv",
+        "note": "column set_size, pooled"
+      },
+      "coverage.ciciot2023.focal_set_size_by_rung": {
+        "source": "coverage_primary_ciciot2023.csv",
+        "note": "column set_size, focal class only"
+      },
+      "coverage.ciciot2023.focal_set_size": {
+        "source": "coverage_primary_ciciot2023.csv",
+        "note": "column set_size, focal class only"
+      },
+      "coverage.nslkdd.focal_SHC_by_alpha": {
+        "source": "alpha_sensitivity.csv"
+      },
+      "coverage.cicids2017.focal_SHC_by_alpha": {
+        "source": "alpha_sensitivity.csv"
+      },
+      "coverage.ugr16.focal_SHC_by_alpha": {
+        "source": "alpha_sensitivity.csv"
+      },
+      "coverage.ciciot2023.focal_SHC_by_alpha": {
+        "source": "coverage_primary_ciciot2023.csv",
+        "note": "top rung 0.8"
+      },
+      "coverage.ugr16.discovered.scan11": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "coverage.ugr16.discovered.scan44": {
+        "source": "coverage_primary_ugr16.csv"
+      },
+      "shift.nslkdd": {
+        "source": "ladder_shift_measures_nslkdd.csv"
+      },
+      "shift.cicids2017": {
+        "source": "ladder_shift_measures_cicids2017.csv"
+      },
+      "shift.ciciot2023": {
+        "source": "ladder_shift_measures_ciciot2023.csv"
+      },
+      "shift.ugr16": {
+        "source": "ladder_shift_measures_ugr16.json"
+      },
+      "mechanism.class_level": {
+        "source": "score_shift_explainability.csv"
+      },
+      "mechanism.cells_per_dataset": {
+        "source": "score_shift_explainability.csv"
+      },
+      "mechanism.range": {
+        "source": "score_shift_explainability.csv"
+      },
+      "mechanism.within_dataset": {
+        "source": "score_shift_explainability.csv"
+      },
+      "mechanism.leave_one_out": {
+        "source": "score_shift_explainability.csv",
+        "note": "rho with each dataset removed in turn"
+      },
+      "monitor.pooled": {
+        "source": "monitor_labelfree.csv",
+        "note": "feasible cells only; ranks computed within environment (deployable)"
+      },
+      "monitor.per_dataset": {
+        "source": "monitor_labelfree.csv"
+      },
+      "negative_control.nslkdd": {
+        "source": "negative_control.csv"
+      },
+      "negative_control.max_abs_deviation": {
+        "source": "negative_control.csv"
+      },
+      "efficiency": {
+        "source": "efficiency_setsize.csv"
+      },
+      "model_performance.macro_f1": {
+        "source": "model_performance*.csv"
+      },
+      "calibration.mean_ece_by_dataset": {
+        "source": "calibration_quality.csv"
+      },
+      "calibration.max_per_class_ece": {
+        "source": "calibration_quality.csv"
+      },
+      "guarantee_band.shc_shortfall": {
+        "source": "coverage_guarantee_band.csv"
+      },
+      "guarantee_band.above_band": {
+        "source": "coverage_guarantee_band.csv"
+      },
+      "marginal_vs_mondrian.nslkdd": {
+        "source": "marginal_vs_mondrian_nslkdd.csv"
+      },
+      "ipw": {
+        "source": "armb_verdict.json"
+      },
+      "selective.by_dataset": {
+        "source": "selective_prediction_curve.csv"
+      },
+      "shift.nslkdd_by_rung": {
+        "source": "ladder_shift_measures_nslkdd.csv"
+      },
+      "shift.ciciot2023_by_rung": {
+        "source": "ladder_shift_measures_ciciot2023.csv"
+      },
+      "monitor.published_per_dataset": {
+        "source": "monitor_per_dataset.csv"
+      },
+      "monitor.boundary": {
+        "source": "monitor_verdict.json"
+      },
+      "score_movement.by_dataset_class": {
+        "source": "score_shift_explainability.csv"
+      },
+      "score_movement.ciciot2023": {
+        "source": "ciciot2023_mechanism_verdict.json"
+      },
+      "score_movement.ciciot2023_by_rung": {
+        "source": "focal_score_movement_ciciot2023.csv"
+      },
+      "architecture.focal_coverage": {
+        "source": "per_architecture_coverage.csv"
+      },
+      "pooled_model": {
+        "source": "pooled_model_results.json"
+      },
+      "specification_curve": {
+        "source": "specification_curve.csv"
+      },
+      "audit": {
+        "source": "audit_corrections.json"
+      },
+      "ciciot2023.provenance": {
+        "source": "focal_class_record_ciciot2023.json"
+      },
+      "ciciot2023.split": {
+        "source": "ciciot2023_split_record.json"
+      },
+      "ciciot2023.prior_after_cap": {
+        "source": "focal_class_record_ciciot2023.json"
+      },
+      "monitor.pooled_auroc_ci": {
+        "source": "monitor_labelfree.csv"
+      },
+      "selective.headline": {
+        "source": "selective_prediction_headline.csv"
+      },
+      "shift.permutation_null_threshold": {
+        "source": "ladder_shift_measures_ugr16.json"
+      },
+      "ciciot2023.focal_prior_percent": {
+        "source": "focal_class_record_ciciot2023.json"
+      }
+    },
+    "n_entries": 86
+  },
+  "coverage": {
+    "nslkdd": {
+      "focal_class": "R2L",
+      "schema": {
+        "set_size_col": "mean_set_size",
+        "has_rung": true,
+        "realization_col": "realization",
+        "alphas_in_file": [
+          0.05
+        ]
+      },
+      "focal": {
+        "REC": {
+          "pooled": {
+            "mean": 0.9562,
+            "ci": [
+              0.9562,
+              0.9562
+            ]
+          },
+          "by_rung": {
+            "0.00": {
+              "mean": 0.9563,
+              "ci": [
+                0.9563,
+                0.9563
+              ]
+            },
+            "0.20": {
+              "mean": 0.9561,
+              "ci": [
+                0.9561,
+                0.9562
+              ]
+            },
+            "0.40": {
+              "mean": 0.9562,
+              "ci": [
+                0.9562,
+                0.9563
+              ]
+            },
+            "0.60": {
+              "mean": 0.956,
+              "ci": [
+                0.956,
+                0.9561
+              ]
+            },
+            "0.80": {
+              "mean": 0.9563,
+              "ci": [
+                0.9562,
+                0.9563
+              ]
+            }
+          }
+        },
+        "TSC": {
+          "pooled": {
+            "mean": 0.9536,
+            "ci": [
+              0.9527,
+              0.9545
+            ]
+          },
+          "by_rung": {
+            "0.00": {
+              "mean": 0.9544,
+              "ci": [
+                0.9535,
+                0.9555
+              ]
+            },
+            "0.20": {
+              "mean": 0.9547,
+              "ci": [
+                0.9536,
+                0.9557
+              ]
+            },
+            "0.40": {
+              "mean": 0.9533,
+              "ci": [
+                0.9512,
+                0.9555
+              ]
+            },
+            "0.60": {
+              "mean": 0.9526,
+              "ci": [
+                0.9512,
+                0.9537
+              ]
+            },
+            "0.80": {
+              "mean": 0.9531,
+              "ci": [
+                0.9522,
+                0.9541
+              ]
+            }
+          }
+        },
+        "SHC": {
+          "pooled": {
+            "mean": 0.086,
+            "ci": [
+              0.0772,
+              0.0975
+            ]
+          },
+          "by_rung": {
+            "0.00": {
+              "mean": 0.1431,
+              "ci": [
+                0.1281,
+                0.1632
+              ]
+            },
+            "0.20": {
+              "mean": 0.1139,
+              "ci": [
+                0.1026,
+                0.128
+              ]
+            },
+            "0.40": {
+              "mean": 0.0848,
+              "ci": [
+                0.0762,
+                0.0961
+              ]
+            },
+            "0.60": {
+              "mean": 0.0582,
+              "ci": [
+                0.0523,
+                0.0662
+              ]
+            },
+            "0.80": {
+              "mean": 0.0298,
+              "ci": [
+                0.0266,
+                0.034
+              ]
+            }
+          }
+        }
+      },
+      "all_classes_SHC": {
+        "DoS": 0.6722,
+        "Normal": 0.9275,
+        "Probe": 0.8054,
+        "R2L": 0.086
+      },
+      "set_size": {
+        "REC": 3.6994,
+        "SHC": 2.0492,
+        "TSC": 3.7047
+      },
+      "focal_set_size_by_rung": {
+        "0.00": {
+          "REC": 3.0815,
+          "SHC": 2.1138,
+          "TSC": 3.0909
+        },
+        "0.20": {
+          "REC": 3.6603,
+          "SHC": 2.1195,
+          "TSC": 3.6634
+        },
+        "0.40": {
+          "REC": 3.9737,
+          "SHC": 2.0756,
+          "TSC": 3.9975
+        },
+        "0.60": {
+          "REC": 4.122,
+          "SHC": 2.0628,
+          "TSC": 4.1173
+        },
+        "0.80": {
+          "REC": 4.6794,
+          "SHC": 2.0448,
+          "TSC": 4.6779
+        }
+      },
+      "focal_set_size": {
+        "REC": 3.9034,
+        "SHC": 2.0833,
+        "TSC": 3.9094
+      },
+      "focal_SHC_by_alpha": {
+        "0.05": 0.0298,
+        "0.10": 0.0231,
+        "0.20": 0.0168
+      }
+    },
+    "cicids2017": {
+      "focal_class": "DoS",
+      "schema": {
+        "set_size_col": "set_size",
+        "has_rung": false,
+        "realization_col": "realization",
+        "alphas_in_file": [
+          0.05,
+          0.1,
+          0.2
+        ]
+      },
+      "focal": {
+        "REC": {
+          "pooled": {
+            "mean": 0.9875,
+            "ci": [
+              0.987,
+              0.9881
+            ]
+          }
+        },
+        "TSC": {
+          "pooled": {
+            "mean": 0.9876,
+            "ci": [
+              0.9871,
+              0.9882
+            ]
+          }
+        },
+        "SHC": {
+          "pooled": {
+            "mean": 0.6039,
+            "ci": [
+              0.5971,
+              0.6111
+            ]
+          }
+        }
+      },
+      "all_classes_SHC": {
+        "Benign": 0.9501,
+        "DoS": 0.6039
+      },
+      "set_size": {
+        "REC": 1.5703,
+        "SHC": 1.0079,
+        "TSC": 1.571
+      },
+      "focal_set_size": {
+        "REC": 1.449,
+        "SHC": 1.0655,
+        "TSC": 1.4491
+      },
+      "focal_SHC_by_alpha": {
+        "0.05": 0.6039,
+        "0.10": 0.5565,
+        "0.20": 0.4786
+      }
+    },
+    "ugr16": {
+      "focal_class": "nerisbotnet",
+      "schema": {
+        "set_size_col": "set_size",
+        "has_rung": false,
+        "realization_col": "environment",
+        "alphas_in_file": [
+          0.05,
+          0.1,
+          0.2
+        ]
+      },
+      "focal": {
+        "REC": {
+          "pooled": {
+            "mean": 0.9499,
+            "ci": [
+              0.9496,
+              0.9502
+            ]
+          }
+        },
+        "TSC": {
+          "pooled": {
+            "mean": 0.9497,
+            "ci": [
+              0.9493,
+              0.95
+            ]
+          }
+        },
+        "SHC": {
+          "pooled": {
+            "mean": 0.9473,
+            "ci": [
+              0.9469,
+              0.9476
+            ]
+          }
+        }
+      },
+      "all_classes_SHC": {
+        "background": 0.9491,
+        "dos": 0.9503,
+        "nerisbotnet": 0.9473,
+        "scan11": 0.535,
+        "scan44": 0.799
+      },
+      "set_size": {
+        "REC": 1.7397,
+        "SHC": 1.1072,
+        "TSC": 1.7417
+      },
+      "focal_set_size": {
+        "REC": 1.7696,
+        "SHC": 1.1432,
+        "TSC": 1.7728
+      },
+      "focal_SHC_by_alpha": {
+        "0.05": 0.9473,
+        "0.10": 0.8953,
+        "0.20": 0.7904
+      },
+      "discovered": {
+        "scan11": {
+          "mean": 0.535,
+          "ci": [
+            0.5249,
+            0.5439
+          ]
+        },
+        "scan44": {
+          "mean": 0.799,
+          "ci": [
+            0.7944,
+            0.804
+          ]
+        }
+      }
+    },
+    "ciciot2023": {
+      "focal_class": "Web",
+      "schema": {
+        "set_size_col": "set_size",
+        "has_rung": true,
+        "realization_col": "realization",
+        "alphas_in_file": [
+          0.05,
+          0.1,
+          0.2
+        ]
+      },
+      "focal": {
+        "REC": {
+          "pooled": {
+            "mean": 0.9519,
+            "ci": [
+              0.9519,
+              0.9519
+            ]
+          },
+          "by_rung": {
+            "0.00": {
+              "mean": 0.9519,
+              "ci": [
+                0.9519,
+                0.9519
+              ]
+            },
+            "0.20": {
+              "mean": 0.9519,
+              "ci": [
+                0.9519,
+                0.9519
+              ]
+            },
+            "0.40": {
+              "mean": 0.9519,
+              "ci": [
+                0.9519,
+                0.9519
+              ]
+            },
+            "0.60": {
+              "mean": 0.9519,
+              "ci": [
+                0.9519,
+                0.9519
+              ]
+            },
+            "0.80": {
+              "mean": 0.9519,
+              "ci": [
+                0.9519,
+                0.9519
+              ]
+            }
+          }
+        },
+        "TSC": {
+          "pooled": {
+            "mean": 0.9504,
+            "ci": [
+              0.95,
+              0.9508
+            ]
+          },
+          "by_rung": {
+            "0.00": {
+              "mean": 0.9512,
+              "ci": [
+                0.9501,
+                0.9522
+              ]
+            },
+            "0.20": {
+              "mean": 0.9532,
+              "ci": [
+                0.9517,
+                0.9545
+              ]
+            },
+            "0.40": {
+              "mean": 0.9497,
+              "ci": [
+                0.9489,
+                0.9505
+              ]
+            },
+            "0.60": {
+              "mean": 0.9497,
+              "ci": [
+                0.949,
+                0.9504
+              ]
+            },
+            "0.80": {
+              "mean": 0.9482,
+              "ci": [
+                0.9471,
+                0.9493
+              ]
+            }
+          }
+        },
+        "SHC": {
+          "pooled": {
+            "mean": 0.9511,
+            "ci": [
+              0.95,
+              0.9522
+            ]
+          },
+          "by_rung": {
+            "0.00": {
+              "mean": 0.9491,
+              "ci": [
+                0.9479,
+                0.9503
+              ]
+            },
+            "0.20": {
+              "mean": 0.9517,
+              "ci": [
+                0.9508,
+                0.9525
+              ]
+            },
+            "0.40": {
+              "mean": 0.9509,
+              "ci": [
+                0.9495,
+                0.9523
+              ]
+            },
+            "0.60": {
+              "mean": 0.952,
+              "ci": [
+                0.9505,
+                0.9534
+              ]
+            },
+            "0.80": {
+              "mean": 0.9519,
+              "ci": [
+                0.9502,
+                0.9535
+              ]
+            }
+          }
+        }
+      },
+      "all_classes_SHC": {
+        "Benign": 0.9503,
+        "BruteForce": 0.9578,
+        "DDoS": 0.95,
+        "DoS": 0.95,
+        "Mirai": 0.9504,
+        "Recon": 0.9499,
+        "Spoofing": 0.9526,
+        "Web": 0.9511
+      },
+      "set_size": {
+        "REC": 1.7778,
+        "SHC": 1.7921,
+        "TSC": 1.7849
+      },
+      "focal_set_size_by_rung": {
+        "0.00": {
+          "REC": 2.9396,
+          "SHC": 2.9633,
+          "TSC": 2.9523
+        },
+        "0.20": {
+          "REC": 2.9215,
+          "SHC": 2.9563,
+          "TSC": 2.9408
+        },
+        "0.40": {
+          "REC": 2.9426,
+          "SHC": 2.9718,
+          "TSC": 2.9575
+        },
+        "0.60": {
+          "REC": 2.9833,
+          "SHC": 3.021,
+          "TSC": 3.0058
+        },
+        "0.80": {
+          "REC": 2.9895,
+          "SHC": 3.0139,
+          "TSC": 2.9959
+        }
+      },
+      "focal_set_size": {
+        "REC": 2.9553,
+        "SHC": 2.9853,
+        "TSC": 2.9705
+      },
+      "focal_SHC_by_alpha": {
+        "0.05": 0.9519,
+        "0.10": 0.9081,
+        "0.20": 0.8172
+      }
+    }
+  },
+  "shift": {
+    "nslkdd": {
+      "S_cov": [
+        0.8403,
+        0.9031
+      ],
+      "S_lab": [
+        0.135,
+        0.1372
+      ],
+      "S_sup": [
+        0.0,
+        0.4571
+      ]
+    },
+    "cicids2017": {
+      "S_cov": [
+        0.7603,
+        0.7731
+      ],
+      "S_lab": [
+        0.4411,
+        0.515
+      ],
+      "S_sup": [
+        0.0112,
+        0.0703
+      ]
+    },
+    "ciciot2023": {
+      "S_cov": [
+        0.4953,
+        0.5062
+      ],
+      "S_lab": [
+        0.0038,
+        0.0138
+      ],
+      "S_sup": [
+        0.0,
+        0.8002
+      ]
+    },
+    "ugr16": {
+      "S_cov": 0.6925,
+      "S_lab": 0.0,
+      "S_sup": 0.0
+    },
+    "nslkdd_by_rung": {
+      "0.00": {
+        "S_cov": 0.8485,
+        "S_lab": 0.1363,
+        "S_sup": 0.001
+      },
+      "0.20": {
+        "S_cov": 0.8571,
+        "S_lab": 0.1361,
+        "S_sup": 0.1142
+      },
+      "0.40": {
+        "S_cov": 0.8638,
+        "S_lab": 0.136,
+        "S_sup": 0.2276
+      },
+      "0.60": {
+        "S_cov": 0.875,
+        "S_lab": 0.1361,
+        "S_sup": 0.3407
+      },
+      "0.80": {
+        "S_cov": 0.8927,
+        "S_lab": 0.136,
+        "S_sup": 0.4543
+      }
+    },
+    "ciciot2023_by_rung": {
+      "0.00": {
+        "S_cov": 0.4986,
+        "S_lab": 0.0099,
+        "S_sup": 0.0
+      },
+      "0.20": {
+        "S_cov": 0.5001,
+        "S_lab": 0.0057,
+        "S_sup": 0.1998
+      },
+      "0.40": {
+        "S_cov": 0.4989,
+        "S_lab": 0.0069,
+        "S_sup": 0.3995
+      },
+      "0.60": {
+        "S_cov": 0.5024,
+        "S_lab": 0.0076,
+        "S_sup": 0.6005
+      },
+      "0.80": {
+        "S_cov": 0.5032,
+        "S_lab": 0.0067,
+        "S_sup": 0.8002
+      }
+    },
+    "permutation_null_threshold": 1.0
+  },
+  "mechanism": {
+    "class_level": {
+      "rho": 0.8439,
+      "p": 1.6827690704614694e-08,
+      "n": 28,
+      "ci": [
+        0.6087,
+        0.9409
+      ]
+    },
+    "cells_per_dataset": {
+      "cicids2017": 10,
+      "ciciot2023": 8,
+      "nslkdd": 5,
+      "ugr16": 5
+    },
+    "range": {
+      "score_KS": [
+        0.0001,
+        0.9216
+      ],
+      "undercoverage": [
+        -0.05,
+        0.8765
+      ]
+    },
+    "within_dataset": {
+      "cicids2017": {
+        "rho": 0.8406,
+        "p": 0.0023,
+        "n": 10
+      },
+      "ciciot2023": {
+        "rho": -0.6667,
+        "p": 0.071,
+        "n": 8
+      },
+      "nslkdd": {
+        "rho": 0.9,
+        "p": 0.0374,
+        "n": 5
+      },
+      "ugr16": {
+        "rho": 1.0,
+        "p": 0.0,
+        "n": 5
+      }
+    },
+    "leave_one_out": {
+      "cicids2017": 0.5377,
+      "ciciot2023": 0.9262,
+      "nslkdd": 0.7854,
+      "ugr16": 0.8734
+    }
+  },
+  "monitor": {
+    "pooled": {
+      "rho": 0.7384,
+      "auroc": 0.9304,
+      "n": 57,
+      "n_undercovering": 29
+    },
+    "per_dataset": {
+      "cicids2017": {
+        "rho": 0.7684,
+        "auroc": 0.9554,
+        "n": 30,
+        "n_under": 14
+      },
+      "nslkdd": {
+        "rho": 0.7762,
+        "auroc": 0.9259,
+        "n": 12,
+        "n_under": 9
+      },
+      "ugr16": {
+        "rho": 0.8244,
+        "auroc": 0.9815,
+        "n": 15,
+        "n_under": 6
+      }
+    },
+    "published_per_dataset": [
+      {
+        "dataset": "nslkdd",
+        "n": 15,
+        "n_under": 12,
+        "lf_rho": 0.384,
+        "lf_auroc": 0.694,
+        "auroc_ci_lo": 0.429,
+        "auroc_ci_hi": 0.929,
+        "oracle_rho": 0.886
+      },
+      {
+        "dataset": "cicids2017",
+        "n": 30,
+        "n_under": 14,
+        "lf_rho": 0.768,
+        "lf_auroc": 0.955,
+        "auroc_ci_lo": 0.839,
+        "auroc_ci_hi": 1.0,
+        "oracle_rho": 0.896
+      },
+      {
+        "dataset": "ugr16",
+        "n": 15,
+        "n_under": 6,
+        "lf_rho": 0.824,
+        "lf_auroc": 0.981,
+        "auroc_ci_lo": 0.893,
+        "auroc_ci_hi": 1.0,
+        "oracle_rho": 0.979
+      },
+      {
+        "dataset": "POOLED",
+        "n": 60,
+        "n_under": 32,
+        "lf_rho": 0.725,
+        "lf_auroc": 0.895,
+        "auroc_ci_lo": 0.808,
+        "auroc_ci_hi": 0.966,
+        "oracle_rho": 0.925
+      }
+    ],
+    "boundary": {
+      "boundary_misroute_vs_blindspot": {
+        "rho": 0.2535,
+        "p": 0.09286272917148959
+      }
+    },
+    "pooled_auroc_ci": [
+      0.8524,
+      0.9888
+    ]
+  },
+  "negative_control": {
+    "nslkdd": [
+      {
+        "class": "DoS",
+        "n_cal": 3439.7,
+        "coverage": 0.9503,
+        "ci_lo": 0.9497,
+        "ci_hi": 0.9509,
+        "band_lo": 0.95,
+        "band_hi": 0.9503,
+        "ci_overlaps_band": true,
+        "point_in_band": true
+      },
+      {
+        "class": "Normal",
+        "n_cal": 5053.2,
+        "coverage": 0.9503,
+        "ci_lo": 0.9495,
+        "ci_hi": 0.9509,
+        "band_lo": 0.95,
+        "band_hi": 0.9502,
+        "ci_overlaps_band": true,
+        "point_in_band": false
+      },
+      {
+        "class": "Probe",
+        "n_cal": 875.7,
+        "coverage": 0.9517,
+        "ci_lo": 0.95,
+        "ci_hi": 0.9531,
+        "band_lo": 0.95,
+        "band_hi": 0.9511,
+        "ci_overlaps_band": true,
+        "point_in_band": false
+      },
+      {
+        "class": "R2L",
+        "n_cal": 74.9,
+        "coverage": 0.9583,
+        "ci_lo": 0.9533,
+        "ci_hi": 0.9633,
+        "band_lo": 0.95,
+        "band_hi": 0.9632,
+        "ci_overlaps_band": true,
+        "point_in_band": true
+      }
+    ],
+    "max_abs_deviation": 0.0083
+  },
+  "efficiency": [
+    {
+      "dataset": "nslkdd",
+      "protocol": "REC",
+      "focal": "R2L",
+      "Kmax": 5,
+      "focal_coverage": 0.9563,
+      "focal_set_size": 4.6794,
+      "mean_coverage": 0.9539,
+      "mean_set_size": 4.5264
+    },
+    {
+      "dataset": "nslkdd",
+      "protocol": "TSC",
+      "focal": "R2L",
+      "Kmax": 5,
+      "focal_coverage": 0.9531,
+      "focal_set_size": 4.6779,
+      "mean_coverage": 0.9516,
+      "mean_set_size": 4.5244
+    },
+    {
+      "dataset": "nslkdd",
+      "protocol": "SHC",
+      "focal": "R2L",
+      "Kmax": 5,
+      "focal_coverage": 0.0298,
+      "focal_set_size": 2.0448,
+      "mean_coverage": 0.4958,
+      "mean_set_size": 2.1148
+    },
+    {
+      "dataset": "cicids2017",
+      "protocol": "REC",
+      "focal": "DoS",
+      "Kmax": 2,
+      "focal_coverage": 0.9875,
+      "focal_set_size": 1.449,
+      "mean_coverage": 0.9688,
+      "mean_set_size": 1.5703
+    },
+    {
+      "dataset": "cicids2017",
+      "protocol": "TSC",
+      "focal": "DoS",
+      "Kmax": 2,
+      "focal_coverage": 0.9876,
+      "focal_set_size": 1.4491,
+      "mean_coverage": 0.9688,
+      "mean_set_size": 1.571
+    },
+    {
+      "dataset": "cicids2017",
+      "protocol": "SHC",
+      "focal": "DoS",
+      "Kmax": 2,
+      "focal_coverage": 0.6039,
+      "focal_set_size": 1.0655,
+      "mean_coverage": 0.777,
+      "mean_set_size": 1.0079
+    },
+    {
+      "dataset": "ugr16",
+      "protocol": "REC",
+      "focal": "nerisbotnet",
+      "Kmax": 5,
+      "focal_coverage": 0.9499,
+      "focal_set_size": 1.7696,
+      "mean_coverage": 0.9564,
+      "mean_set_size": 1.7397
+    },
+    {
+      "dataset": "ugr16",
+      "protocol": "TSC",
+      "focal": "nerisbotnet",
+      "Kmax": 5,
+      "focal_coverage": 0.9497,
+      "focal_set_size": 1.7728,
+      "mean_coverage": 0.9564,
+      "mean_set_size": 1.7417
+    },
+    {
+      "dataset": "ugr16",
+      "protocol": "SHC",
+      "focal": "nerisbotnet",
+      "Kmax": 5,
+      "focal_coverage": 0.9473,
+      "focal_set_size": 1.1432,
+      "mean_coverage": 0.8362,
+      "mean_set_size": 1.1072
+    }
+  ],
+  "model_performance": {
+    "macro_f1": {
+      "nslkdd": {
+        "mlp": 0.5596,
+        "rf": 0.5348,
+        "xgb": 0.5509
+      },
+      "cicids2017": {
+        "mlp": 0.9999,
+        "rf": 0.9999,
+        "xgb": 0.9999
+      },
+      "ugr16": {
+        "mlp": 0.8303,
+        "rf": 0.9952,
+        "xgb": 0.9707
+      },
+      "ciciot2023": {
+        "mlp": 0.7407,
+        "rf": 0.8779,
+        "xgb": 0.8908
+      }
+    }
+  },
+  "calibration": {
+    "mean_ece_by_dataset": {
+      "cicids2017": 0.0001,
+      "nslkdd": 0.0002,
+      "ugr16": 0.0012
+    },
+    "max_per_class_ece": 0.0019
+  },
+  "guarantee_band": {
+    "shc_shortfall": {
+      "nslkdd": {
+        "DoS": 0.2778,
+        "Normal": 0.0225,
+        "Probe": 0.1446,
+        "R2L": 0.864
+      },
+      "cicids2017": {
+        "DoS": 0.3461
+      },
+      "ugr16": {
+        "background": 0.0009,
+        "nerisbotnet": 0.0027,
+        "scan11": 0.415,
+        "scan44": 0.151
+      }
+    },
+    "above_band": [
+      {
+        "dataset": "nslkdd",
+        "class": "DoS",
+        "protocol": "REC",
+        "observed": 0.9521
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Normal",
+        "protocol": "REC",
+        "observed": 0.9514
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Normal",
+        "protocol": "TSC",
+        "observed": 0.9512
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "Probe",
+        "protocol": "REC",
+        "observed": 0.956
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "R2L",
+        "protocol": "REC",
+        "observed": 0.9562
+      },
+      {
+        "dataset": "nslkdd",
+        "class": "R2L",
+        "protocol": "TSC",
+        "observed": 0.9536
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "Benign",
+        "protocol": "REC",
+        "observed": 0.95
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "Benign",
+        "protocol": "SHC",
+        "observed": 0.9501
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "DoS",
+        "protocol": "REC",
+        "observed": 0.9875
+      },
+      {
+        "dataset": "cicids2017",
+        "class": "DoS",
+        "protocol": "TSC",
+        "observed": 0.9876
+      },
+      {
+        "dataset": "ugr16",
+        "class": "background",
+        "protocol": "REC",
+        "observed": 0.9501
+      },
+      {
+        "dataset": "ugr16",
+        "class": "background",
+        "protocol": "TSC",
+        "observed": 0.9501
+      },
+      {
+        "dataset": "ugr16",
+        "class": "dos",
+        "protocol": "REC",
+        "observed": 0.9503
+      },
+      {
+        "dataset": "ugr16",
+        "class": "dos",
+        "protocol": "SHC",
+        "observed": 0.9503
+      },
+      {
+        "dataset": "ugr16",
+        "class": "dos",
+        "protocol": "TSC",
+        "observed": 0.9501
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan11",
+        "protocol": "TSC",
+        "observed": 0.9502
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan44",
+        "protocol": "REC",
+        "observed": 0.9819
+      },
+      {
+        "dataset": "ugr16",
+        "class": "scan44",
+        "protocol": "TSC",
+        "observed": 0.982
+      }
+    ]
+  },
+  "marginal_vs_mondrian": {
+    "nslkdd": [
+      {
+        "protocol": "REC",
+        "marginal_overall": 0.9507,
+        "marginal_focal_R2L": 0.8591,
+        "mondrian_focal_R2L": 0.9562
+      },
+      {
+        "protocol": "TSC",
+        "marginal_overall": 0.9507,
+        "marginal_focal_R2L": 0.8595,
+        "mondrian_focal_R2L": 0.9536
+      },
+      {
+        "protocol": "SHC",
+        "marginal_overall": 0.72,
+        "marginal_focal_R2L": 0.0714,
+        "mondrian_focal_R2L": 0.086
+      }
+    ]
+  },
+  "ipw": {
+    "cicids2017": {
+      "dataset": "cicids2017",
+      "mean_ess": 6475.3,
+      "min_ess": 1744.1,
+      "marg_unweighted": 0.9364,
+      "marg_ipw": 0.7703,
+      "marg_shift": -0.1661,
+      "focal_unweighted": 0.6039,
+      "focal_ipw": 0.6039,
+      "focal_shift": 0.0,
+      "focal_invariant": true,
+      "ess_inconclusive_flag": false
+    },
+    "ugr16": {
+      "dataset": "ugr16",
+      "mean_ess": 59996.5,
+      "min_ess": 59983.0,
+      "marg_unweighted": 0.8786,
+      "marg_ipw": 0.8785,
+      "marg_shift": -0.0,
+      "focal_unweighted": 0.9473,
+      "focal_ipw": 0.9473,
+      "focal_shift": 0.0,
+      "focal_invariant": true,
+      "ess_inconclusive_flag": false
+    }
+  },
+  "selective": {
+    "by_dataset": {
+      "cicids2017": {
+        "0.000": {
+          "focal": 0.6038,
+          "marginal": 0.9363,
+          "retained": 1.0
+        },
+        "0.025": {
+          "focal": 0.6168,
+          "marginal": 0.9604,
+          "retained": 0.9791
+        },
+        "0.050": {
+          "focal": 0.6303,
+          "marginal": 0.9846,
+          "retained": 0.9576
+        },
+        "0.075": {
+          "focal": 0.6316,
+          "marginal": 0.9851,
+          "retained": 0.9359
+        },
+        "0.100": {
+          "focal": 0.6328,
+          "marginal": 0.9851,
+          "retained": 0.9141
+        },
+        "0.125": {
+          "focal": 0.6341,
+          "marginal": 0.9851,
+          "retained": 0.892
+        },
+        "0.150": {
+          "focal": 0.6354,
+          "marginal": 0.9851,
+          "retained": 0.8697
+        },
+        "0.175": {
+          "focal": 0.637,
+          "marginal": 0.9851,
+          "retained": 0.8472
+        },
+        "0.200": {
+          "focal": 0.6389,
+          "marginal": 0.9851,
+          "retained": 0.8242
+        },
+        "0.225": {
+          "focal": 0.6407,
+          "marginal": 0.9851,
+          "retained": 0.8011
+        },
+        "0.250": {
+          "focal": 0.6428,
+          "marginal": 0.9852,
+          "retained": 0.7775
+        },
+        "0.275": {
+          "focal": 0.6451,
+          "marginal": 0.9852,
+          "retained": 0.7536
+        },
+        "0.300": {
+          "focal": 0.6475,
+          "marginal": 0.9853,
+          "retained": 0.7297
+        },
+        "0.325": {
+          "focal": 0.6502,
+          "marginal": 0.9853,
+          "retained": 0.7058
+        },
+        "0.350": {
+          "focal": 0.6532,
+          "marginal": 0.9854,
+          "retained": 0.6812
+        },
+        "0.375": {
+          "focal": 0.6563,
+          "marginal": 0.9855,
+          "retained": 0.6568
+        },
+        "0.400": {
+          "focal": 0.6596,
+          "marginal": 0.9856,
+          "retained": 0.6319
+        },
+        "0.425": {
+          "focal": 0.6624,
+          "marginal": 0.9857,
+          "retained": 0.6069
+        },
+        "0.450": {
+          "focal": 0.664,
+          "marginal": 0.9858,
+          "retained": 0.5815
+        },
+        "0.475": {
+          "focal": 0.6657,
+          "marginal": 0.9858,
+          "retained": 0.5558
+        },
+        "0.500": {
+          "focal": 0.6673,
+          "marginal": 0.9859,
+          "retained": 0.53
+        }
+      },
+      "nslkdd": {
+        "0.000": {
+          "focal": 0.0289,
+          "marginal": 0.6076,
+          "retained": 1.0
+        },
+        "0.025": {
+          "focal": 0.029,
+          "marginal": 0.6076,
+          "retained": 0.982
+        },
+        "0.050": {
+          "focal": 0.0288,
+          "marginal": 0.607,
+          "retained": 0.9613
+        },
+        "0.075": {
+          "focal": 0.0292,
+          "marginal": 0.6075,
+          "retained": 0.9336
+        },
+        "0.100": {
+          "focal": 0.0297,
+          "marginal": 0.6076,
+          "retained": 0.9082
+        },
+        "0.125": {
+          "focal": 0.0295,
+          "marginal": 0.6079,
+          "retained": 0.8895
+        },
+        "0.150": {
+          "focal": 0.0301,
+          "marginal": 0.6079,
+          "retained": 0.8636
+        },
+        "0.175": {
+          "focal": 0.0302,
+          "marginal": 0.6085,
+          "retained": 0.8356
+        },
+        "0.200": {
+          "focal": 0.0305,
+          "marginal": 0.6089,
+          "retained": 0.8103
+        },
+        "0.225": {
+          "focal": 0.0303,
+          "marginal": 0.6095,
+          "retained": 0.7839
+        },
+        "0.250": {
+          "focal": 0.0312,
+          "marginal": 0.6109,
+          "retained": 0.7489
+        },
+        "0.275": {
+          "focal": 0.0308,
+          "marginal": 0.6123,
+          "retained": 0.7258
+        },
+        "0.300": {
+          "focal": 0.0303,
+          "marginal": 0.6131,
+          "retained": 0.7032
+        },
+        "0.325": {
+          "focal": 0.0292,
+          "marginal": 0.6127,
+          "retained": 0.6886
+        },
+        "0.350": {
+          "focal": 0.0295,
+          "marginal": 0.612,
+          "retained": 0.6642
+        },
+        "0.375": {
+          "focal": 0.029,
+          "marginal": 0.6129,
+          "retained": 0.6337
+        },
+        "0.400": {
+          "focal": 0.0296,
+          "marginal": 0.6137,
+          "retained": 0.6082
+        },
+        "0.425": {
+          "focal": 0.0298,
+          "marginal": 0.6125,
+          "retained": 0.585
+        },
+        "0.450": {
+          "focal": 0.0305,
+          "marginal": 0.6116,
+          "retained": 0.5631
+        },
+        "0.475": {
+          "focal": 0.0306,
+          "marginal": 0.6094,
+          "retained": 0.5407
+        },
+        "0.500": {
+          "focal": 0.0301,
+          "marginal": 0.609,
+          "retained": 0.5141
+        }
+      },
+      "ugr16": {
+        "0.000": {
+          "focal": 0.9471,
+          "marginal": 0.8785,
+          "retained": 1.0
+        },
+        "0.025": {
+          "focal": 0.9632,
+          "marginal": 0.901,
+          "retained": 0.9834
+        },
+        "0.050": {
+          "focal": 0.9776,
+          "marginal": 0.9161,
+          "retained": 0.9622
+        },
+        "0.075": {
+          "focal": 0.9774,
+          "marginal": 0.916,
+          "retained": 0.9397
+        },
+        "0.100": {
+          "focal": 0.9773,
+          "marginal": 0.916,
+          "retained": 0.9167
+        },
+        "0.125": {
+          "focal": 0.9772,
+          "marginal": 0.916,
+          "retained": 0.894
+        },
+        "0.150": {
+          "focal": 0.9773,
+          "marginal": 0.9162,
+          "retained": 0.871
+        },
+        "0.175": {
+          "focal": 0.9783,
+          "marginal": 0.9165,
+          "retained": 0.8474
+        },
+        "0.200": {
+          "focal": 0.9813,
+          "marginal": 0.9172,
+          "retained": 0.8226
+        },
+        "0.225": {
+          "focal": 0.9856,
+          "marginal": 0.9182,
+          "retained": 0.7964
+        },
+        "0.250": {
+          "focal": 0.9893,
+          "marginal": 0.9193,
+          "retained": 0.7696
+        },
+        "0.275": {
+          "focal": 0.991,
+          "marginal": 0.9201,
+          "retained": 0.7429
+        },
+        "0.300": {
+          "focal": 0.9914,
+          "marginal": 0.9209,
+          "retained": 0.7162
+        },
+        "0.325": {
+          "focal": 0.9915,
+          "marginal": 0.9217,
+          "retained": 0.6901
+        },
+        "0.350": {
+          "focal": 0.9916,
+          "marginal": 0.9226,
+          "retained": 0.6643
+        },
+        "0.375": {
+          "focal": 0.9917,
+          "marginal": 0.9235,
+          "retained": 0.6386
+        },
+        "0.400": {
+          "focal": 0.9917,
+          "marginal": 0.9244,
+          "retained": 0.6131
+        },
+        "0.425": {
+          "focal": 0.9919,
+          "marginal": 0.9251,
+          "retained": 0.5877
+        },
+        "0.450": {
+          "focal": 0.9919,
+          "marginal": 0.9256,
+          "retained": 0.5623
+        },
+        "0.475": {
+          "focal": 0.992,
+          "marginal": 0.9258,
+          "retained": 0.5369
+        },
+        "0.500": {
+          "focal": 0.9921,
+          "marginal": 0.926,
+          "retained": 0.5115
+        }
+      }
+    },
+    "headline": [
+      {
+        "dataset": "cicids2017",
+        "baseline_focal_cov": 0.6038,
+        "escalation_to_nominal": NaN,
+        "focal_retained_at_that_point": NaN,
+        "best_focal_cov_within_50pct": 0.6673,
+        "at_escalation": 0.5,
+        "focal_retained_at_best": 0.53,
+        "empty_set_frac": 0.0495
+      },
+      {
+        "dataset": "nslkdd",
+        "baseline_focal_cov": 0.0289,
+        "escalation_to_nominal": NaN,
+        "focal_retained_at_that_point": NaN,
+        "best_focal_cov_within_50pct": 0.0312,
+        "at_escalation": 0.25,
+        "focal_retained_at_best": 0.749,
+        "empty_set_frac": 0.0
+      },
+      {
+        "dataset": "ugr16",
+        "baseline_focal_cov": 0.9471,
+        "escalation_to_nominal": 0.025,
+        "focal_retained_at_that_point": 0.983,
+        "best_focal_cov_within_50pct": 0.9921,
+        "at_escalation": 0.5,
+        "focal_retained_at_best": 0.512,
+        "empty_set_frac": 0.0413
+      }
+    ]
+  },
+  "score_movement": {
+    "by_dataset_class": {
+      "cicids2017|Benign": {
+        "score_KS": 0.0006,
+        "undercoverage": -0.0499
+      },
+      "cicids2017|DoS": {
+        "score_KS": 0.5159,
+        "undercoverage": 0.3897
+      },
+      "ciciot2023|Benign": {
+        "score_KS": 0.018,
+        "undercoverage": -0.0006
+      },
+      "ciciot2023|BruteForce": {
+        "score_KS": 0.0394,
+        "undercoverage": -0.0058
+      },
+      "ciciot2023|DDoS": {
+        "score_KS": 0.0022,
+        "undercoverage": -0.0
+      },
+      "ciciot2023|DoS": {
+        "score_KS": 0.0044,
+        "undercoverage": 0.0001
+      },
+      "ciciot2023|Mirai": {
+        "score_KS": 0.0022,
+        "undercoverage": -0.0004
+      },
+      "ciciot2023|Recon": {
+        "score_KS": 0.009,
+        "undercoverage": 0.0003
+      },
+      "ciciot2023|Spoofing": {
+        "score_KS": 0.0156,
+        "undercoverage": -0.0028
+      },
+      "ciciot2023|Web": {
+        "score_KS": 0.0893,
+        "undercoverage": -0.0019
+      },
+      "nslkdd|DoS": {
+        "score_KS": 0.3647,
+        "undercoverage": 0.3225
+      },
+      "nslkdd|Normal": {
+        "score_KS": 0.0646,
+        "undercoverage": -0.0227
+      },
+      "nslkdd|Probe": {
+        "score_KS": 0.3774,
+        "undercoverage": 0.3196
+      },
+      "nslkdd|R2L": {
+        "score_KS": 0.9216,
+        "undercoverage": 0.8765
+      },
+      "nslkdd|U2R": {
+        "score_KS": 0.5973,
+        "undercoverage": 0.4138
+      },
+      "ugr16|background": {
+        "score_KS": 0.0532,
+        "undercoverage": -0.0365
+      },
+      "ugr16|dos": {
+        "score_KS": 0.0078,
+        "undercoverage": -0.05
+      },
+      "ugr16|nerisbotnet": {
+        "score_KS": 0.0922,
+        "undercoverage": -0.0229
+      },
+      "ugr16|scan11": {
+        "score_KS": 0.5206,
+        "undercoverage": 0.4903
+      },
+      "ugr16|scan44": {
+        "score_KS": 0.1993,
+        "undercoverage": 0.1617
+      }
+    },
+    "ciciot2023": {
+      "dataset": "ciciot2023",
+      "alpha": 0.05,
+      "focal_class": "Web",
+      "rung080_score_KS": 0.0893,
+      "rung080_score_KS_novel_only": 0.1081,
+      "rung080_undercoverage": -0.0019,
+      "nslkdd_rung080_score_KS": 0.9216,
+      "nslkdd_rung080_undercoverage": 0.8765,
+      "question": "coverage held at every rung despite S_sup sweeping 0 to 0.80; the mechanism predicts this only if focal score movement is small. This file records whether it is."
+    },
+    "ciciot2023_by_rung": {
+      "0.00": {
+        "KS_all": 0.0349,
+        "KS_novel": NaN,
+        "KS_seen": 0.0349,
+        "misroute_all": 0.5325
+      },
+      "0.20": {
+        "KS_all": 0.037,
+        "KS_novel": 0.1301,
+        "KS_seen": 0.0389,
+        "misroute_all": 0.5238
+      },
+      "0.40": {
+        "KS_all": 0.0531,
+        "KS_novel": 0.112,
+        "KS_seen": 0.0391,
+        "misroute_all": 0.5227
+      },
+      "0.60": {
+        "KS_all": 0.0648,
+        "KS_novel": 0.1078,
+        "KS_seen": 0.0526,
+        "misroute_all": 0.5352
+      },
+      "0.80": {
+        "KS_all": 0.0893,
+        "KS_novel": 0.1081,
+        "KS_seen": 0.0663,
+        "misroute_all": 0.5269
+      }
+    }
+  },
+  "architecture": {
+    "focal_coverage": [
+      {
+        "arch": "mlp",
+        "coverage": 0.1114,
+        "ci_lo": 0.1,
+        "ci_hi": 0.1262
+      },
+      {
+        "arch": "rf",
+        "coverage": 0.0641,
+        "ci_lo": 0.0505,
+        "ci_hi": 0.0877
+      },
+      {
+        "arch": "xgb",
+        "coverage": 0.0823,
+        "ci_lo": 0.0729,
+        "ci_hi": 0.0912
+      }
+    ]
+  },
+  "pooled_model": {
+    "n_rows": 49500,
+    "n_units": 160,
+    "beta5_SHC_x_Scov": {
+      "term": "C(protocol)[T.SHC]:zScov",
+      "beta": -0.2519219387885959,
+      "se": 0.009001323698335693,
+      "p": 2.3253158103885853e-172,
+      "ci": [
+        -0.26956420905052075,
+        -0.2342796685266711
+      ],
+      "p_holm": 4.6506316207771706e-172,
+      "identification": "SIGN-UNSTABLE / NOT IDENTIFIED: cluster-robust GLM gives beta=-0.252, the empirical-logit mixed model gives beta=+0.254 on the same data. Opposite signs from two estimators means the pooled data cannot identify even the direction of this effect, because S_cov varies only across 3 dataset clusters. The covariate-shift evidence in this study is the per-dataset UGR-16 per-class result (nerisbotnet holds, scans collapse under the same S_cov), which this aggregate coefficient cannot capture. Do NOT report a sign for beta5."
+    },
+    "beta7_SHC_x_Ssup": {
+      "term": "C(protocol)[T.SHC]:zSsup",
+      "beta": -0.3742469654082319,
+      "se": 0.013325044222367952,
+      "p": 1.4530649043109692e-173,
+      "ci": [
+        -0.4003635721764766,
+        -0.34813035863998715
+      ],
+      "p_holm": 4.359194712932907e-173
+    },
+    "beta5_mixed_model_beta": 0.2539
+  },
+  "specification_curve": {
+    "n_specs": 16,
+    "alphas": [
+      0.01,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "gap_range": [
+      0.3703,
+      0.9867
+    ],
+    "n_undercovering": 16
+  },
+  "audit": {
+    "C1_calibration_size_audit": {
+      "focal_shc_ncal": 149.0,
+      "focal_tsc_ncal": 297.1,
+      "ratio": 0.502,
+      "equalised": false,
+      "per_class": [
+        {
+          "class": "DoS",
+          "protocol": "REC",
+          "mean": 772.1,
+          "min": 770,
+          "max": 774
+        },
+        {
+          "class": "DoS",
+          "protocol": "SHC",
+          "mean": 6889.0,
+          "min": 6889,
+          "max": 6889
+        },
+        {
+          "class": "DoS",
+          "protocol": "TSC",
+          "mean": 772.1,
+          "min": 770,
+          "max": 774
+        },
+        {
+          "class": "Normal",
+          "protocol": "REC",
+          "mean": 1008.0,
+          "min": 1008,
+          "max": 1008
+        },
+        {
+          "class": "Normal",
+          "protocol": "SHC",
+          "mean": 10101.0,
+          "min": 10101,
+          "max": 10101
+        },
+        {
+          "class": "Normal",
+          "protocol": "TSC",
+          "mean": 1008.0,
+          "min": 1008,
+          "max": 1008
+        },
+        {
+          "class": "Probe",
+          "protocol": "REC",
+          "mean": 249.9,
+          "min": 248,
+          "max": 251
+        },
+        {
+          "class": "Probe",
+          "protocol": "SHC",
+          "mean": 1748.0,
+          "min": 1748,
+          "max": 1748
+        },
+        {
+          "class": "Probe",
+          "protocol": "TSC",
+          "mean": 249.9,
+          "min": 248,
+          "max": 251
+        },
+        {
+          "class": "R2L",
+          "protocol": "REC",
+          "mean": 297.1,
+          "min": 295,
+          "max": 299
+        },
+        {
+          "class": "R2L",
+          "protocol": "SHC",
+          "mean": 149.0,
+          "min": 149,
+          "max": 149
+        },
+        {
+          "class": "R2L",
+          "protocol": "TSC",
+          "mean": 297.1,
+          "min": 295,
+          "max": 299
+        },
+        {
+          "class": "U2R",
+          "protocol": "REC",
+          "mean": 5.5,
+          "min": 4,
+          "max": 7
+        },
+        {
+          "class": "U2R",
+          "protocol": "SHC",
+          "mean": 7.0,
+          "min": 7,
+          "max": 7
+        },
+        {
+          "class": "U2R",
+          "protocol": "TSC",
+          "mean": 5.5,
+          "min": 4,
+          "max": 7
+        },
+        {
+          "class": "__marginal__",
+          "protocol": "REC",
+          "mean": 5.5,
+          "min": 4,
+          "max": 7
+        },
+        {
+          "class": "__marginal__",
+          "protocol": "SHC",
+          "mean": 7.0,
+          "min": 7,
+          "max": 7
+        },
+        {
+          "class": "__marginal__",
+          "protocol": "TSC",
+          "mean": 5.5,
+          "min": 4,
+          "max": 7
+        }
+      ]
+    },
+    "C5_mechanism_class_level": {
+      "rho": 0.9262,
+      "p": 4.7049438215899434e-09,
+      "n": 20,
+      "ci": [
+        0.7733,
+        0.9863
+      ],
+      "per_dataset": {
+        "nslkdd": {
+          "rho": 0.9,
+          "p": 0.0374,
+          "n": 5
+        },
+        "cicids2017": {
+          "rho": 0.841,
+          "p": 0.0023,
+          "n": 10
+        },
+        "ugr16": {
+          "rho": 1.0,
+          "p": 0.0,
+          "n": 5
+        }
+      }
+    },
+    "C6_pooled_clustering": {
+      "unit (as published, 160 clusters)": {
+        "beta7_SHC_x_Ssup": {
+          "beta": -0.3742,
+          "se": 0.0133,
+          "p": 1.4530649041669026e-173,
+          "ci": [
+            -0.4004,
+            -0.3481
+          ]
+        },
+        "beta5_SHC_x_Scov": {
+          "beta": -0.2519,
+          "se": 0.009,
+          "p": 2.3253158094462738e-172,
+          "ci": [
+            -0.2696,
+            -0.2343
+          ]
+        }
+      },
+      "dataset (honest, 3 clusters)": {
+        "beta7_SHC_x_Ssup": {
+          "beta": -0.3742,
+          "se": 0.0568,
+          "p": 4.3990931220910366e-11,
+          "ci": [
+            -0.4856,
+            -0.2629
+          ]
+        },
+        "beta5_SHC_x_Scov": {
+          "beta": -0.2519,
+          "se": 0.0362,
+          "p": 3.535790131803197e-12,
+          "ci": [
+            -0.3229,
+            -0.1809
+          ]
+        }
+      }
+    }
+  },
+  "ciciot2023": {
+    "provenance": {
+      "release_files": 169,
+      "release_rows": 46686579,
+      "release_labels": 34,
+      "working_frame_rows": 1510142,
+      "focal_class": "Web"
+    },
+    "split": {
+      "novel_subtypes": [
+        "Uploading_Attack",
+        "Backdoor_Malware"
+      ],
+      "focal_source_cal_pool": 2135,
+      "focal_quota_per_eval": 811,
+      "eval_n": 60000
+    },
+    "prior_after_cap": {
+      "DDoS": 0.4319,
+      "DoS": 0.159,
+      "Recon": 0.1454,
+      "Mirai": 0.1195,
+      "Spoofing": 0.0793,
+      "Benign": 0.0397,
+      "Web": 0.0164,
+      "BruteForce": 0.0086
+    },
+    "focal_prior_percent": 1.644
+  }
+}
