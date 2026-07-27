@@ -1,0 +1,6 @@
+class,baseline,escalation_to_nominal,best_coverage,at_escalation,retained_at_best,gain_at_50pct
+scan11,0.5349,,0.5978,0.5,0.54,0.063
+scan44,0.7989,,0.8527,0.5,0.536,0.0538
+nerisbotnet,0.9471,0.025,0.9921,0.5,0.512,0.0449
+dos,0.9502,0.0,1.0,0.45,0.523,0.0498
+background,0.9491,0.025,0.9958,0.5,0.484,0.0467

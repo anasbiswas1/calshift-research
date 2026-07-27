@@ -1,0 +1,53 @@
+{
+  "why": "Figure 7 previously showed only preregistered focal classes, two of which were already at nominal; these are the UGR classes that actually fail",
+  "policy": "m(x)=max_c(q_c - s(x,c)) over classes with a finite quantile; escalate ascending; the decision never uses a label",
+  "nominal": 0.95,
+  "retention_guard": 0.2,
+  "headline": [
+    {
+      "class": "scan11",
+      "baseline": 0.5349,
+      "escalation_to_nominal": NaN,
+      "best_coverage": 0.5978,
+      "at_escalation": 0.5,
+      "retained_at_best": 0.54,
+      "gain_at_50pct": 0.063
+    },
+    {
+      "class": "scan44",
+      "baseline": 0.7989,
+      "escalation_to_nominal": NaN,
+      "best_coverage": 0.8527,
+      "at_escalation": 0.5,
+      "retained_at_best": 0.536,
+      "gain_at_50pct": 0.0538
+    },
+    {
+      "class": "nerisbotnet",
+      "baseline": 0.9471,
+      "escalation_to_nominal": 0.025,
+      "best_coverage": 0.9921,
+      "at_escalation": 0.5,
+      "retained_at_best": 0.512,
+      "gain_at_50pct": 0.0449
+    },
+    {
+      "class": "dos",
+      "baseline": 0.9502,
+      "escalation_to_nominal": 0.0,
+      "best_coverage": 1.0,
+      "at_escalation": 0.45,
+      "retained_at_best": 0.523,
+      "gain_at_50pct": 0.0498
+    },
+    {
+      "class": "background",
+      "baseline": 0.9491,
+      "escalation_to_nominal": 0.025,
+      "best_coverage": 0.9958,
+      "at_escalation": 0.5,
+      "retained_at_best": 0.484,
+      "gain_at_50pct": 0.0467
+    }
+  ]
+}
