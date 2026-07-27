@@ -1,0 +1,19 @@
+{
+  "dataset": "ciciot2023",
+  "alphas": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "matched_draws": 10,
+  "cal_n": 20000,
+  "eval_n_per_cell": 60000,
+  "focal_class": "Web",
+  "protocols": [
+    "REC",
+    "TSC",
+    "SHC"
+  ],
+  "calibration_sizes": "TSC and SHC both calibrate on CAL_N=20,000, so the PRIMARY contrast is size-matched and, because focal prevalence is the same on both sides, matched per class too (~328 vs ~329 focal points). REC is transductive by definition and calibrates on the full evaluation set, so it uses more calibration data than the other two; it is a reference bound, not part of the primary contrast.",
+  "tcal_composition": "T_cal carries the same focal held-out fraction as D_eval, so TSC is not itself exposed to an uncontrolled shift; T_cal is drawn disjoint from D_eval."
+}
