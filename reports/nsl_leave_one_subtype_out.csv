@@ -1,0 +1,10 @@
+dropped,slope,r,p
+guess_passwd,-0.2609,-0.979,0.0035
+multihop,-0.1065,-1.0,0.0
+sendmail,-0.1058,-1.0,0.0
+xlock,-0.1058,-1.0,0.0
+named,-0.1054,-1.0,0.0
+httptunnel,-0.1044,-0.995,0.0005
+snmpgetattack,-0.1029,-0.996,0.0003
+snmpguess,-0.0734,-0.96,0.0097
+warezmaster,-0.0084,-0.981,0.003

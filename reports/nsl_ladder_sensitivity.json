@@ -1,0 +1,30 @@
+{
+  "motivation": "the R2L source pool is 86.6% warezclient (zero target instances) while the target is 42.7% guess_passwd and 32.7% warezmaster (11 and 3 source instances), so rung 0.00 is not a no-subtype-shift condition and S_sup does not measure support adequacy",
+  "predictor_comparison": {
+    "is_unseen (binary)": {
+      "rho": -0.733,
+      "p": 0.0245
+    },
+    "source support n_source": {
+      "rho": 0.676,
+      "p": 0.0456
+    },
+    "log(1+source support)": {
+      "rho": 0.676,
+      "p": 0.0456
+    },
+    "score movement (KS)": {
+      "rho": -0.996,
+      "p": 0.0
+    }
+  },
+  "full_slope": -2.070531325904022,
+  "full_se": 0.029689838970992272,
+  "lower_rung_slope": -1.474684079401241,
+  "lower_rung_se": 0.06121955632468335,
+  "loso_slope_range": [
+    -0.2609,
+    -0.0084
+  ],
+  "all_subtypes_slope": -0.10578576890107043
+}
