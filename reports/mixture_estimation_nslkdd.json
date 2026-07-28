@@ -1,0 +1,97 @@
+{
+  "dataset": "nslkdd",
+  "class": "R2L",
+  "min_source_per_subtype": 3,
+  "estimable_subtypes": [
+    "warezclient",
+    "guess_passwd",
+    "warezmaster",
+    "ftp_write"
+  ],
+  "unreachable_subtypes": [
+    "snmpguess",
+    "snmpgetattack",
+    "httptunnel",
+    "multihop",
+    "named",
+    "sendmail",
+    "xlock",
+    "xsnoop",
+    "phf",
+    "imap"
+  ],
+  "unreachable_target_mass": 0.24506065857885614,
+  "tv_estimated_vs_true": 0.9411282550765991,
+  "tv_raw_vs_true": 0.9438565583358398,
+  "tv_source_vs_true": 0.9027321785727763,
+  "max_abs_error": 0.9411282550765993,
+  "confusion_condition_number": 4.465962287925721,
+  "effective_sample_size": 140.57506599487675,
+  "n_calibration": 146,
+  "feasibility_floor": 19,
+  "gate_passed": false,
+  "mixture": [
+    {
+      "subtype": "warezclient",
+      "source_share": 0.88356,
+      "raw_predicted": 0.94177,
+      "estimated": 0.94113,
+      "true": 0.0,
+      "abs_error": 0.94113
+    },
+    {
+      "subtype": "guess_passwd",
+      "source_share": 0.07534,
+      "raw_predicted": 0.04229,
+      "estimated": 0.0464,
+      "true": 0.5652,
+      "abs_error": 0.5188
+    },
+    {
+      "subtype": "warezmaster",
+      "source_share": 0.02055,
+      "raw_predicted": 0.01248,
+      "estimated": 0.01247,
+      "true": 0.43343,
+      "abs_error": 0.42096
+    },
+    {
+      "subtype": "ftp_write",
+      "source_share": 0.02055,
+      "raw_predicted": 0.00347,
+      "estimated": 0.0,
+      "true": 0.00138,
+      "abs_error": 0.00138
+    }
+  ],
+  "weights": [
+    {
+      "subtype": "warezclient",
+      "source_share": 0.88356,
+      "est_target_share": 0.94113,
+      "weight": 1.06515,
+      "n_source": 129
+    },
+    {
+      "subtype": "guess_passwd",
+      "source_share": 0.07534,
+      "est_target_share": 0.0464,
+      "weight": 0.61588,
+      "n_source": 11
+    },
+    {
+      "subtype": "warezmaster",
+      "source_share": 0.02055,
+      "est_target_share": 0.01247,
+      "weight": 0.60687,
+      "n_source": 3
+    },
+    {
+      "subtype": "ftp_write",
+      "source_share": 0.02055,
+      "est_target_share": 0.0,
+      "weight": 0.0,
+      "n_source": 3
+    }
+  ]
+}
