@@ -1,27 +1,28 @@
-# Source-Calibrated Conformal Intrusion Detection Loses Class-Conditional Coverage under Distribution Shift: A Preregistered Diagnosis
+# When Conformal Coverage Fails in Intrusion Detection, and When It Can Be Repaired: A Preregistered Diagnosis and a Feasibility Boundary
 
 ## Abstract
 
 Conformal prediction offers distribution-free coverage guarantees and is increasingly proposed
-as a trust layer for machine-learning network intrusion detection. Its guarantee assumes
+as a trust layer for network intrusion detection. Its guarantee assumes
 exchangeability between calibration and test data, which deployment breaks: a detector is
 calibrated on past traffic and applied to future traffic, and the labels needed to recalibrate
-are what an operator lacks. We ask, under preregistration, where the fixed source-calibrated
-baseline loses class-conditional coverage and whether its failures can be detected without
-labels. Across four datasets, against negative controls confirming validity on exchangeable
-data, that baseline undercovers severely on all four feasible NSL-KDD classes, on CIC-IDS2017
-denial of service and on two UGR'16 scan classes, by up to 0.86 relative to the
-exchangeability-based target, while other classes and an entire fourth environment retain
-practically nominal coverage. The contrast against target-supervised calibration survives
-matching both protocols to identical per-class calibration sizes, so it reflects
-calibration-data provenance rather than sample size. Failure is therefore selective, and an
-environment-level shift statistic cannot express that selectivity, being constant within an
-environment; a class-conditional one orders the affected classes at Spearman 0.86. Four further
-analyses are exploratory and labelled throughout: a placebo construction showing the binary
-seen-or-unseen subtype indicator is inadequate, a class-conditional shift measure, a
-threshold-level decomposition of the mechanism, and a label-free diagnostic that anticipates
-failure at pooled AUROC 0.93 with a demonstrated blind spot. Abstention proves anti-correlated
-with need. All data, code and the preregistration are released.
+are what an operator lacks. Under preregistration we ask where the fixed source-calibrated
+baseline loses class-conditional coverage, why, and whether the loss can be repaired without
+labels. Across four datasets it undercovers severely on all four feasible NSL-KDD classes, on
+CIC-IDS2017 denial of service and on two UGR'16 scan classes, by up to 0.86, while other
+classes and an entire fourth environment hold nominal coverage. The contrast against
+target-supervised calibration survives matching per-class calibration sizes, so it reflects
+calibration-data provenance rather than sample size. Failure is selective, and only a
+class-conditional shift statistic can express that selectivity. A placebo construction shows
+novelty is not the operative variable. We then test the remedy the mechanism implies,
+reweighting calibration scores to the estimated target composition, and show it cannot work
+where it is needed: label-free composition estimation requires the class-conditional
+distribution to be invariant, and estimation error rises with class-conditional shift at
+Spearman 0.700 across nineteen classes. The two groups do not overlap. Every class whose
+coverage fails carries class-conditional shift above 0.959, and every class whose composition
+is recoverable already holds nominal coverage. Class-conditional shift is therefore a
+computable, label-free feasibility test for reweighting-based repair, and the boundary it draws
+falls exactly where repair is most needed.
 
 **Keywords:** conformal prediction; network intrusion detection; distribution shift;
 uncertainty calibration; coverage guarantees; drift detection.
@@ -54,10 +55,11 @@ sense, for example when the source-to-target density ratio is estimable (Tibshir
 2019), or when calibration adapts online against labelled feedback (Gibbs and Candès, 2021).
 Intrusion detection sits outside those assumptions: its shift includes the arrival of novel
 attack subtypes, a change in the support of the distribution rather than a reweighting of a
-fixed one, and its operators have no stream of target labels. The practitioner's questions are
-therefore not only whether validity can be restored but, more basically, when and why the
-source-calibrated baseline fails, whether that failure is visible in aggregate drift statistics,
-and whether it can be flagged per class without labels.
+fixed one, and its operators have no stream of target labels. The practitioner's questions are therefore not only whether validity can be restored but, more
+basically, when and why the source-calibrated baseline fails, whether that failure is visible in
+aggregate drift statistics, whether it can be flagged per class without labels, and whether the
+repair those methods offer is even applicable to the cases that fail. We answer the last
+question in the negative, and show that the answer is computable in advance.
 
 We take a diagnostic and preregistered stance. Rather than propose a method and report that it
 wins, we fix in advance the datasets, shift constructions, focal classes, protocols, shift
@@ -84,11 +86,18 @@ all, being constant within an environment. (iv) A mechanistic account through
 nonconformity-score movement at the calibrated threshold. (v) An exploratory label-free
 coverage-failure diagnostic with consistent per-environment performance and a demonstrated blind
 spot, developed and evaluated on the same environments and with no external validation set, so
-presented as worth testing rather than validated. Figure 1 gives an overview of the study design. (vi) An open release of all pipelines,
+presented as worth testing rather than validated. Figure 1 gives an overview of the study design. (vi) A feasibility boundary for repair. The mechanism implies a remedy, reweighting calibration
+scores to the estimated target composition, and we show it cannot work where it is needed:
+label-free composition estimation requires the class-conditional distribution to be invariant,
+and estimation error rises with class-conditional shift at Spearman 0.700 across nineteen
+classes. Every class whose coverage fails carries class-conditional shift above 0.959; every
+class whose composition is recoverable already holds nominal coverage. The two groups do not
+overlap, so the statistic serves as a pre-hoc, label-free feasibility test and the boundary it
+draws falls exactly where repair is most needed. (vii) An open release of all pipelines,
 calibrated models, coverage tables, figures and the preregistration, with deterministic seeds
 and partition fingerprints.
 
-![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted.](figure1_overview.png)
+![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted. Section 5.16 adds a fourth question the diagram does not depict: whether the failure can be repaired by reweighting the source calibration scores to an estimated target composition, and the class-conditional statistic that answers it before the repair is attempted.](figure1_overview.png)
 
 # 2. Related work
 
@@ -144,21 +153,24 @@ carries a SHA-256 fingerprint so it can be verified without access to the underl
 Per-class composition tables are released with the code.
 
 **Table T1. Study environments.** Measured shift covariates at the primary configuration and
-the preregistered focal class. S_cov is an **aggregate** over all classes, retained only to
-characterise environments as wholes; it is constant within an environment and cannot describe
-the classes inside it, for which Table T10 gives class-conditional values ranging from 0.499 to
-1.000 within one environment. The S_sup column is **not** on a common definition across rows
-and must not be compared between them: for CIC-IDS2017 (†) it is global, held-out variant mass
-over all target rows, so the class-conditional value for DoS is far larger; for NSL-KDD and
-CIC-IoT-2023 the ladder controls the class-conditional fraction directly. Reconciling these to
-one definition is outstanding work (Section 8).
+the preregistered focal class. Source and target are: NSL-KDD, KDDTrain+ to KDDTest+ under a
+five-rung unseen-subtype ladder; CIC-IDS2017, Wednesday denial-of-service traffic under five
+variant-holdout realisations; UGR'16, July week 5 to August week 1; CIC-IoT-2023, a five-rung
+novel-subtype ladder with two web-attack subtypes withheld. S_cov is an **aggregate** over all
+classes, retained only to characterise environments as wholes; it is constant within an
+environment and cannot describe the classes inside it, for which Table T9 gives
+class-conditional values ranging from 0.499 to 1.000 within one environment. The S_sup column
+is **not** on a common definition across rows and must not be compared between them: for
+CIC-IDS2017 (†) it is global, held-out variant mass over all target rows, so the
+class-conditional value for DoS is far larger; for NSL-KDD and CIC-IoT-2023 the ladder controls
+the class-conditional fraction directly.
 
-| Dataset | Source → target | Shift type | S_cov (agg) | S_lab | S_sup | Focal |
-|---|---|---|---|---|---|---|
-| NSL-KDD | KDDTrain+ → KDDTest+, 5-rung unseen-subtype ladder | covariate + support | 0.84–0.90 | ~0.14 | 0.00–0.46 | R2L |
-| CIC-IDS2017 | Wednesday DoS, 5 variant-holdout realisations | variant novelty (+prior) | 0.76–0.77 | 0.44–0.52 | 0.01–0.07 † | DoS |
-| UGR'16 | July week 5 → August week 1 | temporal feature drift, fixed support | 0.69 | 0.00 | 0.00 | nerisbotnet |
-| CIC-IoT-2023 | 5-rung novel-subtype ladder, 2 web-attack subtypes withheld | semantic subtype novelty | 0.50 agg / 0.65 focal | ~0.01 | 0.00–0.80 | Web |
+| Dataset | Shift type | S_cov | S_lab | S_sup | Focal |
+|---|---|---|---|---|---|
+| NSL-KDD | covariate + support | 0.84–0.90 | ~0.14 | 0.00–0.46 | R2L |
+| CIC-IDS2017 | variant novelty (+prior) | 0.76–0.77 | 0.44–0.52 | 0.01–0.07 † | DoS |
+| UGR'16 | temporal feature drift | 0.69 | 0.00 | 0.00 | nerisbotnet |
+| CIC-IoT-2023 | semantic subtype novelty | 0.50 agg, 0.65 focal | ~0.01 | 0.00–0.80 | Web |
 
 ## 3.1 NSL-KDD
 
@@ -342,7 +354,7 @@ seed would confound the partition draw with model initialisation.
 
 **Table T2. Base classifier performance** (mean macro-F1 over ten seeds, per architecture).
 
-| Dataset | Random forest | Gradient-boosted trees | MLP |
+| Dataset | Random forest | Boosted trees | MLP |
 |---|---|---|---|
 | NSL-KDD | 0.535 | 0.551 | 0.560 |
 | CIC-IDS2017 | 1.000 | 1.000 | 1.000 |
@@ -511,20 +523,28 @@ The study is preregistered, but not every analysis reported here has the same ev
 standing, and presenting them uniformly would overstate the confirmatory content. The
 following classification is binding on how the results should be read.
 
-**Table T3. Preregistration status by analysis.**
+The classification below is binding on how the results should be read.
 
-| Analysis | Status |
-|---|---|
-| Three calibration protocols; initial coverage hypothesis | Pilot-informed preregistration. Earlier exploratory results on NSL-KDD, UNSW-NB15 and CIC-IDS2017 motivated the hypothesis, as Amendment 1 records. |
-| Focal-class rule, feasibility floor, partitioning | Prespecified before the corresponding coverage was computed, per environment. |
-| Within-NSL dose-response (Section 5.3) | Prospectively specified, but **not** the original confirmatory test. Promoted to the principal within-dataset analysis after the preregistered pooled interaction proved unidentifiable; recorded in Amendment 3 and the deviation log. |
-| CIC-IDS2017 within-day redesign | Amended after the NSL-KDD outcome was known, before any CIC coverage existed (Amendment 9). |
-| CIC-IoT-2023 environment | Named in the base preregistration; constructed and gated before any CIC-IoT coverage existed (Amendments 10 and 11). |
-| Placebo ladder (Section 5.4) | **Exploratory and outcome-informed.** The subtype pair was chosen after observing per-subtype coverage. |
-| Class-conditional shift (Section 5.10) | Exploratory mechanistic refinement, added after the aggregate measure proved uninformative within environments. |
-| Threshold-specific displacement (Section 5.11) | Exploratory refinement of the preregistered mechanism analysis. |
-| Label-free monitor (Section 5.13) | Exploratory. Developed and evaluated on the same environments, with no external validation set; leave-one-environment-out validation is identified as necessary in Section 8. |
-| Abstention analysis (Section 5.14) | Exploratory. |
+**Pilot-informed preregistration.** The three calibration protocols and the initial coverage
+hypothesis. Earlier exploratory results on NSL-KDD, UNSW-NB15 and CIC-IDS2017 motivated the
+hypothesis, as Amendment 1 records.
+
+**Prespecified before the corresponding coverage existed.** The focal-class rule, the
+feasibility floor and the partitioning, per environment. Also the CIC-IoT-2023 environment,
+named in the base preregistration and gated before any of its coverage existed (Amendments 10
+and 11).
+
+**Prospectively specified but not the original confirmatory test.** The within-NSL
+dose-response of Section 5.3, promoted to the principal within-dataset analysis after the
+preregistered pooled interaction proved unidentifiable (Amendment 3 and the deviation log). The
+CIC-IDS2017 within-day redesign was amended after the NSL-KDD outcome was known but before any
+CIC coverage existed (Amendment 9).
+
+**Exploratory.** The placebo ladder of Section 5.4, which is additionally outcome-informed
+since the subtype pair was chosen after observing per-subtype coverage; the class-conditional
+shift measure of Section 5.10; the threshold-level decomposition of Section 5.11; the
+label-free diagnostic of Section 5.13, developed and evaluated on the same environments with no
+external validation set; and the abstention analysis of Section 5.14.
 
 The confirmatory content is therefore the protocol contrast itself and the per-class coverage
 outcomes under the preregistered focal-class and feasibility rules. The mechanism, monitor,
@@ -538,16 +558,16 @@ rather than only here.
 The negative control of Section 4.11 leaves every feasible class statistically consistent with nominal coverage. The band is a population bound under exchangeability, not a requirement that every finite empirical estimate fall inside it, so consistency rather than containment is the criterion.
 For the four feasible NSL-KDD classes the observed coverages are 0.9503, 0.9503, 0.9517 and
 0.9583 against bands whose lower edge is 0.95, and every seed-clustered bootstrap
-interval overlaps its band (Table T4). Two point estimates sit marginally above the
+interval overlaps its band (Table T3). Two point estimates sit marginally above the
 upper edge, by 0.0001 for the majority class and 0.0006 for Probe, which is the expected
 consequence of an isotonic calibrator producing tied probabilities and hence mild atoms
 in the score distribution. That residual is the baseline conservatism of the pipeline. At 0.0006 it is comparable in size to the smallest deviations reported below, such as the 0.001 shortfall on one UGR'16 class, and two to three orders of magnitude smaller than the substantive failures. Coverage failures reported in this paper are therefore attributable to
 distribution shift and not to the implementation.
 
-**Table T4. Negative control: no shift by construction.** Source pool split at random,
+**Table T3. Negative control: no shift by construction.** Source pool split at random,
 calibrate on one half and evaluate on the other, over the full model panel.
 
-| Class | n_cal | Coverage | 95% CI | Guarantee band | Inside |
+| Class | n_cal | Coverage | 95% CI | Band | Inside |
 |---|---|---|---|---|---|
 | DoS | 3440 | 0.9503 | [0.9497, 0.9509] | [0.9500, 0.9503] | yes |
 | Normal | 5053 | 0.9503 | [0.9495, 0.9509] | [0.9500, 0.9502] | yes |
@@ -558,7 +578,7 @@ calibrate on one half and evaluate on the other, over the full model panel.
 
 Under shift the fixed source-calibrated baseline does not merely fall short of the nominal level
 on the classes it affects; it falls below the lower edge of the band the exchangeability
-guarantee would imply. The failure is selective, and the selection matters (Table T5):
+guarantee would imply. The failure is selective, and the selection matters (Table T4):
 
 - **NSL-KDD**: all four feasible classes undercover, from 0.023 below the band for the majority
   class to 0.864 for the focal class.
@@ -567,12 +587,12 @@ guarantee would imply. The failure is selective, and the selection matters (Tabl
   retain 0.949, 0.950 and 0.947.
 - **CIC-IoT-2023**: no class undercovers.
 
-**Table T5. Classes that undercover relative to the exchangeability-based band, α = 0.05.**
+**Table T4. Classes that undercover relative to the exchangeability-based band, α = 0.05.**
 Shortfall is the distance below the band's lower edge. This table lists AFFECTED classes only;
 classes retaining nominal coverage are named in the text and their omission here is not
 evidence of universal failure. CIC-IoT-2023 has no affected class.
 
-| Dataset | Class | n_cal | Observed | Guarantee lower edge | Shortfall |
+| Dataset | Class | n_cal | Observed | Band edge | Shortfall |
 |---|---|---|---|---|---|
 | NSL-KDD | R2L (focal) | 149 | 0.086 | 0.950 | 0.864 |
 | NSL-KDD | DoS | 6889 | 0.672 | 0.950 | 0.278 |
@@ -586,7 +606,7 @@ evidence of universal failure. CIC-IoT-2023 has no affected class.
 
 The two protocols that use target-drawn or evaluation-drawn calibration data, differing from
 the baseline only in the data forming the quantile, sit inside their bands throughout, so the
-failure is a property of calibration provenance rather than of conformal prediction. Table T5
+failure is a property of calibration provenance rather than of conformal prediction. Table T4
 therefore lists affected classes rather than demonstrating that every class is affected. What is universal, within an affected class, is that the shortfall is large relative
 to any practical margin.
 
@@ -609,14 +629,14 @@ The primary within-dataset test is the NSL-KDD ladder, which raises the fraction
 evaluation mass drawn from attack subtypes absent from the source while holding dataset,
 model panel, partition and evaluation size fixed. Focal coverage falls monotonically from
 0.143 at rung 0.00 to 0.030 at rung 0.80, with seed-clustered bootstrap intervals disjoint
-between adjacent rungs at every step (Table T6). A mixed model on the empirical logit with a
+between adjacent rungs at every step (Table T5). A mixed model on the empirical logit with a
 random intercept per realisation gives a slope of -2.071 per unit of unseen fraction, standard
 error 0.024.
 
-**Table T6. Primary dose-response: NSL-KDD focal coverage under the source-calibrated baseline,
+**Table T5. Primary dose-response: NSL-KDD focal coverage under the source-calibrated baseline,
 α = 0.05.** Seed-clustered bootstrap intervals, B = 2000.
 
-| Rung (unseen fraction) | S_cov | S_sup | Coverage | 95% CI |
+| Rung | S_cov | S_sup | Coverage | 95% CI |
 |---|---|---|---|---|
 | 0.00 | 0.849 | 0.001 | 0.1431 | [0.1284, 0.1617] |
 | 0.20 | 0.857 | 0.114 | 0.1139 | [0.1026, 0.1286] |
@@ -671,17 +691,17 @@ at every rung by construction and is verified rather than assumed. The non-focal
 each evaluation set uses identical row indices across rungs within a realisation, so nothing
 but focal composition can move the result.
 
-**Table T7. Placebo ladder: focal coverage with no support shift, α = 0.05.** Evaluation mass
+**Table T6. Placebo ladder: focal coverage with no support shift, α = 0.05.** Evaluation mass
 drawn only from subtypes present in the source. Novelty ladder shown for comparison.
 
-| Fraction `guess_passwd` | 0.00 | 0.25 | 0.50 | 0.75 | 1.00 | swing |
+| `guess_passwd` share | 0.00 | 0.25 | 0.50 | 0.75 | 1.00 | swing |
 |---|---|---|---|---|---|---|
 | Focal coverage | 0.3076 | 0.2331 | 0.1614 | 0.0814 | 0.0097 | **0.298** |
 | S_sup | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | |
 | Score movement (KS) | 0.801 | 0.836 | 0.873 | 0.914 | 0.972 | |
 | *Novelty ladder coverage* | *0.143* | *0.114* | *0.085* | *0.058* | *0.030* | *0.113* |
 
-The placebo ladder moves coverage by 0.298 against the novelty ladder's 0.113 (Table T7), a ratio of
+The placebo ladder moves coverage by 0.298 against the novelty ladder's 0.113 (Table T6), a ratio of
 2.63, while the binary support-shift measure stays at exactly zero. Given the outcome-informed
 selection, the defensible claim is not that novelty has a quantified smaller effect but that
 the binary seen/unseen indicator is inadequate: severe coverage movement can occur entirely
@@ -769,16 +789,16 @@ source support is genuinely absent in the model-relevant feature space might beh
 and we do not claim otherwise.
 
 It does not. Focal coverage under the source-calibrated baseline is 0.949, 0.952, 0.951, 0.952
-and 0.952 as the novel fraction rises from 0.00 to 0.80 against a nominal 0.95 (Table T8), with
+and 0.952 as the novel fraction rises from 0.00 to 0.80 against a nominal 0.95 (Table T7), with
 a seed-clustered interval of [0.950, 0.954] at the top rung. All eight classes sit inside their
 bands under all three protocols, none is infeasible, and mean prediction-set size differs by
 0.014 between protocols. At a novel fraction nearly twice the largest reached on NSL-KDD,
 nothing fails.
 
-**Table T8. CIC-IoT-2023: focal coverage under the fixed source-calibrated baseline across the
-novel-subtype ladder, α = 0.05.** Nominal 0.95. Aggregate S_cov is at the permutation null throughout, though the focal class carries S_cov,Web = 0.654 (Table T12).
+**Table T7. CIC-IoT-2023: focal coverage under the fixed source-calibrated baseline across the
+novel-subtype ladder, α = 0.05.** Nominal 0.95. Aggregate S_cov is at the permutation null throughout, though the focal class carries S_cov,Web = 0.654 (Table T11).
 
-| Novel fraction (S_sup) | 0.00 | 0.20 | 0.40 | 0.60 | 0.80 |
+| Novel fraction | 0.00 | 0.20 | 0.40 | 0.60 | 0.80 |
 |---|---|---|---|---|---|
 | SHC | 0.9491 | 0.9517 | 0.9509 | 0.9520 | 0.9519 |
 | TSC | 0.9512 | 0.9532 | 0.9497 | 0.9497 | 0.9482 |
@@ -810,16 +830,16 @@ classifier on the same traffic would be wrong more often than not on this class.
 Under the two valid protocols on NSL-KDD the marginal guarantee is satisfied almost
 exactly, at 0.9507 aggregate coverage against a nominal 0.95, yet under that single shared
 quantile the rare focal class receives only 0.859, while class-conditional conditioning
-delivers 0.956 to the same class on the same data (Table T9). A practitioner monitoring
+delivers 0.956 to the same class on the same data (Table T8). A practitioner monitoring
 the marginal guarantee alone would observe a system performing to specification while the
 class that matters most was undercovered by nine percentage points. Under the deployable
 protocol both collapse, to 0.720 aggregate and 0.071 focal. This result motivates the
 class-conditional framing of the study and shows that aggregate coverage reporting is not
 sufficient to certify a conformal detector.
 
-**Table T9. Marginal versus class-conditional conditioning, NSL-KDD, α = 0.05.**
+**Table T8. Marginal versus class-conditional conditioning, NSL-KDD, α = 0.05.**
 
-| Protocol | Marginal, aggregate | Marginal, focal R2L | Class-conditional, focal R2L |
+| Protocol | Marginal, all | Marginal, R2L | Class-conditional, R2L |
 |---|---|---|---|
 | REC | 0.9507 | 0.8591 | 0.9562 |
 | TSC | 0.9507 | 0.8595 | 0.9536 |
@@ -852,11 +872,11 @@ measure is wrong or shift is simply not what determines the outcome.
 It is the measure. An aggregate domain-classifier statistic is computed over all classes pooled,
 so it takes one value per environment and is constant within it, with zero within-environment
 variance. It cannot order classes inside an environment even in principle. We replace it with
-S_cov,c (Table T10), the cross-fitted area under the ROC curve of a domain classifier separating
+S_cov,c (Table T9), the cross-fitted area under the ROC curve of a domain classifier separating
 source and target instances *of that class alone*, against a permutation reference from
 splitting the pooled per-class data at random.
 
-**Table T10. Class-conditional covariate shift against realised coverage.** The aggregate column
+**Table T9. Class-conditional covariate shift against realised coverage.** The aggregate column
 is the single value previously reported for every class in that environment. Permutation
 reference is 0.49 to 0.50 throughout.
 
@@ -987,7 +1007,7 @@ assume a direction we removed the confound, subsampling both calibration sets to
 per-class counts, n_match = min(n_SHC, n_TSC), with the evaluation set, classifier, calibrator
 and realised scores unchanged.
 
-The contrast is unaffected (Table T11). The NSL-KDD focal gap is 0.9237 at natural budgets and
+The contrast is unaffected (Table T10). The NSL-KDD focal gap is 0.9237 at natural budgets and
 0.9240 when both protocols calibrate on 149 points, retaining 100 per cent of the effect with a
 seed-clustered interval of [0.9217, 0.9265]; UGR'16 retains 96.6 per cent and CIC-IoT-2023 79.3
 per cent of a gap negligible in both conditions. The protocol difference is therefore an effect
@@ -996,9 +1016,9 @@ size effect itself: two calibration sets of 297 and 149 points drawn from the *s
 distribution produce a spurious difference of about 0.011, real but two orders of magnitude
 below the measured effect.
 
-**Table T11. Class-budget-matched protocol contrast, focal class, α = 0.05.**
+**Table T10. Class-budget-matched protocol contrast, focal class, α = 0.05.**
 
-| Environment | Budget | TSC | SHC | Gap | n_cal (TSC / SHC) |
+| Environment | Budget | TSC | SHC | Gap | n_cal TSC/SHC |
 |---|---|---|---|---|---|
 | NSL-KDD | natural | 0.9527 | 0.0290 | 0.9237 | 297 / 149 |
 | NSL-KDD | **matched** | 0.9530 | 0.0290 | **0.9240** | 149 / 149 |
@@ -1030,14 +1050,14 @@ of 0.930, with a bootstrap interval of [0.851, 0.990], against an oracle using t
 at 0.925 and 0.96; its performance is stable to the threshold defining an undercovering
 class (Figure 7).
 
-The monitor is evaluated on the three environments in which coverage actually fails; on CIC-IoT-2023 there is no failure to predict, so it does not apply there. Across those three, performance is consistent rather than carried by any one of them (Table T12): 0.926 on NSL-KDD, 0.955 on CIC-IDS2017 and 0.981 on UGR'16, with every
+The monitor is evaluated on the three environments in which coverage actually fails; on CIC-IoT-2023 there is no failure to predict, so it does not apply there. Across those three, performance is consistent rather than carried by any one of them (Table T11): 0.926 on NSL-KDD, 0.955 on CIC-IDS2017 and 0.981 on UGR'16, with every
 interval excluding chance. The intervals are nonetheless wide, since each environment
 contributes between twelve and thirty class cells, so the per-environment estimates should
 be read as consistent in direction rather than precisely resolved.
 
-**Table T12. Label-free monitor by dataset.**
+**Table T11. Label-free monitor by dataset.**
 
-| Dataset | Cells | Undercovering | Monitor ρ | AUROC | 95% CI | Oracle ρ |
+| Dataset | Cells | Failing | Monitor ρ | AUROC | 95% CI | Oracle ρ |
 |---|---|---|---|---|---|---|
 | NSL-KDD | 12 | 9 | 0.776 | 0.926 | [0.667, 1.000] | 0.886 |
 | CIC-IDS2017 | 30 | 14 | 0.768 | 0.955 | [0.840, 1.000] | 0.896 |
@@ -1125,6 +1145,89 @@ standard errors by a factor of 4.3 while three-cluster inference is itself unrel
 therefore treat the pooled coefficients as descriptive and rest the causal claim on the
 within-dataset dose-response of Section 5.3 and the decomposition of Section 5.5.
 
+## 5.16 When can the failure be repaired? A feasibility boundary
+
+Every result so far diagnoses. This section asks the question a practitioner asks next, and
+returns an answer that is negative in the specific and useful sense: it says in advance when
+repair is worth attempting.
+
+Section 5.4 established that class coverage is the mixture-weighted average of near-fixed
+per-subtype coverages. That is a model of the failure and it implies a remedy. The source
+quantile is calibrated for the source subtype mixture and applied to a target with a different
+mixture, so if the target mixture could be estimated without labels, the source calibration
+scores could be reweighted by the ratio of target to source composition and the quantile made
+correct for the target. This is weighted conformal prediction with weights estimated at the
+composition level rather than as a feature-space density ratio.
+
+We implemented it. Target composition is estimated by confusion-corrected label-shift
+estimation: a classifier is fitted on the source, applied to unlabelled target flows, and its
+predicted distribution corrected by an out-of-fold source confusion matrix, solved on the
+simplex. On synthetic data with a known mixture the estimator recovers a complete reversal of
+composition to a total variation of 0.006.
+
+On the NSL-KDD focal class it fails outright. The estimator assigns 94 per cent of target mass
+to a subtype with zero target instances, giving a total variation of 0.941 against a true
+mixture in which two subtypes carry 99 per cent of the mass. Assuming no shift at all scores
+better. The failure is not one of modelling but of assumption: label-shift estimation requires
+P(X | Y = c) to be invariant between source and target, and Section 5.10 measures exactly that
+invariance. For this class S_cov,c is 0.9905, so the assumption the remedy rests on is violated
+about as completely as it can be, and violated most on the class where coverage fails worst.
+
+A second obstacle compounds the first. The estimated weights appear benign, giving an effective
+calibration size of 141 from 146 points, but only because the estimate is wrong. Under the
+*true* mixture the weights would be 0.0, 7.5, 21.1 and 0.1, and the effective sample size would
+fall to 10.9, below the feasibility floor of 19 that Section 4.11 imposes. Even a perfect
+estimate would concentrate the calibration set onto too few effective points to form a reliable
+quantile.
+
+**The boundary is measurable in advance.** Repeating the estimation across all four
+environments and pairing each class's estimation error with its class-conditional shift gives a
+rank correlation of 0.700 (p = 0.0008, n = 19), and the threshold behaviour is sharper than
+that coefficient suggests (Figure 9, Table T12). Below 0.70 the target composition is recovered to within
+0.7 percentage points on every one of twelve classes. At or above 0.90 the mean error is
+twenty-eight times larger, and a one-sided rank test separates the groups at p = 0.0004.
+
+**Table T12. Class-conditional shift as a feasibility test for reweighting-based repair.**
+Mixture-estimation error is the absolute difference between the estimated and true share of
+target mass for that class.
+
+| S_cov,c band | Classes | Mean estimation error | Max | Mean undercoverage |
+|---|---|---|---|---|
+| below 0.70 | 12 | 0.0019 | 0.0069 | −0.001 |
+| 0.70 to 0.90 | 1 | 0.2262 | 0.2262 | 0.023 |
+| 0.90 and above | 6 | 0.0531 | 0.1280 | 0.451 |
+
+Class-conditional shift is therefore a **pre-hoc feasibility test** for reweighting-based
+repair, computable from a domain classifier with no target labels. Where it sits near the
+permutation null, target composition is recoverable and reweighting is defensible. Where it
+approaches one, no scheme that estimates target composition from a source-trained model can
+work, because the assumption such schemes rest on is precisely what this statistic measures the
+violation of.
+
+**The boundary falls in the worst possible place, and this is the substantive finding.** The
+two groups do not overlap. Every class whose coverage actually fails lies between 0.959 and
+1.000; every class whose mixture is recoverable lies between 0.492 and 0.789. Not one class in
+the study is both in need of repair and repairable by this route. Undercoverage and
+mixture-estimation error are themselves rank-correlated at 0.661 (p = 0.002), because they
+share a cause: the class-conditional feature drift that moves scores past the calibrated
+threshold is the same drift that destroys the invariance any label-free reweighting scheme
+requires. These are not two problems to be solved separately. They are one problem seen twice.
+
+![**Figure 9.** The feasibility boundary for reweighting-based repair. (a) Per-class
+target-composition estimation error against class-conditional covariate shift, over nineteen
+classes in four environments. Estimation error rises with shift because label-free composition
+estimation assumes the class-conditional distribution is invariant and this statistic measures
+the violation of that assumption. (b) The same statistic against realised undercoverage, with
+classes that fail marked separately. The two groups do not overlap: every failing class lies
+above 0.959 and every class whose composition is recoverable lies below 0.789, so repair is
+feasible only where it is unnecessary.](figs/fig9_feasibility.png)
+
+Two qualifications. The relationship holds at class level and not at dataset level, where the
+correlation over four points is 0.000, so it must be reported per class. And CIC-IDS2017 DoS
+carries S_cov,c of 0.9997 with an estimation error of only 0.0024, which is not a
+counterexample: with two classes the estimate of one is pinned by the other, so the binary case
+cannot exhibit the failure mode and should not be read as evidence against it.
+
 # 6. Discussion
 
 **The source-calibrated baseline does not deliver its promise where it matters most.** Adopting
@@ -1188,12 +1291,25 @@ failure is invisible to any label-free monitor of that form. Distinguishing disp
 drift, where it succeeds, from similarity-type drift, where it is blind, is the fundamental
 question such a signal must confront.
 
-**Relation to validity-restoring methods.** The distinction also clarifies when restoration
-would help. Weighted conformal prediction can in principle restore coverage under covariate
-shift, but it requires estimating a source-to-target likelihood ratio, an estimation undermined
-by support shift and by confident misrouting of novel classes, exactly the regime where our
-diagnostic is blind. The hardest cases for coverage restoration coincide with the hardest cases
-for label-free failure detection.
+**Repair is infeasible exactly where it is needed, and this is measurable in advance.** The
+mechanism implies a remedy: if class coverage is a mixture average of fixed per-subtype
+coverages, estimate the target composition and reweight the calibration scores to match it.
+Section 5.16 implements that and shows it cannot work on the cases that matter. Label-free
+composition estimation requires the class-conditional distribution to be invariant between
+source and target, and class-conditional shift measures the violation of exactly that
+assumption. Estimation error rises with it at Spearman 0.700 over nineteen classes, and the
+groups do not overlap: every failing class carries class-conditional shift above 0.959, every
+recoverable class already holds nominal coverage.
+
+That is not two obstacles but one. The class-conditional drift that pushes scores past the
+calibrated threshold is the same drift that destroys the invariance any label-free reweighting
+scheme depends on. Weighted conformal prediction can restore coverage where the density ratio
+is estimable, and our result says precisely where that is: near the permutation null, which is
+where coverage was never lost. For a practitioner the consequence is concrete and cheap to
+check. Compute class-conditional shift with a domain classifier and no target labels before
+attempting any reweighting-based repair; above roughly 0.9 the repair will not work, and the
+remaining options are obtaining target labels or accepting that the class cannot be covered at
+the nominal level.
 
 # 7. Limitations
 
@@ -1216,6 +1332,14 @@ severity depends on the classifier, with pooled focal coverage differing by abou
 1.7 across architectures, so the magnitudes here are not architecture-free constants. Ninth, the
 calibration evidence covers the calibrated probabilities only; raw pre-calibration probabilities
 were not cached, so a before-and-after comparison would require retraining.
+
+Tenth, the feasibility boundary of Section 5.16 is established at class level over nineteen
+classes and does not hold at dataset level, where the correlation over four points is 0.000; it
+should be applied per class and not read as a dataset-level property. It also tests one family
+of repair, reweighting to an estimated composition, so it bounds that family rather than every
+conceivable label-free correction. And the binary CIC-IDS2017 task cannot exhibit the failure
+mode, since with two classes one estimate is pinned by the other, so its apparent success at
+high class-conditional shift is structural rather than a counterexample.
 
 Finally, three of the four datasets are established benchmarks rather than contemporary
 captures. CIC-IoT-2023, collected from 105 devices and released in 2023, addresses that
@@ -1261,8 +1385,12 @@ entropy shift, and existing conformal drift monitors. Completing the characteris
 boundary calls for a continuous, model-internal measure of class confusability to replace the
 misroute proxy, and for environments rich in similarity-type drift.
 
-A constructive direction is to convert the diagnostic into a remedy by widening prediction sets
-on the classes it flags, testing whether that restores coverage on displacement-type drift while
+Section 5.16 narrows the search for a remedy considerably. Any correction that estimates target
+composition from a source-trained model is ruled out on the classes that fail, so a working
+repair must either obtain a small number of target labels, which Section 6 identifies as the
+concrete lever, or operate without estimating composition at all. A constructive direction of
+the second kind is to convert the diagnostic into a remedy by widening prediction sets on the
+classes it flags, testing whether that restores coverage on displacement-type drift while
 conceding it cannot on similarity-type drift. Section 5.14 sharpens this: because alert-level
 triage cannot reach confident misroutes, a remedy must act on the calibration rather than the
 alert stream. Finally, replication on contemporary traffic beyond CIC-IoT-2023 would test
@@ -1279,8 +1407,14 @@ that places every class inside its guarantee band on exchangeable data, source-h
 Under retained-label-support temporal feature drift the failure is selective, invisible to aggregate shift
 measures, and confirmed heterogeneous by test rather than by inspection. We reduced the phenomenon to a single measurable cause, the movement of a class's
 nonconformity-score distribution past the source-calibrated quantile, which orders
-undercoverage across twenty-eight class-level cells spanning four datasets at a rank
-correlation of 0.84. Building on that cause,
+undercoverage across twenty-eight class-level cells spanning four datasets at a rank correlation
+of 0.84. We then tested the remedy that cause implies and found a boundary rather than a fix:
+reweighting calibration scores to an estimated target composition requires the class-conditional
+distribution to be invariant, estimation error rises with class-conditional shift at 0.700 over
+nineteen classes, and the classes needing repair and the classes admitting it do not overlap at
+all. The statistic that predicts failure is therefore also the statistic that predicts whether
+failure can be undone, and it can be computed before any repair is attempted, from unlabelled
+target data. Building on that cause,
 we answered the second question in the affirmative but with an explicit boundary: the label-free monitor predicts coverage failure without target labels, consistently across the three environments in which coverage fails, yet it necessarily attenuates on similarity-type drift, a limit we demonstrate rather than hide. For practitioners, the message is
 that a source-calibrated conformal trust layer cannot be assumed to hold under realistic
 network drift, that trust must be assessed per class rather than in aggregate, and that a
