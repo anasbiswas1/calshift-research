@@ -1,2 +1,2 @@
-ledger entries 123, distinct values 1027
-manuscript numbers 257: exact 247, rounded 10, unmatched 0
+ledger entries 133, distinct values 1133
+manuscript numbers 265: exact 254, rounded 11, unmatched 0

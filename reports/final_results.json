@@ -386,9 +386,39 @@
       },
       "budget_matched.nsl_matched_ci": {
         "source": "budget_matched_verdict.json"
+      },
+      "mixture.nslkdd": {
+        "source": "mixture_estimation_nslkdd.json"
+      },
+      "feasibility.by_class": {
+        "source": "mixture_feasibility_by_class.csv"
+      },
+      "feasibility.bands": {
+        "source": "mixture_feasibility_by_class.csv"
+      },
+      "feasibility.separation": {
+        "source": "mixture_feasibility_by_class.csv"
+      },
+      "feasibility.spearman": {
+        "source": "mixture_feasibility_verdict.json"
+      },
+      "feasibility.by_dataset": {
+        "source": "mixture_feasibility_by_dataset.csv"
+      },
+      "proxy.by_class": {
+        "source": "scov_labelfree_proxy.csv"
+      },
+      "proxy.separation": {
+        "source": "scov_labelfree_proxy.csv"
+      },
+      "proxy.bias": {
+        "source": "scov_labelfree_proxy.csv"
+      },
+      "proxy.rho": {
+        "source": "scov_labelfree_proxy_verdict.json"
       }
     },
-    "n_entries": 123
+    "n_entries": 133
   },
   "coverage": {
     "nslkdd": {
@@ -3458,5 +3488,321 @@
       0.9217,
       0.9265
     ]
+  },
+  "mixture": {
+    "nslkdd": {
+      "unreachable_target_mass": 0.2451,
+      "tv_estimated_vs_true": 0.9411,
+      "tv_raw_vs_true": 0.9439,
+      "tv_source_vs_true": 0.9027,
+      "max_abs_error": 0.9411,
+      "confusion_condition_number": 4.466,
+      "effective_sample_size": 140.5751,
+      "n_calibration": 146.0,
+      "feasibility_floor": 19.0
+    }
+  },
+  "feasibility": {
+    "by_class": {
+      "nslkdd|Normal": {
+        "S_cov_class": 0.7886,
+        "abs_error": 0.2262,
+        "undercoverage": 0.0232
+      },
+      "nslkdd|DoS": {
+        "S_cov_class": 0.9595,
+        "abs_error": 0.0655,
+        "undercoverage": 0.5512
+      },
+      "nslkdd|Probe": {
+        "S_cov_class": 0.9794,
+        "abs_error": 0.0297,
+        "undercoverage": 0.3222
+      },
+      "nslkdd|R2L": {
+        "S_cov_class": 0.9905,
+        "abs_error": 0.128,
+        "undercoverage": 0.9202
+      },
+      "ugr16|background": {
+        "S_cov_class": 0.6696,
+        "abs_error": 0.0008,
+        "undercoverage": 0.0008
+      },
+      "ugr16|dos": {
+        "S_cov_class": 0.5424,
+        "abs_error": 0.0003,
+        "undercoverage": -0.0003
+      },
+      "ugr16|nerisbotnet": {
+        "S_cov_class": 0.5782,
+        "abs_error": 0.0018,
+        "undercoverage": 0.0027
+      },
+      "ugr16|scan11": {
+        "S_cov_class": 0.9997,
+        "abs_error": 0.046,
+        "undercoverage": 0.415
+      },
+      "ugr16|scan44": {
+        "S_cov_class": 0.9861,
+        "abs_error": 0.0467,
+        "undercoverage": 0.151
+      },
+      "ciciot2023|Benign": {
+        "S_cov_class": 0.4919,
+        "abs_error": 0.0004,
+        "undercoverage": -0.0006
+      },
+      "ciciot2023|BruteForce": {
+        "S_cov_class": 0.5098,
+        "abs_error": 0.0005,
+        "undercoverage": -0.0058
+      },
+      "ciciot2023|DDoS": {
+        "S_cov_class": 0.4949,
+        "abs_error": 0.0008,
+        "undercoverage": -0.0
+      },
+      "ciciot2023|DoS": {
+        "S_cov_class": 0.4994,
+        "abs_error": 0.0,
+        "undercoverage": 0.0001
+      },
+      "ciciot2023|Mirai": {
+        "S_cov_class": 0.4958,
+        "abs_error": 0.0001,
+        "undercoverage": -0.0004
+      },
+      "ciciot2023|Recon": {
+        "S_cov_class": 0.5025,
+        "abs_error": 0.0062,
+        "undercoverage": 0.0003
+      },
+      "ciciot2023|Spoofing": {
+        "S_cov_class": 0.4984,
+        "abs_error": 0.0023,
+        "undercoverage": -0.0028
+      },
+      "ciciot2023|Web": {
+        "S_cov_class": 0.6536,
+        "abs_error": 0.0069,
+        "undercoverage": -0.0019
+      },
+      "cicids2017|Benign": {
+        "S_cov_class": 0.4992,
+        "abs_error": 0.0024,
+        "undercoverage": -0.0001
+      },
+      "cicids2017|DoS": {
+        "S_cov_class": 0.9997,
+        "abs_error": 0.0024,
+        "undercoverage": 0.3461
+      }
+    },
+    "bands": {
+      "low_n": 12,
+      "low_mean_err": 0.0019,
+      "low_max_err": 0.0069,
+      "high_n": 6,
+      "high_mean_err": 0.0531,
+      "high_max_err": 0.128
+    },
+    "separation": {
+      "failing_min_scov": 0.9595,
+      "failing_max_scov": 0.9997,
+      "holding_min_scov": 0.4919,
+      "holding_max_scov": 0.7886,
+      "overlap": false
+    },
+    "spearman": {
+      "rho": 0.7,
+      "p": 0.0008
+    },
+    "by_dataset": {
+      "cicids2017": {
+        "mean_scov": 0.7494,
+        "tv_est": 0.0024,
+        "tv_none": 0.5137
+      },
+      "ciciot2023": {
+        "mean_scov": 0.5183,
+        "tv_est": 0.0086,
+        "tv_none": 0.0135
+      },
+      "nslkdd": {
+        "mean_scov": 0.9295,
+        "tv_est": 0.2262,
+        "tv_none": 0.1376
+      },
+      "ugr16": {
+        "mean_scov": 0.7552,
+        "tv_est": 0.0478,
+        "tv_none": 0.0024
+      }
+    }
+  },
+  "proxy": {
+    "by_class": {
+      "nslkdd|Normal": {
+        "oracle": 0.7841,
+        "hard": 0.8393,
+        "soft": 0.8346,
+        "topq": 0.8121,
+        "misroute": 0.0246,
+        "undercoverage": 0.0232
+      },
+      "nslkdd|DoS": {
+        "oracle": 0.9601,
+        "hard": 0.9525,
+        "soft": 0.9422,
+        "topq": 0.9487,
+        "misroute": 0.1928,
+        "undercoverage": 0.5512
+      },
+      "nslkdd|Probe": {
+        "oracle": 0.9792,
+        "hard": 0.9752,
+        "soft": 0.96,
+        "topq": 0.9779,
+        "misroute": 0.3057,
+        "undercoverage": 0.3222
+      },
+      "nslkdd|R2L": {
+        "oracle": 0.996,
+        "hard": 0.9897,
+        "soft": 0.9611,
+        "topq": 0.9895,
+        "misroute": 0.9088,
+        "undercoverage": 0.9202
+      },
+      "ugr16|background": {
+        "oracle": 0.6677,
+        "hard": 0.6979,
+        "soft": 0.6977,
+        "topq": 0.8755,
+        "misroute": 0.0136,
+        "undercoverage": 0.0008
+      },
+      "ugr16|dos": {
+        "oracle": 0.5357,
+        "hard": 0.5345,
+        "soft": 0.5429,
+        "topq": 0.5981,
+        "misroute": 0.0,
+        "undercoverage": -0.0003
+      },
+      "ugr16|nerisbotnet": {
+        "oracle": 0.5778,
+        "hard": 0.7577,
+        "soft": 0.7144,
+        "topq": 0.756,
+        "misroute": 0.4866,
+        "undercoverage": 0.0027
+      },
+      "ugr16|scan11": {
+        "oracle": 0.9997,
+        "hard": 0.9981,
+        "soft": 0.9816,
+        "topq": 0.9979,
+        "misroute": 0.5166,
+        "undercoverage": 0.415
+      },
+      "ugr16|scan44": {
+        "oracle": 0.9844,
+        "hard": 0.9909,
+        "soft": 0.9572,
+        "topq": 0.996,
+        "misroute": 0.3166,
+        "undercoverage": 0.151
+      },
+      "ciciot2023|Benign": {
+        "oracle": 0.4934,
+        "hard": 0.6776,
+        "soft": 0.6645,
+        "topq": 0.7772,
+        "misroute": 0.3132,
+        "undercoverage": -0.0006
+      },
+      "ciciot2023|BruteForce": {
+        "oracle": 0.4873,
+        "hard": 0.8708,
+        "soft": 0.6822,
+        "topq": 0.8801,
+        "misroute": 0.7874,
+        "undercoverage": -0.0058
+      },
+      "ciciot2023|DDoS": {
+        "oracle": 0.5006,
+        "hard": 0.5068,
+        "soft": 0.5155,
+        "topq": 0.782,
+        "misroute": 0.0132,
+        "undercoverage": -0.0
+      },
+      "ciciot2023|DoS": {
+        "oracle": 0.5025,
+        "hard": 0.5249,
+        "soft": 0.5071,
+        "topq": 0.6652,
+        "misroute": 0.0173,
+        "undercoverage": 0.0001
+      },
+      "ciciot2023|Mirai": {
+        "oracle": 0.5032,
+        "hard": 0.4977,
+        "soft": 0.5003,
+        "topq": 0.5461,
+        "misroute": 0.0052,
+        "undercoverage": -0.0004
+      },
+      "ciciot2023|Recon": {
+        "oracle": 0.5022,
+        "hard": 0.6109,
+        "soft": 0.5888,
+        "topq": 0.669,
+        "misroute": 0.0924,
+        "undercoverage": 0.0003
+      },
+      "ciciot2023|Spoofing": {
+        "oracle": 0.4955,
+        "hard": 0.6742,
+        "soft": 0.6433,
+        "topq": 0.6782,
+        "misroute": 0.2909,
+        "undercoverage": -0.0028
+      },
+      "ciciot2023|Web": {
+        "oracle": 0.6402,
+        "hard": 0.8871,
+        "soft": 0.7101,
+        "topq": 0.8408,
+        "misroute": 0.7287,
+        "undercoverage": -0.0019
+      }
+    },
+    "separation": {
+      "fail_min": 0.9422,
+      "fail_max": 0.9816,
+      "hold_min": 0.5003,
+      "hold_max": 0.8346,
+      "gap": 0.1076,
+      "n_fail": 5,
+      "n_hold": 12
+    },
+    "bias": {
+      "hold_mean": 0.0759,
+      "fail_mean": -0.0235
+    },
+    "rho": {
+      "oracle_vs_under": 0.8603,
+      "hard_vs_under": 0.5956,
+      "soft_vs_under": 0.7206,
+      "topq_vs_under": 0.5931,
+      "hard_vs_oracle": 0.7328,
+      "soft_vs_oracle": 0.8015,
+      "topq_vs_oracle": 0.6716,
+      "misroute_vs_gap": 0.6078
+    }
   }
 }
