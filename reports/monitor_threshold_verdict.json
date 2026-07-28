@@ -1,0 +1,38 @@
+{
+  "design": "signal_c = (exceedance above the source-calibrated quantile among target flows PREDICTED c) - alpha; label-free, absolute, on the coverage scale",
+  "motivation": "nb46 rank-based cannot say \"all clear\"; nb47 permutation-referenced flags real-but-harmless drift. Step 2 showed the operative quantity is movement AT the threshold, which this measures directly.",
+  "n_cells": 16,
+  "n_failing": 4,
+  "rho": 0.2940296841621185,
+  "auroc": 0.42708333333333326,
+  "oracle_rho": 0.4705882352941176,
+  "false_alarm_curve": [
+    {
+      "threshold": 0.01,
+      "false_alarm": 0.0,
+      "recall": 0.0
+    },
+    {
+      "threshold": 0.02,
+      "false_alarm": 0.0,
+      "recall": 0.0
+    },
+    {
+      "threshold": 0.05,
+      "false_alarm": 0.0,
+      "recall": 0.0
+    },
+    {
+      "threshold": 0.1,
+      "false_alarm": 0.0,
+      "recall": 0.0
+    },
+    {
+      "threshold": 0.2,
+      "false_alarm": 0.0,
+      "recall": 0.0
+    }
+  ],
+  "blind_spot": "unchanged: confidently misrouted flows never enter the predicted-c set, so the label-free signal cannot see them; the signal-to-oracle gap quantifies it",
+  "power_caveat": "4 failing classes; differences below roughly 0.15 AUROC are not resolvable"
+}
