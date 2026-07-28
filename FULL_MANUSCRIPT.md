@@ -1,28 +1,29 @@
-# When Conformal Coverage Fails in Intrusion Detection, and When It Can Be Repaired: A Preregistered Diagnosis and a Feasibility Boundary
+# Source-Calibrated Conformal Intrusion Detection Loses Class-Conditional Coverage under Distribution Shift: A Preregistered Diagnosis
 
 ## Abstract
 
 Conformal prediction offers distribution-free coverage guarantees and is increasingly proposed
-as a trust layer for network intrusion detection. Its guarantee assumes
-exchangeability between calibration and test data, which deployment breaks: a detector is
-calibrated on past traffic and applied to future traffic, and the labels needed to recalibrate
-are what an operator lacks. Under preregistration we ask where the fixed source-calibrated
-baseline loses class-conditional coverage, why, and whether the loss can be repaired without
-labels. Across four datasets it undercovers severely on all four feasible NSL-KDD classes, on
-CIC-IDS2017 denial of service and on two UGR'16 scan classes, by up to 0.86, while other
-classes and an entire fourth environment hold nominal coverage. The contrast against
-target-supervised calibration survives matching per-class calibration sizes, so it reflects
-calibration-data provenance rather than sample size. Failure is selective, and only a
-class-conditional shift statistic can express that selectivity. A placebo construction shows
-novelty is not the operative variable. We then test the remedy the mechanism implies,
-reweighting calibration scores to the estimated target composition, and show it cannot work
-where it is needed: label-free composition estimation requires the class-conditional
-distribution to be invariant, and estimation error rises with class-conditional shift at
-Spearman 0.700 across nineteen classes. The two groups do not overlap. Every class whose
-coverage fails carries class-conditional shift above 0.959, and every class whose composition
-is recoverable already holds nominal coverage. Class-conditional shift is therefore a
-computable, label-free feasibility test for reweighting-based repair, and the boundary it draws
-falls exactly where repair is most needed.
+as a trust layer for machine-learning network intrusion detection. Its guarantee assumes exchangeability, which deployment breaks: a detector is calibrated on past
+traffic and applied to future traffic, and the labels needed to recalibrate are what an operator
+lacks. We ask, under preregistration, where the fixed source-calibrated
+baseline loses class-conditional coverage and whether its failures can be detected without
+labels. Across four datasets, against negative controls confirming validity on exchangeable
+data, that baseline undercovers severely on all four feasible NSL-KDD classes, on CIC-IDS2017
+denial of service and on two UGR'16 scan classes, by up to 0.86 relative to the
+exchangeability-based target, while other classes and an entire fourth environment retain
+practically nominal coverage. The contrast against target-supervised calibration survives
+matching both protocols to identical per-class calibration sizes, so it reflects
+calibration-data provenance rather than sample size. Failure is therefore selective, and an
+environment-level shift statistic cannot express that selectivity, being constant within an
+environment; a class-conditional one orders the affected classes at Spearman 0.86. Four further
+analyses are exploratory and labelled throughout: a placebo construction showing the binary
+seen-or-unseen subtype indicator is inadequate, a class-conditional shift measure, a
+threshold-level decomposition of the mechanism, and a label-free diagnostic that anticipates
+failure at pooled AUROC 0.93 with a demonstrated blind spot. Abstention proves anti-correlated
+with need. A proxy using only predicted probabilities rather than target labels separates the classes that
+lose coverage from those that retain it with no overlap across seventeen classes, though it is
+biased upward where the model misroutes. All data, code
+and the preregistration are released.
 
 **Keywords:** conformal prediction; network intrusion detection; distribution shift;
 uncertainty calibration; coverage guarantees; drift detection.
@@ -57,9 +58,7 @@ Intrusion detection sits outside those assumptions: its shift includes the arriv
 attack subtypes, a change in the support of the distribution rather than a reweighting of a
 fixed one, and its operators have no stream of target labels. The practitioner's questions are therefore not only whether validity can be restored but, more
 basically, when and why the source-calibrated baseline fails, whether that failure is visible in
-aggregate drift statistics, whether it can be flagged per class without labels, and whether the
-repair those methods offer is even applicable to the cases that fail. We answer the last
-question in the negative, and show that the answer is computable in advance.
+aggregate drift statistics, and whether it can be flagged per class without labels.
 
 We take a diagnostic and preregistered stance. Rather than propose a method and report that it
 wins, we fix in advance the datasets, shift constructions, focal classes, protocols, shift
@@ -86,18 +85,15 @@ all, being constant within an environment. (iv) A mechanistic account through
 nonconformity-score movement at the calibrated threshold. (v) An exploratory label-free
 coverage-failure diagnostic with consistent per-environment performance and a demonstrated blind
 spot, developed and evaluated on the same environments and with no external validation set, so
-presented as worth testing rather than validated. Figure 1 gives an overview of the study design. (vi) A feasibility boundary for repair. The mechanism implies a remedy, reweighting calibration
-scores to the estimated target composition, and we show it cannot work where it is needed:
-label-free composition estimation requires the class-conditional distribution to be invariant,
-and estimation error rises with class-conditional shift at Spearman 0.700 across nineteen
-classes. Every class whose coverage fails carries class-conditional shift above 0.959; every
-class whose composition is recoverable already holds nominal coverage. The two groups do not
-overlap, so the statistic serves as a pre-hoc, label-free feasibility test and the boundary it
-draws falls exactly where repair is most needed. (vii) An open release of all pipelines,
+presented as worth testing rather than validated. Figure 1 gives an overview of the study design. (vi) A deployment-time proxy for the class-conditional shift statistic, weighting each target
+flow by its predicted class probability rather than selecting on true labels, which separates the
+classes that lose coverage from those that retain it across seventeen classes with no overlap,
+together with an explicit account of its upward bias where the model misroutes. (vii) An open
+release of all pipelines,
 calibrated models, coverage tables, figures and the preregistration, with deterministic seeds
 and partition fingerprints.
 
-![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted. Section 5.16 adds a fourth question the diagram does not depict: whether the failure can be repaired by reweighting the source calibration scores to an estimated target composition, and the class-conditional statistic that answers it before the repair is attempted.](figure1_overview.png)
+![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted. ](figure1_overview.png)
 
 # 2. Related work
 
@@ -914,6 +910,11 @@ pooled correlation credits it with between-environment information it does not c
 This is the identification failure that defeats the pooled model of Section 5.15, and we do not
 report such a comparison.
 
+One limitation of this statistic must be stated where it is defined. Selecting the target
+instances of class c requires the target labels, so S_cov,c explains outcomes after the fact and
+cannot be computed by an operator. Section 5.16 examines whether a version using only predicted
+probabilities behaves similarly.
+
 The consequence strengthens rather than repairs the argument. The claim is not that shift is
 hard to measure but that the relevant shift is class-conditional, so an aggregate statistic is
 the wrong instrument for a class-conditional guarantee. NSL-KDD's ordering is imperfect, with
@@ -1145,88 +1146,72 @@ standard errors by a factor of 4.3 while three-cluster inference is itself unrel
 therefore treat the pooled coefficients as descriptive and rest the causal claim on the
 within-dataset dose-response of Section 5.3 and the decomposition of Section 5.5.
 
-## 5.16 When can the failure be repaired? A feasibility boundary
+## 5.16 A deployment-time proxy for the class-conditional shift statistic
 
-Every result so far diagnoses. This section asks the question a practitioner asks next, and
-returns an answer that is negative in the specific and useful sense: it says in advance when
-repair is worth attempting.
+Section 5.10 measures class-conditional shift by training a domain classifier to separate source
+and target instances *of that class*. Constructing the target side requires the target labels,
+so that statistic is retrospective: it explains outcomes after the fact and cannot be computed by
+an operator. This section asks whether a version exists that uses only quantities available at
+deployment, and reports what such a version can and cannot do.
 
-Section 5.4 established that class coverage is the mixture-weighted average of near-fixed
-per-subtype coverages. That is a model of the failure and it implies a remedy. The source
-quantile is calibrated for the source subtype mixture and applied to a target with a different
-mixture, so if the target mixture could be estimated without labels, the source calibration
-scores could be reweighted by the ratio of target to source composition and the quantile made
-correct for the target. This is weighted conformal prediction with weights estimated at the
-composition level rather than as a feature-space density ratio.
+The proxy replaces true-label selection with the model's own predicted responsibilities. Every
+target flow enters the comparison weighted by its calibrated probability of belonging to class
+c, so the statistic becomes a weighted domain-classifier area under the ROC curve using no
+labels. Two coarser variants, restricting to flows whose top prediction is c and to the top
+decile of predicted responsibility, are reported alongside it.
 
-We implemented it. Target composition is estimated by confusion-corrected label-shift
-estimation: a classifier is fitted on the source, applied to unlabelled target flows, and its
-predicted distribution corrected by an out-of-fold source confusion matrix, solved on the
-simplex. On synthetic data with a known mixture the estimator recovers a complete reversal of
-composition to a total variation of 0.006.
+**Table T12. Deployment-time proxies against the retrospective statistic.** The oracle column is
+the statistic of Section 5.10. Misroute is the fraction of true class-c target flows the model
+assigns elsewhere.
 
-On the NSL-KDD focal class it fails outright. The estimator assigns 94 per cent of target mass
-to a subtype with zero target instances, giving a total variation of 0.941 against a true
-mixture in which two subtypes carry 99 per cent of the mass. Assuming no shift at all scores
-better. The failure is not one of modelling but of assumption: label-shift estimation requires
-P(X | Y = c) to be invariant between source and target, and Section 5.10 measures exactly that
-invariance. For this class S_cov,c is 0.9905, so the assumption the remedy rests on is violated
-about as completely as it can be, and violated most on the class where coverage fails worst.
+| Environment | Class | Oracle | Soft proxy | Misroute | Undercoverage |
+|---|---|---|---|---|---|
+| NSL-KDD | R2L | 0.9960 | 0.9611 | 0.909 | 0.920 |
+| NSL-KDD | DoS | 0.9601 | 0.9422 | 0.193 | 0.551 |
+| UGR'16 | scan11 | 0.9997 | 0.9816 | 0.517 | 0.415 |
+| NSL-KDD | Probe | 0.9792 | 0.9600 | 0.306 | 0.322 |
+| UGR'16 | scan44 | 0.9844 | 0.9572 | 0.317 | 0.151 |
+| NSL-KDD | Normal | 0.7841 | 0.8346 | 0.025 | 0.023 |
+| UGR'16 | nerisbotnet | 0.5778 | 0.7144 | 0.487 | 0.003 |
+| CIC-IoT-2023 | Web | 0.6402 | 0.7101 | 0.729 | −0.002 |
+| CIC-IoT-2023 | BruteForce | 0.4873 | 0.6822 | 0.787 | −0.006 |
+| CIC-IoT-2023 | Mirai | 0.5032 | 0.5003 | 0.005 | −0.000 |
 
-A second obstacle compounds the first. The estimated weights appear benign, giving an effective
-calibration size of 141 from 146 points, but only because the estimate is wrong. Under the
-*true* mixture the weights would be 0.0, 7.5, 21.1 and 0.1, and the effective sample size would
-fall to 10.9, below the feasibility floor of 19 that Section 4.11 imposes. Even a perfect
-estimate would concentrate the calibration set onto too few effective points to form a reliable
-quantile.
+The proxy separates the two groups. Across seventeen classes in three environments, every class
+that loses coverage carries a proxy value between 0.942 and 0.982, and every class that retains
+it lies between 0.500 and 0.835, a margin of 0.108 with no overlap. It ranks undercoverage at
+Spearman 0.721 against 0.860 for the retrospective statistic, and tracks that statistic at 0.801
+with a mean absolute difference of 0.061. Dropping each environment in turn preserves the
+separation in all three folds, and a bootstrap resampling whole datasets separates in every one
+of 4,000 resamples, with the margin falling in [0.108, 0.243].
 
-**The boundary is measurable in advance.** Repeating the estimation across all four
-environments and pairing each class's estimation error with its class-conditional shift gives a
-rank correlation of 0.700 (p = 0.0008, n = 19), and the threshold behaviour is sharper than
-that coefficient suggests (Figure 9, Table T12). Below 0.70 the target composition is recovered to within
-0.7 percentage points on every one of twelve classes. At or above 0.90 the mean error is
-twenty-eight times larger, and a one-sided rank test separates the groups at p = 0.0004.
+We expected this to fail and record why it did not, because the reason is informative. The
+proxy discards flows the model misroutes, and misrouting on the affected classes is severe: 0.91
+for the NSL-KDD focal class, 0.52 for UGR'16 scan11. If the drift were concentrated in the
+misrouted traffic the proxy would be blind to it. It is not. The focal class reads 0.961 from the
+nine per cent of its traffic the model still assigns correctly, against an oracle of 0.996, so
+class-conditional drift is distributed across a class rather than confined to the flows the model
+gets wrong.
 
-**Table T12. Class-conditional shift as a feasibility test for reweighting-based repair.**
-Mixture-estimation error is the absolute difference between the estimated and true share of
-target mass for that class.
+**One property must be stated plainly, because it means the proxy is not an estimator of the
+quantity it approximates.** It is biased upward, by 0.076 on average across classes that retain
+coverage and by −0.024 across those that lose it, and the inflation tracks the misroute rate at
+Spearman 0.853. CIC-IoT-2023 BruteForce is the clearest case: the retrospective statistic puts
+it at 0.487, indistinguishable from the permutation null, while the proxy reads 0.682. That is a
+false positive. Misrouted traffic drawn from other classes enters the weighted comparison and is
+genuinely distinguishable from source traffic of class c, so the proxy detects real shift that
+is not shift *of that class*. For a screening signal the bias points the safe way, toward false
+alarms rather than missed failures, but a value near 0.7 should not be read as evidence that a
+class has shifted.
 
-| S_cov,c band | Classes | Mean estimation error | Max | Mean undercoverage |
-|---|---|---|---|---|
-| below 0.70 | 12 | 0.0019 | 0.0069 | −0.001 |
-| 0.70 to 0.90 | 1 | 0.2262 | 0.2262 | 0.023 |
-| 0.90 and above | 6 | 0.0531 | 0.1280 | 0.451 |
-
-Class-conditional shift is therefore a **pre-hoc feasibility test** for reweighting-based
-repair, computable from a domain classifier with no target labels. Where it sits near the
-permutation null, target composition is recoverable and reweighting is defensible. Where it
-approaches one, no scheme that estimates target composition from a source-trained model can
-work, because the assumption such schemes rest on is precisely what this statistic measures the
-violation of.
-
-**The boundary falls in the worst possible place, and this is the substantive finding.** The
-two groups do not overlap. Every class whose coverage actually fails lies between 0.959 and
-1.000; every class whose mixture is recoverable lies between 0.492 and 0.789. Not one class in
-the study is both in need of repair and repairable by this route. Undercoverage and
-mixture-estimation error are themselves rank-correlated at 0.661 (p = 0.002), because they
-share a cause: the class-conditional feature drift that moves scores past the calibrated
-threshold is the same drift that destroys the invariance any label-free reweighting scheme
-requires. These are not two problems to be solved separately. They are one problem seen twice.
-
-![**Figure 9.** The feasibility boundary for reweighting-based repair. (a) Per-class
-target-composition estimation error against class-conditional covariate shift, over nineteen
-classes in four environments. Estimation error rises with shift because label-free composition
-estimation assumes the class-conditional distribution is invariant and this statistic measures
-the violation of that assumption. (b) The same statistic against realised undercoverage, with
-classes that fail marked separately. The two groups do not overlap: every failing class lies
-above 0.959 and every class whose composition is recoverable lies below 0.789, so repair is
-feasible only where it is unnecessary.](figs/fig9_feasibility.png)
-
-Two qualifications. The relationship holds at class level and not at dataset level, where the
-correlation over four points is 0.000, so it must be reported per class. And CIC-IDS2017 DoS
-carries S_cov,c of 0.9997 with an estimation error of only 0.0024, which is not a
-counterexample: with two classes the estimate of one is pinned by the other, so the binary case
-cannot exhibit the failure mode and should not be read as evidence against it.
+We therefore report this as an association and not as a mechanism or a decision rule. The
+threshold that separates the groups here was identified after the outcomes were known, the
+comparison rests on seventeen classes of which five lose coverage, and the proxy and the coverage
+outcome both derive from the same fitted model, so they are not independent measurements. What
+the result establishes is narrower and still useful: the retrospective diagnosis of Section 5.10
+is not confined to retrospect, since a signal computable from predicted probabilities alone
+orders the same outcomes on this benchmark. Whether the separation survives on environments not
+used to observe it is the obvious next question and we have not answered it.
 
 # 6. Discussion
 
@@ -1272,10 +1257,18 @@ asserted.** An aggregate shift statistic is constant within an environment, so i
 the classes inside it; the class-conditional version orders them at Spearman 0.86 where
 coverage varies. CIC-IDS2017 makes the point without ambiguity: its two classes carry 1.000 and
 0.499, the latter indistinguishable from a permutation null, while the aggregate reports 0.768
-for both. An operator watching the aggregate sees one moderate number describing a class that
-is entirely shifted and another that has not moved. A dashboard reporting an aggregate drift
-score cannot certify a conformal detector, because the same aggregate can leave one class safe
-and break another. Trust must be assessed per class.
+for both. An operator watching the aggregate sees one moderate number describing a class that is entirely
+shifted and another that has not moved. A dashboard reporting an aggregate drift score cannot
+certify a conformal detector, because the same aggregate can leave one class safe and break
+another. Trust must be assessed per class.
+
+Whether an operator can do that without labels is a separate question, and Section 5.16 gives a
+partial answer. The class-conditional statistic as defined uses target labels, but a version
+weighting each flow by its predicted class probability separates the classes that lose coverage
+from those that retain it on this benchmark, with no overlap across seventeen classes. It is
+biased upward where the model misroutes, so it raises false alarms rather than missing failures,
+and the threshold that separates the groups was identified after the outcomes were known. It is
+therefore a signal worth testing rather than a rule to deploy.
 
 **Why the failures happen, and what a label-free diagnostic can and cannot see.** A class
 undercovers when its nonconformity-score distribution crosses the source-calibrated threshold.
@@ -1291,25 +1284,17 @@ failure is invisible to any label-free monitor of that form. Distinguishing disp
 drift, where it succeeds, from similarity-type drift, where it is blind, is the fundamental
 question such a signal must confront.
 
-**Repair is infeasible exactly where it is needed, and this is measurable in advance.** The
-mechanism implies a remedy: if class coverage is a mixture average of fixed per-subtype
-coverages, estimate the target composition and reweight the calibration scores to match it.
-Section 5.16 implements that and shows it cannot work on the cases that matter. Label-free
-composition estimation requires the class-conditional distribution to be invariant between
-source and target, and class-conditional shift measures the violation of exactly that
-assumption. Estimation error rises with it at Spearman 0.700 over nineteen classes, and the
-groups do not overlap: every failing class carries class-conditional shift above 0.959, every
-recoverable class already holds nominal coverage.
-
-That is not two obstacles but one. The class-conditional drift that pushes scores past the
-calibrated threshold is the same drift that destroys the invariance any label-free reweighting
-scheme depends on. Weighted conformal prediction can restore coverage where the density ratio
-is estimable, and our result says precisely where that is: near the permutation null, which is
-where coverage was never lost. For a practitioner the consequence is concrete and cheap to
-check. Compute class-conditional shift with a domain classifier and no target labels before
-attempting any reweighting-based repair; above roughly 0.9 the repair will not work, and the
-remaining options are obtaining target labels or accepting that the class cannot be covered at
-the nominal level.
+**Relation to validity-restoring methods.** The mixture account of Section 5.4 suggests a
+remedy: if class coverage is a mixture average of near-fixed per-subtype coverages, estimate the
+target composition and reweight the calibration scores to match it. We attempted this on the
+NSL-KDD focal class and it failed, for two reasons that are worth recording. Confusion-corrected
+composition estimation (Lipton et al., 2018) assumes the class-conditional feature distribution
+is invariant between source and target, and for that class the measured class-conditional shift
+is 0.9905, so the assumption does not hold. Separately, eight of the fourteen target subtypes
+have no source instances at all, carrying 24.5 per cent of target mass, so no reweighting of
+existing calibration scores can represent them: this is a failure of support, not of estimation.
+We report the attempt rather than a result, since one class of one dataset is not a basis for a
+general claim, and Section 8 sets out what a proper study of repair would require.
 
 # 7. Limitations
 
@@ -1333,13 +1318,16 @@ severity depends on the classifier, with pooled focal coverage differing by abou
 calibration evidence covers the calibrated probabilities only; raw pre-calibration probabilities
 were not cached, so a before-and-after comparison would require retraining.
 
-Tenth, the feasibility boundary of Section 5.16 is established at class level over nineteen
-classes and does not hold at dataset level, where the correlation over four points is 0.000; it
-should be applied per class and not read as a dataset-level property. It also tests one family
-of repair, reweighting to an estimated composition, so it bounds that family rather than every
-conceivable label-free correction. And the binary CIC-IDS2017 task cannot exhibit the failure
-mode, since with two classes one estimate is pinned by the other, so its apparent success at
-high class-conditional shift is structural rather than a counterexample.
+Tenth, the deployment-time proxy of Section 5.16 is evaluated on the same seventeen classes used
+to observe its behaviour, its separating threshold was identified after the outcomes were known,
+and only five classes lose coverage, so the separation is reported as observed rather than
+validated. The proxy and the coverage outcome also derive from the same fitted model and are not
+independent measurements.
+
+Eleventh, the study diagnoses without repairing. We attempted one repair, reweighting calibration
+scores to an estimated target composition, and it failed on the class we tried it on for reasons
+given in Section 6; we do not report it as a result and it should not be read as evidence that
+repair is impossible in general.
 
 Finally, three of the four datasets are established benchmarks rather than contemporary
 captures. CIC-IoT-2023, collected from 105 devices and released in 2023, addresses that
@@ -1385,12 +1373,25 @@ entropy shift, and existing conformal drift monitors. Completing the characteris
 boundary calls for a continuous, model-internal measure of class confusability to replace the
 misroute proxy, and for environments rich in similarity-type drift.
 
-Section 5.16 narrows the search for a remedy considerably. Any correction that estimates target
-composition from a source-trained model is ruled out on the classes that fail, so a working
-repair must either obtain a small number of target labels, which Section 6 identifies as the
-concrete lever, or operate without estimating composition at all. A constructive direction of
-the second kind is to convert the diagnostic into a remedy by widening prediction sets on the
-classes it flags, testing whether that restores coverage on displacement-type drift while
+The most immediate test of Section 5.16 is external: the proxy should be evaluated on
+environments not used to observe its separation, with the threshold fixed in advance, since
+nothing here establishes that it transfers. Correcting its upward bias, which arises because
+misrouted traffic from other classes enters the weighted comparison, would also make it an
+estimator of the retrospective statistic rather than a correlate of it.
+
+A proper study of repair is the largest gap this paper leaves, and our failed attempt indicates
+what it would require. Composition-based reweighting must be evaluated by reporting coverage
+after reweighting rather than the accuracy of the composition estimate, with the weighted
+quantile, its normalisation, its handling of subtypes absent from the source, and the
+uncertainty induced by estimated weights all specified. It must also state which invariance it
+assumes, since the condition that matters is invariance of the subtype-conditional feature
+distribution rather than of the class-conditional one, and these are not the same: a change in
+subtype composition alters the class-conditional distribution even when every subtype-conditional
+distribution is invariant. Whether class-conditional shift can serve as a practical screen for
+that condition is an open question our data cannot settle, and it would in any case require a
+label-free surrogate, since the statistic as defined here uses target labels. A constructive
+direction that avoids composition estimation entirely is to convert the diagnostic into a remedy
+by widening prediction sets on the classes it flags, testing whether that restores coverage on displacement-type drift while
 conceding it cannot on similarity-type drift. Section 5.14 sharpens this: because alert-level
 triage cannot reach confident misroutes, a remedy must act on the calibration rather than the
 alert stream. Finally, replication on contemporary traffic beyond CIC-IoT-2023 would test
@@ -1406,15 +1407,8 @@ labels. The answer to the first question is that it does not. Against a negative
 that places every class inside its guarantee band on exchangeable data, source-held-out calibration under shift falls below that band on all four feasible NSL-KDD classes, on CIC-IDS2017 DoS and on two UGR'16 scan classes, by as much as 0.86, while several other classes and an entire fourth environment retain practically nominal coverage. A placebo ladder with no support shift moves coverage more than twice as far as the novelty ladder does, and a fourth environment with large semantic subtype novelty on modern IoT traffic produces no failure at all.
 Under retained-label-support temporal feature drift the failure is selective, invisible to aggregate shift
 measures, and confirmed heterogeneous by test rather than by inspection. We reduced the phenomenon to a single measurable cause, the movement of a class's
-nonconformity-score distribution past the source-calibrated quantile, which orders
-undercoverage across twenty-eight class-level cells spanning four datasets at a rank correlation
-of 0.84. We then tested the remedy that cause implies and found a boundary rather than a fix:
-reweighting calibration scores to an estimated target composition requires the class-conditional
-distribution to be invariant, estimation error rises with class-conditional shift at 0.700 over
-nineteen classes, and the classes needing repair and the classes admitting it do not overlap at
-all. The statistic that predicts failure is therefore also the statistic that predicts whether
-failure can be undone, and it can be computed before any repair is attempted, from unlabelled
-target data. Building on that cause,
+nonconformity-score distribution past the source-calibrated quantile, which orders undercoverage
+across twenty-eight class-level cells spanning four datasets at a rank correlation of 0.84. Building on that cause,
 we answered the second question in the affirmative but with an explicit boundary: the label-free monitor predicts coverage failure without target labels, consistently across the three environments in which coverage fails, yet it necessarily attenuates on similarity-type drift, a limit we demonstrate rather than hide. For practitioners, the message is
 that a source-calibrated conformal trust layer cannot be assumed to hold under realistic
 network drift, that trust must be assessed per class rather than in aggregate, and that a
@@ -1485,6 +1479,10 @@ Computers & Security 73, 411-424. https://doi.org/10.1016/j.cose.2017.11.004
 Neto, E.C.P., Dadkhah, S., Ferreira, R., Zohourian, A., Lu, R., Ghorbani, A.A., 2023.
 CICIoT2023: a real-time dataset and benchmark for large-scale attacks in IoT environment.
 Sensors 23 (13), 5941. https://doi.org/10.3390/s23135941
+
+Lipton, Z.C., Wang, Y.-X., Smola, A., 2018. Detecting and correcting for label shift with black
+box predictors. In: Proceedings of the 35th International Conference on Machine Learning, PMLR
+80, 3122-3130.
 
 Naeini, M.P., Cooper, G.F., Hauskrecht, M., 2015. Obtaining well calibrated probabilities
 using Bayesian binning. In: Proceedings of the Twenty-Ninth AAAI Conference on Artificial
