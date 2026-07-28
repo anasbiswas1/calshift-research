@@ -15,12 +15,11 @@ practically nominal coverage. The contrast against target-supervised calibration
 matching both protocols to identical per-class calibration sizes, so it reflects
 calibration-data provenance rather than sample size. Failure is therefore selective, and an
 environment-level shift statistic cannot express that selectivity, being constant within an
-environment; a class-conditional one orders the affected classes at Spearman 0.86. Four further
-analyses are exploratory and labelled throughout: a placebo construction showing the binary
-seen-or-unseen subtype indicator is inadequate, a class-conditional shift measure, a
-threshold-level decomposition of the mechanism, and a label-free diagnostic that anticipates
-failure at pooled AUROC 0.93 with a demonstrated blind spot. Abstention proves anti-correlated
-with need. A proxy using only predicted probabilities rather than target labels separates the classes that
+environment; a class-conditional one orders the affected classes at Spearman 0.86. The remaining analyses are exploratory and labelled
+throughout: a placebo construction showing the binary seen-or-unseen subtype indicator is
+inadequate, a class-conditional shift measure, a threshold-level decomposition of the mechanism,
+a label-free diagnostic that anticipates failure at pooled AUROC 0.93 with a demonstrated blind
+spot, and an abstention analysis that proves anti-correlated with need. A proxy using only predicted probabilities rather than target labels separates the classes that
 lose coverage from those that retain it with no overlap across seventeen classes, though it is
 biased upward where the model misroutes. All data, code
 and the preregistration are released.
@@ -85,15 +84,15 @@ all, being constant within an environment. (iv) A mechanistic account through
 nonconformity-score movement at the calibrated threshold. (v) An exploratory label-free
 coverage-failure diagnostic with consistent per-environment performance and a demonstrated blind
 spot, developed and evaluated on the same environments and with no external validation set, so
-presented as worth testing rather than validated. Figure 1 gives an overview of the study design. (vi) A deployment-time proxy for the class-conditional shift statistic, weighting each target
+presented as worth testing rather than validated. (vi) A deployment-time proxy for the class-conditional shift statistic, weighting each target
 flow by its predicted class probability rather than selecting on true labels, which separates the
 classes that lose coverage from those that retain it across seventeen classes with no overlap,
 together with an explicit account of its upward bias where the model misroutes. (vii) An open
 release of all pipelines,
 calibrated models, coverage tables, figures and the preregistration, with deterministic seeds
-and partition fingerprints.
+and partition fingerprints. Figure 1 gives an overview of the study design.
 
-![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted. ](figure1_overview.png)
+![**Figure 1.** Overview of the study. The labelled source is partitioned to train the classifier f, tune it, fit the isotonic calibrator g, and form the source calibration pool. The three conformal calibration protocols differ only in the data that forms the class-conditional quantile: REC on the evaluation set (a transductive oracle), TSC on a labelled target sample (not deployable), and SHC on the source pool (the fixed source-calibrated baseline). Under distribution shift between source and target, SHC undercovers on the focal class while TSC and REC hold. The label-free monitor compares the predicted-class score distribution on target versus source, requiring no target labels, and flags the classes whose coverage will fail; it catches displacement-type drift but is blind to similarity-type drift, where a novel class is confidently misrouted.](figure1_overview.png)
 
 # 2. Related work
 
@@ -289,31 +288,31 @@ excluded from all feature representations.
 
 ## 4.1 Conformal prediction protocols
 
-The object of study is the calibration set used to form conformal prediction sets
-(Vovk et al., 2005; Shafer and Vovk, 2008), not the classifier. We compare three protocols, holding the
-classifier and probability calibrator fixed. The recalibrated protocol (REC) calibrates
-the conformal quantile on the evaluation set itself; it is not deployable and serves as
-a transductive upper bound whose coverage must sit at the nominal level by construction.
-The target-supervised protocol (TSC) calibrates on a labelled target sample; it requires
-target labels and is not deployable in practice, but it isolates the effect of
-calibrating on in-distribution target data. We study SHC as the simplest fixed, source-calibrated baseline: it requires neither target
-labels nor target-domain adaptation. It is not the only protocol deployable without target
-labels. Recent work adapts conformal prediction using unlabelled target data or pseudo-labels,
-and label-free conformal drift signals have been proposed for streaming intrusion detection.
-Those methods are outside the scope of this study, which asks what happens to the fixed
-baseline under shift; we do not claim they are undeployable.
+The object of study is the calibration set used to form conformal prediction sets (Vovk et al.,
+2005; Shafer and Vovk, 2008), not the classifier. We compare three protocols, holding the
+classifier and probability calibrator fixed.
 
-The source-held-out protocol (SHC) calibrates on the source calibration pool and is the fixed source-calibrated baseline, requiring
-no target labels. The primary contrast is TSC versus SHC. The two protocols differ in calibration-data
-provenance and, under natural class prevalence, in class-specific calibration support: they
-draw calibration sets of a common overall size, but the per-class counts entering a
-class-conditional quantile follow the class composition of the pool they are drawn from. We
-do not describe them as differing only in the calibration set. The two protocols draw calibration
-sets of a common overall size, but the per-class counts that enter a class-conditional
-quantile follow the class composition of the pool they are drawn from, so for a class
-that is rare at source and common at target the source-calibrated baseline calibrates on fewer
-points. Section 5.12 quantifies this asymmetry and shows that it biases the reported
-effect towards conservatism rather than exaggeration.
+The **recalibrated protocol (REC)** calibrates the conformal quantile on the evaluation set
+itself; it is not deployable and serves as a transductive upper bound whose coverage sits at the
+nominal level by construction. The **target-supervised protocol (TSC)** calibrates on a labelled
+target sample; it requires target labels and is not deployable in practice, but it isolates the
+effect of calibrating on in-distribution target data. The **source-held-out protocol (SHC)**
+calibrates on the source calibration pool and requires no target labels.
+
+We study SHC as the simplest fixed, source-calibrated baseline, requiring neither target labels
+nor target-domain adaptation. It is not the only protocol deployable without target labels:
+recent work adapts conformal prediction using unlabelled target data or pseudo-labels, and
+label-free conformal drift signals have been proposed for streaming intrusion detection. Those
+methods are outside the scope of a study that asks what happens to the fixed baseline under
+shift, and we do not claim they are undeployable.
+
+The primary contrast is TSC versus SHC. The two protocols differ in calibration-data provenance
+and, under natural class prevalence, in class-specific calibration support: they draw calibration
+sets of a common overall size, but the per-class counts entering a class-conditional quantile
+follow the class composition of the pool they are drawn from, so for a class rare at source and
+common at target the source-calibrated baseline calibrates on fewer points. We therefore do not
+describe the protocols as differing only in the calibration set. Section 5.12 quantifies this
+asymmetry and removes it by matching per-class calibration sizes.
 
 ## 4.2 Nonconformity score and prediction sets
 
@@ -580,13 +579,26 @@ guarantee would imply. The failure is selective, and the selection matters (Tabl
   class to 0.864 for the focal class.
 - **CIC-IDS2017**: DoS undercovers by 0.346; Benign retains 0.950.
 - **UGR'16**: scan11 and scan44 undercover by 0.415 and 0.151; background, dos and nerisbotnet
-  retain 0.949, 0.950 and 0.947.
+  hold at 0.949, 0.950 and 0.947, the first two falling below the band's edge by 0.001 and 0.003
+  but within a one-percentage-point equivalence margin.
 - **CIC-IoT-2023**: no class undercovers.
 
-**Table T4. Classes that undercover relative to the exchangeability-based band, α = 0.05.**
-Shortfall is the distance below the band's lower edge. This table lists AFFECTED classes only;
-classes retaining nominal coverage are named in the text and their omission here is not
-evidence of universal failure. CIC-IoT-2023 has no affected class.
+Two thresholds appear in this paper and are kept distinct. A class *falls below the band* when
+its coverage lies under the lower edge implied by the exchangeability guarantee, which is a
+formal criterion satisfied by nine class cells including two whose shortfall is 0.001 and 0.003.
+A class *fails practically* when its shortfall exceeds one percentage point, which is the
+criterion used wherever this paper counts failures, and which seven cells meet: all four NSL-KDD
+classes, CIC-IDS2017 DoS and the two UGR'16 scan classes. UGR'16 nerisbotnet and background meet
+the formal criterion but not the practical one.
+Where a later section requires a coarser split, such as the class-level comparisons of Sections
+5.10 and 5.16, a five-percentage-point threshold is used and stated there.
+
+**Table T4. Classes falling below the exchangeability-based band, α = 0.05.** Shortfall is the
+distance below the band's lower edge. The last two rows meet the formal criterion but not the
+practical one, with shortfalls of 0.003 and 0.001 inside a one-percentage-point equivalence
+margin; they are listed for completeness and are not counted as failures elsewhere. Classes
+retaining nominal coverage are named in the text; their omission is not evidence of universal
+failure, and CIC-IoT-2023 has no affected class.
 
 | Dataset | Class | n_cal | Observed | Band edge | Shortfall |
 |---|---|---|---|---|---|
@@ -850,11 +862,10 @@ share a common coverage. Three classes sit at or near nominal, background at 0.9
 degrees of freedom with I² of 100 per cent. That statistic assumes independent effect
 estimates, which these are not: the classes share trained models, probability calibrators,
 target weeks and matched draws, so the nominal p-value is not formally valid and the statistic
-is reported as a descriptive measure of heterogeneity magnitude rather than as a test. The
-heterogeneity is large by any reading, but a class-by-protocol interaction model or a paired
-cluster bootstrap is required before it is called decisive and
-essentially all of the between-class variation is genuine heterogeneity rather than
-sampling noise. Which classes fail cannot be read from the aggregate shift magnitude. The
+is reported as a descriptive measure of heterogeneity magnitude rather than as a test. Read descriptively, an I² of 100 per cent implies that essentially all of the between-class
+variation is heterogeneity rather than sampling noise. The heterogeneity is large by any
+reading, but a class-by-protocol interaction model or a paired cluster bootstrap would be
+required before calling it decisive. Which classes fail cannot be read from the aggregate shift magnitude. The
 preregistered focal class holds and is reported as such; the scan collapse is a discovered
 finding, is not retrospectively promoted to focal, and rests on a single covariate
 environment, so it is offered as a phenomenon requiring replication.
@@ -897,7 +908,7 @@ separability and none at all, the latter within 0.002 of its permutation referen
 aggregate of 0.768 is their average and describes neither. The class that fails is the class
 that is shifted, and the previous measure assigned both the same number.
 
-Within environments where coverage varies the class-conditional measure orders it: Spearman
+Within environments where coverage varies, the class-conditional measure orders it: Spearman
 0.900 on UGR'16, 0.800 on NSL-KDD, and on CIC-IDS2017 the failing class carries the higher
 value, the only comparison two classes admit. Pooling within-environment ranks across those
 environments gives 0.862 (p = 0.003, n = 9). On CIC-IoT-2023 the correlation is −0.214 and not
@@ -1177,8 +1188,10 @@ assigns elsewhere.
 | CIC-IoT-2023 | BruteForce | 0.4873 | 0.6822 | 0.787 | −0.006 |
 | CIC-IoT-2023 | Mirai | 0.5032 | 0.5003 | 0.005 | −0.000 |
 
-The proxy separates the two groups. Across seventeen classes in three environments, every class
-that loses coverage carries a proxy value between 0.942 and 0.982, and every class that retains
+The proxy separates the two groups. Counting a class as losing coverage when its shortfall
+exceeds five percentage points, the coarser of the two thresholds defined in Section 5.2, across
+seventeen classes in three environments every class that loses coverage carries a proxy value
+between 0.942 and 0.982, and every class that retains
 it lies between 0.500 and 0.835, a margin of 0.108 with no overlap. It ranks undercoverage at
 Spearman 0.721 against 0.860 for the retrospective statistic, and tracks that statistic at 0.801
 with a mean absolute difference of 0.061. Dropping each environment in turn preserves the
