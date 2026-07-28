@@ -1,156 +1,78 @@
 {
-  "scope": "four environments including CIC-IoT-2023 as an all-negative case",
-  "failing_environments": [
-    "cicids2017",
-    "nslkdd",
-    "ugr16"
-  ],
-  "baselines": [
+  "supersedes": "the baseline comparison in nb46, which scored each signal on its own non-NaN subset (19 cells vs 18) and was therefore invalid",
+  "corrected_comparison": "all variants scored on identical cells",
+  "n_common_cells": 18,
+  "n_failing": 5,
+  "variants": [
     {
-      "signal": "monitor",
-      "rho": 0.15,
-      "auroc": 0.8397,
-      "n": 19
+      "variant": "rank: score drift (nb46 monitor)",
+      "rho": 0.2315,
+      "auroc": 0.9
     },
     {
-      "signal": "b_confidence_shift",
-      "rho": 0.2543,
-      "auroc": 0.9,
-      "n": 18
+      "variant": "rank: confidence shift",
+      "rho": 0.275,
+      "auroc": 0.9
     },
     {
-      "signal": "b_entropy_shift",
-      "rho": 0.1567,
-      "auroc": 0.7846,
-      "n": 18
+      "variant": "rank: entropy shift",
+      "rho": 0.2034,
+      "auroc": 0.7846
     },
     {
-      "signal": "b_share_drift",
-      "rho": 0.3251,
-      "auroc": 0.6154,
-      "n": 19
+      "variant": "ABSOLUTE: score drift z",
+      "rho": 0.7771,
+      "auroc": 0.9692
     },
     {
-      "signal": "b_raw_score_ks",
-      "rho": 0.0044,
-      "auroc": 0.5449,
-      "n": 19
+      "variant": "ABSOLUTE: confidence z",
+      "rho": 0.6966,
+      "auroc": 0.9077
+    },
+    {
+      "variant": "ABSOLUTE: max(z_drift, z_conf)",
+      "rho": 0.7957,
+      "auroc": 0.9692
     }
   ],
-  "monitor_vs_best_baseline": {
-    "monitor": 0.8397435897435896,
-    "best_baseline": 0.9,
-    "margin": -0.060256410256410375
-  },
-  "loeo": [
+  "false_alarm_comparison": [
     {
-      "held_out": "cicids2017",
-      "n": 2,
-      "n_failing": 1,
-      "threshold_from_heldin": 0.65,
-      "auroc": 1.0,
-      "recall": 1.0,
-      "specificity": 1.0,
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "tn": 1
-    },
-    {
-      "held_out": "nslkdd",
-      "n": 4,
-      "n_failing": 3,
-      "threshold_from_heldin": 0.75,
-      "auroc": 1.0,
-      "recall": 0.3333,
-      "specificity": 1.0,
-      "tp": 1,
-      "fp": 0,
-      "fn": 2,
-      "tn": 1
-    },
-    {
-      "held_out": "ugr16",
-      "n": 5,
-      "n_failing": 2,
-      "threshold_from_heldin": 0.65,
-      "auroc": 1.0,
-      "recall": 1.0,
-      "specificity": 1.0,
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "tn": 3
-    }
-  ],
-  "loeo_mean_auroc": 1.0,
-  "operating_points": [
-    {
-      "threshold": 0.4,
-      "flagged": 14,
-      "recall": 1.0,
-      "precision": 0.4286,
-      "specificity": 0.3846,
-      "false_alarms": 8,
-      "tp": 6,
-      "fn": 0,
-      "tn": 5
-    },
-    {
+      "rule": "rank",
       "threshold": 0.5,
-      "flagged": 13,
-      "recall": 1.0,
-      "precision": 0.4615,
-      "specificity": 0.4615,
-      "false_alarms": 7,
-      "tp": 6,
-      "fn": 0,
-      "tn": 6
+      "false_alarm": 0.625,
+      "recall": 1.0
     },
     {
-      "threshold": 0.6,
-      "flagged": 10,
-      "recall": 0.8333,
-      "precision": 0.5,
-      "specificity": 0.6154,
-      "false_alarms": 5,
-      "tp": 5,
-      "fn": 1,
-      "tn": 8
-    },
-    {
+      "rule": "rank",
       "threshold": 0.7,
-      "flagged": 7,
-      "recall": 0.6667,
-      "precision": 0.5714,
-      "specificity": 0.7692,
-      "false_alarms": 3,
-      "tp": 4,
-      "fn": 2,
-      "tn": 10
+      "false_alarm": 0.375,
+      "recall": 0.8333
     },
     {
+      "rule": "rank",
       "threshold": 0.8,
-      "flagged": 6,
-      "recall": 0.6667,
-      "precision": 0.6667,
-      "specificity": 0.8462,
-      "false_alarms": 2,
-      "tp": 4,
-      "fn": 2,
-      "tn": 11
+      "false_alarm": 0.25,
+      "recall": 0.6667
     },
     {
-      "threshold": 0.9,
-      "flagged": 4,
-      "recall": 0.5,
-      "precision": 0.75,
-      "specificity": 0.9231,
-      "false_alarms": 1,
-      "tp": 3,
-      "fn": 3,
-      "tn": 12
+      "rule": "absolute_z",
+      "threshold": 1.0,
+      "false_alarm": 0.375,
+      "recall": 1.0
+    },
+    {
+      "rule": "absolute_z",
+      "threshold": 2.0,
+      "false_alarm": 0.375,
+      "recall": 1.0
+    },
+    {
+      "rule": "absolute_z",
+      "threshold": 3.0,
+      "false_alarm": 0.375,
+      "recall": 1.0
     }
   ],
-  "caveat": "LOEO tests the combination rule on held-out data. The signal family and the mass-collapse fallback were selected with all environments in view, so this is not full out-of-sample validation."
+  "power_caveat": "5 failing classes; paired bootstraps cannot resolve AUROC differences below roughly 0.15, so variant ranking is not evidence of superiority. The absolute rule is preferred for its specificity property.",
+  "structural_finding": "rank-based scoring flags a fixed share of any environment because some class always ranks highest; it cannot express \"all clear\". Referencing each class to its own permutation null can."
 }
