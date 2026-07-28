@@ -1,0 +1,46 @@
+{
+  "hypothesis": "mixture-estimation error rises with class-conditional covariate shift, because label-shift estimation assumes P(X|Y=c) invariant and S_cov,c measures the violation of exactly that assumption",
+  "n_classes": 19,
+  "spearman_scov_vs_error": {
+    "rho": 0.7,
+    "p": 0.000847585743247923
+  },
+  "dataset_level": [
+    {
+      "dataset": "cicids2017",
+      "mean_scov": 0.74942,
+      "max_scov": 0.99967,
+      "tv_est": 0.00239,
+      "tv_none": 0.51369,
+      "helps": true
+    },
+    {
+      "dataset": "ciciot2023",
+      "mean_scov": 0.51828,
+      "max_scov": 0.65356,
+      "tv_est": 0.00861,
+      "tv_none": 0.01353,
+      "helps": true
+    },
+    {
+      "dataset": "nslkdd",
+      "mean_scov": 0.92952,
+      "max_scov": 0.99051,
+      "tv_est": 0.22618,
+      "tv_none": 0.13756,
+      "helps": false
+    },
+    {
+      "dataset": "ugr16",
+      "mean_scov": 0.75518,
+      "max_scov": 0.99968,
+      "tv_est": 0.04782,
+      "tv_none": 0.00237,
+      "helps": false
+    }
+  ],
+  "low_shift_mean_error": 0.0018794685640719365,
+  "high_shift_mean_error": 0.05305044012843285,
+  "interpretation": "if the relationship holds, S_cov,c is a pre-hoc feasibility test for reweighting-based conformal repair",
+  "nb49_anchor": "NSL-KDD R2L: S_cov,c 0.9905, mixture TV error 0.9411, and even a perfect estimate would give ESS 10.9 against a feasibility floor of 19"
+}
