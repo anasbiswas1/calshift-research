@@ -1,0 +1,4 @@
+held_out,n,n_failing,threshold_from_heldin,auroc,recall,specificity,tp,fp,fn,tn
+cicids2017,2,1,0.65,1.0,1.0,1.0,1,0,0,1
+nslkdd,4,3,0.75,1.0,0.3333333333333333,1.0,1,0,2,1
+ugr16,5,2,0.65,1.0,1.0,1.0,2,0,0,3

@@ -1,0 +1,156 @@
+{
+  "scope": "four environments including CIC-IoT-2023 as an all-negative case",
+  "failing_environments": [
+    "cicids2017",
+    "nslkdd",
+    "ugr16"
+  ],
+  "baselines": [
+    {
+      "signal": "monitor",
+      "rho": 0.15,
+      "auroc": 0.8397,
+      "n": 19
+    },
+    {
+      "signal": "b_confidence_shift",
+      "rho": 0.2543,
+      "auroc": 0.9,
+      "n": 18
+    },
+    {
+      "signal": "b_entropy_shift",
+      "rho": 0.1567,
+      "auroc": 0.7846,
+      "n": 18
+    },
+    {
+      "signal": "b_share_drift",
+      "rho": 0.3251,
+      "auroc": 0.6154,
+      "n": 19
+    },
+    {
+      "signal": "b_raw_score_ks",
+      "rho": 0.0044,
+      "auroc": 0.5449,
+      "n": 19
+    }
+  ],
+  "monitor_vs_best_baseline": {
+    "monitor": 0.8397435897435896,
+    "best_baseline": 0.9,
+    "margin": -0.060256410256410375
+  },
+  "loeo": [
+    {
+      "held_out": "cicids2017",
+      "n": 2,
+      "n_failing": 1,
+      "threshold_from_heldin": 0.65,
+      "auroc": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1
+    },
+    {
+      "held_out": "nslkdd",
+      "n": 4,
+      "n_failing": 3,
+      "threshold_from_heldin": 0.75,
+      "auroc": 1.0,
+      "recall": 0.3333,
+      "specificity": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "tn": 1
+    },
+    {
+      "held_out": "ugr16",
+      "n": 5,
+      "n_failing": 2,
+      "threshold_from_heldin": 0.65,
+      "auroc": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3
+    }
+  ],
+  "loeo_mean_auroc": 1.0,
+  "operating_points": [
+    {
+      "threshold": 0.4,
+      "flagged": 14,
+      "recall": 1.0,
+      "precision": 0.4286,
+      "specificity": 0.3846,
+      "false_alarms": 8,
+      "tp": 6,
+      "fn": 0,
+      "tn": 5
+    },
+    {
+      "threshold": 0.5,
+      "flagged": 13,
+      "recall": 1.0,
+      "precision": 0.4615,
+      "specificity": 0.4615,
+      "false_alarms": 7,
+      "tp": 6,
+      "fn": 0,
+      "tn": 6
+    },
+    {
+      "threshold": 0.6,
+      "flagged": 10,
+      "recall": 0.8333,
+      "precision": 0.5,
+      "specificity": 0.6154,
+      "false_alarms": 5,
+      "tp": 5,
+      "fn": 1,
+      "tn": 8
+    },
+    {
+      "threshold": 0.7,
+      "flagged": 7,
+      "recall": 0.6667,
+      "precision": 0.5714,
+      "specificity": 0.7692,
+      "false_alarms": 3,
+      "tp": 4,
+      "fn": 2,
+      "tn": 10
+    },
+    {
+      "threshold": 0.8,
+      "flagged": 6,
+      "recall": 0.6667,
+      "precision": 0.6667,
+      "specificity": 0.8462,
+      "false_alarms": 2,
+      "tp": 4,
+      "fn": 2,
+      "tn": 11
+    },
+    {
+      "threshold": 0.9,
+      "flagged": 4,
+      "recall": 0.5,
+      "precision": 0.75,
+      "specificity": 0.9231,
+      "false_alarms": 1,
+      "tp": 3,
+      "fn": 3,
+      "tn": 12
+    }
+  ],
+  "caveat": "LOEO tests the combination rule on held-out data. The signal family and the mass-collapse fallback were selected with all environments in view, so this is not full out-of-sample validation."
+}
